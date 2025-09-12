@@ -23,10 +23,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Flutter Demo',
       theme: brightness == Brightness.light ? theme.light() : theme.dark(),
-      routerConfig: Routefly.routerConfig(routes: routes, initialPath: routePaths.splash),
+      routerConfig: Routefly.routerConfig(
+        routes: routes,
+        initialPath: routePaths.splash,
+      ),
     );
   }
 }
-
-
-
