@@ -8,27 +8,43 @@ part 'user.g.dart';
 
 @freezed
 sealed class User with _$User {
-   @FreezedUnionValue('authenticated')
+  const User._();
+
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory User({
     required String id,
     required String name,
     required String email,
   }) = _BaseUser;
 
-  factory User.notLogged() = NotLoggedUser;
+  const factory User.notLogged() = NotLoggedUser;
 
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory User.logged({
     required String id,
     required String name,
     required String email,
+    required bool emailVerified,
+    String? cpf,
+    String? birthDate,
+    String? photoUrl,
+    @Default(false) bool isNewUser,
     required String token,
-    required List<UserPhone>? phones,
-    required List<UserAddress>? addresses,
-    required UserProfile profile
-
-
+    @Default(<UserPhone>[]) List<UserPhone> phones,
+    @Default(<UserAddress>[]) List<UserAddress> addresses,
+    UserProfile? profile,
   }) = LoggedUser;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+}
 
+extension UserX on User {
+  UserProfile get profileOrEmpty {
+    switch (this) {
+      case LoggedUser(:final profile):
+        return profile ?? UserProfile.empty();
+      default:
+        return UserProfile.empty();
+    }
+  }
 }

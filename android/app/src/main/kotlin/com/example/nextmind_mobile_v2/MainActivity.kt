@@ -1,4 +1,4 @@
-package com.example.nextmind_mobile_v2
+package com.nextmind.mobile
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -6,17 +6,35 @@ part of 'user_profile.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_UserProfile _$UserProfileFromJson(Map<String, dynamic> json) => _UserProfile(
-  id: (json['id'] as num).toInt(),
-  ra: json['ra'] as String? ?? 'ra',
-  course: json['course'] as String? ?? 'curso',
-  bio: json['bio'] as String? ?? 'bio',
-);
+_BaseUserProfile _$BaseUserProfileFromJson(Map<String, dynamic> json) =>
+    _BaseUserProfile(
+      id: (json['id'] as num).toInt(),
+      $type: json['runtimeType'] as String?,
+    );
 
-Map<String, dynamic> _$UserProfileToJson(_UserProfile instance) =>
+Map<String, dynamic> _$BaseUserProfileToJson(_BaseUserProfile instance) =>
+    <String, dynamic>{'id': instance.id, 'runtimeType': instance.$type};
+
+StudentProfile _$StudentProfileFromJson(Map<String, dynamic> json) =>
+    StudentProfile(
+      id: (json['id'] as num).toInt(),
+      ra: json['ra'] as String? ?? 'undefined',
+      course: json['course'] as String? ?? 'undefined',
+      bio: json['bio'] as String? ?? 'undefined',
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$StudentProfileToJson(StudentProfile instance) =>
     <String, dynamic>{
       'id': instance.id,
       'ra': instance.ra,
       'course': instance.course,
       'bio': instance.bio,
+      'runtimeType': instance.$type,
     };
+
+EmptyUserProfile _$EmptyUserProfileFromJson(Map<String, dynamic> json) =>
+    EmptyUserProfile($type: json['runtimeType'] as String?);
+
+Map<String, dynamic> _$EmptyUserProfileToJson(EmptyUserProfile instance) =>
+    <String, dynamic>{'runtimeType': instance.$type};

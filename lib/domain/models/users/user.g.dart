@@ -30,14 +30,25 @@ LoggedUser _$LoggedUserFromJson(Map<String, dynamic> json) => LoggedUser(
   id: json['id'] as String,
   name: json['name'] as String,
   email: json['email'] as String,
+  emailVerified: json['email_verified'] as bool,
+  cpf: json['cpf'] as String?,
+  birthDate: json['birth_date'] as String?,
+  photoUrl: json['photo_url'] as String?,
+  isNewUser: json['is_new_user'] as bool? ?? false,
   token: json['token'] as String,
-  phones: (json['phones'] as List<dynamic>?)
-      ?.map((e) => UserPhone.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  addresses: (json['addresses'] as List<dynamic>?)
-      ?.map((e) => UserAddress.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  profile: UserProfile.fromJson(json['profile'] as Map<String, dynamic>),
+  phones:
+      (json['phones'] as List<dynamic>?)
+          ?.map((e) => UserPhone.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const <UserPhone>[],
+  addresses:
+      (json['addresses'] as List<dynamic>?)
+          ?.map((e) => UserAddress.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const <UserAddress>[],
+  profile: json['profile'] == null
+      ? null
+      : UserProfile.fromJson(json['profile'] as Map<String, dynamic>),
   $type: json['runtimeType'] as String?,
 );
 
@@ -46,6 +57,11 @@ Map<String, dynamic> _$LoggedUserToJson(LoggedUser instance) =>
       'id': instance.id,
       'name': instance.name,
       'email': instance.email,
+      'email_verified': instance.emailVerified,
+      'cpf': instance.cpf,
+      'birth_date': instance.birthDate,
+      'photo_url': instance.photoUrl,
+      'is_new_user': instance.isNewUser,
       'token': instance.token,
       'phones': instance.phones,
       'addresses': instance.addresses,

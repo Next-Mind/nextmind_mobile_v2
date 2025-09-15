@@ -3,7 +3,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:routefly/routefly.dart';
 
-import 'ui/splash/splash_page.dart' as a0;
+import 'ui/auth/sign_in/signin_page.dart' as a0;
+import 'ui/splash/splash_page.dart' as a1;
 
 Route b0Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a0.SplashPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a0.SigninPage());
+Route b1Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a1.SplashPage());

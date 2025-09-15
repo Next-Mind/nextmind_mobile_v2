@@ -4,10 +4,22 @@ part of 'main.dart';
 
 List<RouteEntity> get routes => [
   RouteEntity(
+    key: '/auth/sign_in/signin',
+    uri: Uri.parse('/auth/sign_in/signin'),
+    routeBuilder: b0Builder,
+  ),
+  RouteEntity(
     key: '/splash',
     uri: Uri.parse('/splash'),
-    routeBuilder: b0Builder,
+    routeBuilder: b1Builder,
   ),
 ];
 
-const routePaths = (path: '/', splash: '/splash');
+const routePaths = (
+  path: '/',
+  auth: (
+    path: '/auth',
+    signIn: (path: '/auth/sign_in', signin: '/auth/sign_in/signin'),
+  ),
+  splash: '/splash',
+);
