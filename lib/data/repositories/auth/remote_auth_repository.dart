@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:logger/logger.dart';
 import 'package:nextmind_mobile_v2/data/repositories/auth/auth_repository.dart';
 import 'package:nextmind_mobile_v2/data/services/auth/auth_client_http.dart';
 import 'package:nextmind_mobile_v2/data/services/auth/auth_local_storage.dart';
@@ -15,19 +14,17 @@ class RemoteAuthRepository implements AuthRepository {
   final AuthLocalStorage _authLocalStorage;
   final AuthClientHttp _authClientHttp;
   final AuthService _authService;
-  final Logger _log;
 
   RemoteAuthRepository(
     this._authLocalStorage,
     this._authClientHttp,
     this._authService,
-    this._log,
   );
 
   final _streamController = StreamController<User>.broadcast();
 
   @override
-  AsyncResult<LoggedUser> getUser() {
+  AsyncResult<User> getUser() async {
     return _authLocalStorage.getUser();
   }
 
@@ -70,6 +67,16 @@ class RemoteAuthRepository implements AuthRepository {
         .signOut()
         .flatMap((_) => _authLocalStorage.removeUser())
         .onSuccess((_) => _streamController.add(NotLoggedUser()));
+  }
+
+  @override
+  AsyncResult<Unit> initRepository() async {
+    final user = await getUser().fold(
+      (loggedUser) => loggedUser,
+      (_) => NotLoggedUser(),
+    );
+    _streamController.add(user);
+    return Success(unit);
   }
 
   @override

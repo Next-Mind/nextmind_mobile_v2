@@ -8,16 +8,18 @@ class AuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn.instance;
   final Logger _log;
+  bool _initialized = false;
 
   final List<String> authorizationScopes = ['openid', 'email', 'profile'];
 
-  AuthService(this._log) {
-    _setupGoogleSignIn();
-  }
+  AuthService(this._log);
 
-  void _setupGoogleSignIn() async {
-    _log.d('Iniciando Google Sign In');
-    await _googleSignIn.initialize();
+  Future<void> _setupGoogleSignIn() async {
+    if (!_initialized) {
+      _log.d('Iniciando Google Sign In');
+      await _googleSignIn.initialize();
+      _initialized = true;
+    }
   }
 
   AsyncResult<UserCredential> signUpWithEmail(Credentials credentials) async {
@@ -49,6 +51,7 @@ class AuthService {
 
   AsyncResult<UserCredential> signInWithGoogle() async {
     try {
+      await _setupGoogleSignIn();
       final GoogleSignInAccount user = await _googleSignIn.authenticate();
 
       final idToken = user.authentication.idToken;
@@ -77,6 +80,8 @@ class AuthService {
       return Failure(e);
     } catch (e) {
       return Failure(Exception('unexpected: $e'));
+    } finally {
+      _initialized = false;
     }
   }
 

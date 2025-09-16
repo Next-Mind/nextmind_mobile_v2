@@ -3,10 +3,22 @@
 import 'package:flutter/widgets.dart';
 import 'package:routefly/routefly.dart';
 
-import 'ui/auth/sign_in/signin_page.dart' as a0;
-import 'ui/splash/splash_page.dart' as a1;
+import 'ui/app/app_layout.dart' as a0;
+import 'ui/app/home/home_page.dart' as a1;
+import 'ui/auth/(sign_in)/forgot_password_page.dart' as a2;
+import 'ui/auth/(sign_in)/signin_page.dart' as a3;
+import 'ui/auth/(sign_up)/signup_page.dart' as a4;
+import 'ui/splash/splash_page.dart' as a5;
 
 Route b0Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a0.SigninPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a0.AppLayout());
 Route b1Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a1.SplashPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a1.HomePage());
+Route b2Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a2.ForgotPasswordPage());
+Route b3Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a3.SigninPage());
+Route b4Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a4.SignupPage());
+Route b5Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a5.SplashPage());

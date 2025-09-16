@@ -16,7 +16,7 @@ class AuthLocalStorage {
 
   AuthLocalStorage(this._localStorage, this._log);
 
-  AsyncResult<LoggedUser> getUser() {
+  AsyncResult<User> getUser() {
     return _localStorage //
         .getData(_userKey)
         .map((json) => LoggedUser.fromJson(jsonDecode(json)));

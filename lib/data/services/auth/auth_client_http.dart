@@ -13,7 +13,7 @@ class AuthClientHttp {
   AsyncResult<LoggedUser> login(UserCredential userCredential) async {
     try {
       final accessToken = await userCredential.user!.getIdToken();
-      _log.d("Id Token: ${accessToken}");
+      _log.d("Id Token: $accessToken");
 
       _log.d("Tentando autenticar na API");
       final response = await _clientHttp.post('/auth/google/token', {

@@ -335,22 +335,21 @@ class MaterialTheme {
     return theme(darkHighContrastScheme());
   }
 
-
   ThemeData theme(ColorScheme colorScheme) => ThemeData(
-     useMaterial3: true,
-     brightness: colorScheme.brightness,
-     colorScheme: colorScheme,
-     textTheme: textTheme.apply(
-       bodyColor: colorScheme.onSurface,
-       displayColor: colorScheme.onSurface,
-     ),
-     scaffoldBackgroundColor: colorScheme.surface,
-     canvasColor: colorScheme.surface,
+    useMaterial3: true,
+    brightness: colorScheme.brightness,
+    colorScheme: colorScheme,
+    textTheme: textTheme.apply(
+      bodyColor: colorScheme.onSurface,
+      displayColor: colorScheme.onSurface,
+    ),
+    scaffoldBackgroundColor: colorScheme.surface,
+    canvasColor: colorScheme.surface,
+    elevatedButtonTheme: elevatedButtonThemeData(colorScheme),
+    inputDecorationTheme: inputDecorationTheme(colorScheme),
   );
 
-
-  List<ExtendedColor> get extendedColors => [
-  ];
+  List<ExtendedColor> get extendedColors => [];
 }
 
 class ExtendedColor {
@@ -386,4 +385,24 @@ class ColorFamily {
   final Color onColor;
   final Color colorContainer;
   final Color onColorContainer;
+}
+
+ElevatedButtonThemeData elevatedButtonThemeData(ColorScheme colorScheme) {
+  return ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: WidgetStatePropertyAll(colorScheme.primary),
+      foregroundColor: WidgetStatePropertyAll(colorScheme.onPrimary),
+    ),
+  );
+}
+
+InputDecorationTheme inputDecorationTheme(ColorScheme colorScheme) {
+  return InputDecorationTheme(
+    border: OutlineInputBorder(
+      borderSide: BorderSide.none,
+      borderRadius: BorderRadius.circular(32),
+    ),
+    filled: true,
+    fillColor: colorScheme.surfaceContainerHighest,
+  );
 }
