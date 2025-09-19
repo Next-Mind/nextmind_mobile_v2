@@ -8,7 +8,8 @@ import 'ui/app/home/home_page.dart' as a1;
 import 'ui/auth/(sign_in)/forgot_password_page.dart' as a2;
 import 'ui/auth/(sign_in)/signin_page.dart' as a3;
 import 'ui/auth/(sign_up)/signup_page.dart' as a4;
-import 'ui/splash/splash_page.dart' as a5;
+import 'ui/not_found_page.dart' as a5;
+import 'ui/splash/splash_page.dart' as a6;
 
 Route b0Builder(BuildContext ctx, RouteSettings settings) =>
     Routefly.defaultRouteBuilder(ctx, settings, const a0.AppLayout());
@@ -21,4 +22,6 @@ Route b3Builder(BuildContext ctx, RouteSettings settings) =>
 Route b4Builder(BuildContext ctx, RouteSettings settings) =>
     Routefly.defaultRouteBuilder(ctx, settings, const a4.SignupPage());
 Route b5Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a5.SplashPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a5.NotFoundPage());
+Route b6Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a6.SplashPage());

@@ -28,7 +28,7 @@ class _SigninPageState extends State<SigninPage> {
   void initState() {
     super.initState();
     viewModel.loginWithEmailCommand.addListener(() {
-      final status = viewModel.loginWithGoogleCommand.value;
+      final status = viewModel.loginWithEmailCommand.value;
       if (status is FailureCommand) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -42,7 +42,7 @@ class _SigninPageState extends State<SigninPage> {
   @override
   void dispose() {
     super.dispose();
-    viewModel.loginWithGoogleCommand.dispose();
+    viewModel.loginWithEmailCommand.dispose();
   }
 
   @override

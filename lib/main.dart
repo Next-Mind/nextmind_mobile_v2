@@ -7,6 +7,8 @@ import 'package:nextmind_mobile_v2/ui/splash/splash_page.dart';
 import 'ui/core/util.dart';
 import 'ui/core/theme.dart';
 import 'package:routefly/routefly.dart';
+
+import 'package:intl/date_symbol_data_local.dart';
 import 'main.route.dart';
 
 part 'main.g.dart';
@@ -15,6 +17,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const SplashPage());
   await Firebase.initializeApp();
+  await initializeDateFormatting('pt_BR', null);
   setupDependencies();
   runApp(const MyApp());
 }
@@ -54,7 +57,8 @@ class _MyAppState extends State<MyApp> {
       theme: brightness == Brightness.light ? theme.light() : theme.dark(),
       routerConfig: Routefly.routerConfig(
         routes: routes,
-        initialPath: routePaths.splash,
+        initialPath: routePaths.auth.signin,
+        notFoundPath: routePaths.notFound,
       ),
     );
   }

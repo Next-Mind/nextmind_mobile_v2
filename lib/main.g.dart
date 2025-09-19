@@ -26,9 +26,14 @@ List<RouteEntity> get routes => [
     routeBuilder: b4Builder,
   ),
   RouteEntity(
+    key: '/not_found',
+    uri: Uri.parse('/not_found'),
+    routeBuilder: b5Builder,
+  ),
+  RouteEntity(
     key: '/splash',
     uri: Uri.parse('/splash'),
-    routeBuilder: b5Builder,
+    routeBuilder: b6Builder,
   ),
 ];
 
@@ -41,5 +46,6 @@ const routePaths = (
     signin: '/auth/signin',
     signup: '/auth/signup',
   ),
+  notFound: '/not_found',
   splash: '/splash',
 );

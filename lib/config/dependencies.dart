@@ -8,11 +8,14 @@ import 'package:nextmind_mobile_v2/data/services/auth/auth_service.dart';
 import 'package:nextmind_mobile_v2/data/services/client_http.dart';
 import 'package:nextmind_mobile_v2/data/services/local_storage.dart';
 import 'package:nextmind_mobile_v2/main_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/home_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/app/widgets/viewmodels/bottom_navbar_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/auth/(sign_in)/viewmodels/forgot_password_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/auth/(sign_in)/viewmodels/signin_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/auth/(sign_up)/viewmodels/signup_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/auth/widgets/password_field/viewmodels/password_field_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/auth/widgets/sign_out/viewmodels/sign_out_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/core/widgets/user_avatar/viewmodels/user_avatar_viewmodel.dart';
 
 final injector = AutoInjector();
 
@@ -30,6 +33,9 @@ void setupDependencies() {
   injector.addSingleton(MainViewmodel.new);
   injector.addSingleton(SignOutViewmodel.new);
   injector.addSingleton(SignupViewmodel.new);
+  injector.addSingleton(BottomNavbarViewmodel.new);
+  injector.addSingleton(HomeViewmodel.new);
+  injector.addSingleton(UserAvatarViewmodel.new);
 
   injector.commit();
 }
