@@ -1,14 +1,23 @@
 import 'package:auto_injector/auto_injector.dart';
 import 'package:logger/web.dart';
+import 'package:nextmind_mobile_v2/data/repositories/appointments/appointment_repository.dart';
+import 'package:nextmind_mobile_v2/data/repositories/appointments/local_appointment_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/auth/auth_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/auth/remote_auth_repository.dart';
+import 'package:nextmind_mobile_v2/data/repositories/posts/posts_repository.dart';
+import 'package:nextmind_mobile_v2/data/repositories/posts/remote_posts_repository.dart';
+import 'package:nextmind_mobile_v2/data/services/appointment/appointment_local_storage.dart';
 import 'package:nextmind_mobile_v2/data/services/auth/auth_client_http.dart';
 import 'package:nextmind_mobile_v2/data/services/auth/auth_local_storage.dart';
 import 'package:nextmind_mobile_v2/data/services/auth/auth_service.dart';
 import 'package:nextmind_mobile_v2/data/services/client_http.dart';
 import 'package:nextmind_mobile_v2/data/services/local_storage.dart';
+import 'package:nextmind_mobile_v2/data/services/post/post_client_http.dart';
 import 'package:nextmind_mobile_v2/main_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/home_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/linear_calendar_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/next_appointment_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/post_carousel_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/widgets/viewmodels/bottom_navbar_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/auth/(sign_in)/viewmodels/forgot_password_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/auth/(sign_in)/viewmodels/signin_viewmodel.dart';
@@ -27,15 +36,25 @@ void setupDependencies() {
   injector.addSingleton(AuthClientHttp.new);
   injector.addSingleton(AuthService.new);
   injector.addSingleton<AuthRepository>(RemoteAuthRepository.new);
-  injector.addSingleton(PasswordFieldViewmodel.new);
-  injector.addSingleton(ForgotPasswordViewmodel.new);
-  injector.addSingleton(SigninViewmodel.new);
+  injector.addLazySingleton(PasswordFieldViewmodel.new);
+  injector.addLazySingleton(ForgotPasswordViewmodel.new);
+  injector.addLazySingleton(SigninViewmodel.new);
   injector.addSingleton(MainViewmodel.new);
-  injector.addSingleton(SignOutViewmodel.new);
-  injector.addSingleton(SignupViewmodel.new);
-  injector.addSingleton(BottomNavbarViewmodel.new);
-  injector.addSingleton(HomeViewmodel.new);
-  injector.addSingleton(UserAvatarViewmodel.new);
+  injector.addLazySingleton(SignOutViewmodel.new);
+  injector.addLazySingleton(SignupViewmodel.new);
+  injector.addLazySingleton(BottomNavbarViewmodel.new);
+  injector.addLazySingleton(HomeViewmodel.new);
+  injector.addLazySingleton(UserAvatarViewmodel.new);
+  injector.addLazySingleton(LinearCalendarViewmodel.new);
+  injector.addLazySingleton(AppointmentLocalStorage.new);
+  injector.addLazySingleton<AppointmentRepository>(
+    LocalAppointmentRepository.new,
+  );
+  injector.addLazySingleton(NextAppointmentViewmodel.new);
+
+  injector.addLazySingleton(PostClientHttp.new);
+  injector.addLazySingleton<PostsRepository>(RemotePostsRepository.new);
+  injector.addLazySingleton(PostCarouselViewmodel.new);
 
   injector.commit();
 }

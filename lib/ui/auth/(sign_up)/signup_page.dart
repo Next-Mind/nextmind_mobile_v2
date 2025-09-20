@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nextmind_mobile_v2/config/dependencies.dart';
 import 'package:nextmind_mobile_v2/domain/dtos/signup_form.dart';
 import 'package:nextmind_mobile_v2/domain/validators/signup_form_validator.dart';
+import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
 import 'package:nextmind_mobile_v2/ui/auth/(sign_up)/viewmodels/signup_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/auth/widgets/logo_widget/logo_widget.dart';
 import 'package:nextmind_mobile_v2/ui/auth/widgets/password_field/password_field.dart';
@@ -40,7 +41,7 @@ class _SignupPageState extends State<SignupPage> {
                   validator: validator.byField(formData, 'name'),
                   onChanged: formData.setName,
                   decoration: InputDecoration(
-                    hintText: 'fieldHintTextName',
+                    hintText: AppLocalizations.of(context)!.fieldHintTextName,
                     prefixIcon: Icon(Icons.person_outline),
                   ),
                 ),
@@ -55,7 +56,9 @@ class _SignupPageState extends State<SignupPage> {
                       onPressed: () => (),
                       icon: Icon(Icons.calendar_today_outlined),
                     ),
-                    hintText: 'fieldHintTextBirthday',
+                    hintText: AppLocalizations.of(
+                      context,
+                    )!.fieldHintTextBirthday,
                   ),
                 ),
                 SizedBox(height: Dimens.largePadding),
@@ -65,7 +68,7 @@ class _SignupPageState extends State<SignupPage> {
                   onChanged: formData.setEmail,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
-                    hintText: 'fieldHintTextEmail',
+                    hintText: AppLocalizations.of(context)!.fieldHintTextEmail,
                     prefixIcon: Icon(Icons.email_outlined),
                   ),
                 ),
@@ -75,7 +78,7 @@ class _SignupPageState extends State<SignupPage> {
                   validator: validator.byField(formData, 'ra'),
                   onChanged: formData.setRa,
                   decoration: InputDecoration(
-                    hintText: 'fieldHintTextRa',
+                    hintText: AppLocalizations.of(context)!.fieldHintTextRa,
                     prefixIcon: Icon(Icons.format_list_numbered_outlined),
                   ),
                 ),
@@ -107,7 +110,7 @@ class _SignupPageState extends State<SignupPage> {
                                     context,
                                   ).colorScheme.inversePrimary,
                                 )
-                              : Text('signUp'),
+                              : Text(AppLocalizations.of(context)!.signUp),
                         ],
                       ),
                     );

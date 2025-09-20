@@ -22,10 +22,12 @@ class UserAvatar extends StatelessWidget {
             : CircleAvatar(
                 radius: profileSize,
                 backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-                child: Image.network(
-                  viewModel.userProfileUrl,
-                  errorBuilder: (context, error, stackTrace) =>
-                      Icon(Icons.person_off_outlined),
+                child: ClipOval(
+                  child: Image.network(
+                    viewModel.userProfileUrl,
+                    errorBuilder: (context, error, stackTrace) =>
+                        Icon(Icons.person_off_outlined),
+                  ),
                 ),
               );
       },

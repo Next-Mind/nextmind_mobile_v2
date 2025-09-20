@@ -9,10 +9,9 @@ class HomeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final formattedDate = DateFormat(
-      "d 'de' MMMM",
-      'pt_BR',
-    ).format(DateTime.now());
+    final locale = Localizations.localeOf(context).toString();
+
+    final formattedDate = DateFormat.MMMMd(locale).format(DateTime.now());
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 16),

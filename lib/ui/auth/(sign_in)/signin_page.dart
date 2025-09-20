@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nextmind_mobile_v2/config/dependencies.dart';
+import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
 import 'package:nextmind_mobile_v2/domain/dtos/credentials.dart';
 import 'package:nextmind_mobile_v2/domain/validators/credentials_validator.dart';
 import 'package:nextmind_mobile_v2/main.dart';
@@ -65,8 +66,10 @@ class _SigninPageState extends State<SigninPage> {
                     onChanged: credentials.setEmail,
                     validator: validator.byField(credentials, 'email'),
                     keyboardType: TextInputType.emailAddress,
-                    decoration: const InputDecoration(
-                      labelText: 'fieldHintTextEmail',
+                    decoration: InputDecoration(
+                      labelText: AppLocalizations.of(
+                        context,
+                      )!.fieldHintTextEmail,
                       prefixIcon: Icon(Icons.email_outlined),
                     ),
                   ),
@@ -81,7 +84,9 @@ class _SigninPageState extends State<SigninPage> {
                       TextButton(
                         onPressed: () =>
                             Routefly.push(routePaths.auth.forgotPassword),
-                        child: Text('forgotPassword'),
+                        child: Text(
+                          AppLocalizations.of(context)!.forgotPassword,
+                        ),
                       ),
                     ],
                   ),
@@ -110,7 +115,7 @@ class _SigninPageState extends State<SigninPage> {
                               style: ElevatedButton.styleFrom(
                                 minimumSize: Size(220, 48),
                               ),
-                              child: const Text('signIn'),
+                              child: Text(AppLocalizations.of(context)!.signIn),
                             );
                           },
                         ),
@@ -132,7 +137,7 @@ class _SigninPageState extends State<SigninPage> {
                               ),
                               SizedBox(width: 5.0),
                               Text(
-                                'Entrar com o Google',
+                                AppLocalizations.of(context)!.signInWithGoogle,
                                 style: GoogleFonts.roboto(
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -148,7 +153,7 @@ class _SigninPageState extends State<SigninPage> {
                     onPressed: () {
                       Routefly.push(routePaths.auth.signup);
                     },
-                    child: Text('Crie uma conta'),
+                    child: Text(AppLocalizations.of(context)!.createAccount),
                   ),
                 ],
               ),

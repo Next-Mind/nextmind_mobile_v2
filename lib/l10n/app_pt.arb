@@ -1,0 +1,96 @@
+{
+  "@@locale": "pt",
+  "fieldHintTextEmail": "E-mail",
+  "fieldHintTextPassword": "Senha",
+  "forgotPassword": "Esqueci minha senha",
+  "signIn": "Entrar",
+  "signInWithGoogle": "Entrar com o Google",
+  "createAccount": "Crie uma conta",
+  "failureWithReason": "Falha: {reason}",
+  "@failureWithReason": {
+    "description": "Mensagem de erro exibida no SnackBar ao falhar o login",
+    "placeholders": {
+      "reason": {
+        "type": "String",
+        "example": "Credenciais inválidas"
+      }
+    }
+  },
+  "fieldHintTextName": "Nome completo",
+  "@fieldHintTextName": {
+    "description": "Placeholder do campo de nome no formulário de cadastro"
+  },
+  "fieldHintTextBirthday": "Data de nascimento",
+  "@fieldHintTextBirthday": {
+    "description": "Placeholder do campo de data de nascimento (use formatação local, ex.: DD/MM/AAAA)"
+  },
+  "fieldHintTextRa": "RA",
+  "@fieldHintTextRa": {
+    "description": "Placeholder do campo RA/Registro Acadêmico (identificação estudantil)"
+  },
+  "signUp": "Cadastrar",
+  "@signUp": {
+    "description": "Texto do botão principal para enviar o formulário de cadastro"
+  },
+  "textSendButton": "Enviar",
+  "successSendEmail": "Sucesso! Por favor, verifique seu email",
+  "forgotPasswordPageTitle": "Esqueci minha senha",
+  "titleLastPosts": "Últimas publicações",
+  "@titleLastPosts": {
+    "description": "Título da seção de posts recentes na tela inicial"
+  },
+  "nextAppointmentEmptyTitle": "Não há consultas agendadas",
+  "@nextAppointmentEmptyTitle": {
+    "description": "Título mostrado quando não existe nenhuma consulta agendada"
+  },
+  "nextAppointmentEmptyHint": "Agende uma consulta",
+  "@nextAppointmentEmptyHint": {
+    "description": "Dica/ação quando não há consultas agendadas"
+  },
+  "nextAppointmentEmptyButton": "Agendar",
+  "@nextAppointmentEmptyButton": {
+    "description": "Botão para iniciar o agendamento quando não há consultas"
+  },
+  "nextAppointmentTitleUpcoming": "Próxima consulta em",
+  "@nextAppointmentTitleUpcoming": {
+    "description": "Título antes da informação de data relativa da próxima consulta"
+  },
+  "nextAppointmentDateRelative": "{days, plural, =0 {Hoje} one {{days} dia} other {{days} dias}}",
+  "@nextAppointmentDateRelative": {
+    "description": "Texto relativo para a próxima consulta. 0 = Hoje; 1 = 1 dia; >1 = N dias.",
+    "placeholders": {
+      "days": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "nextAppointmentHint": "Confirme sua presença ou cancele a consulta",
+  "@nextAppointmentHint": {
+    "description": "Mensagem auxiliar para a próxima consulta agendada"
+  },
+  "nextAppointmentButtonConfirm": "Confirmar Presença",
+  "@nextAppointmentButtonConfirm": {
+    "description": "Botão para confirmar presença na próxima consulta"
+  },
+  "unknownAppointmentType": "Tipo de consulta desconhecido",
+  "@unknownAppointmentType": {
+    "description": "Mensagem de erro para tipo de consulta não reconhecido (uso interno/desenvolvedor)"
+  },
+  "navHome": "Início",
+  "@navHome": {
+    "description": "Rótulo do item Home na barra de navegação inferior"
+  },
+  "navAppointment": "Consultas",
+  "@navAppointment": {
+    "description": "Rótulo do item Consultas/Agenda na barra de navegação inferior"
+  },
+  "navChat": "Chat",
+  "@navChat": {
+    "description": "Rótulo do item Chat/Mensagens na barra de navegação inferior"
+  },
+  "navSettings": "Configurações",
+  "@navSettings": {
+    "description": "Rótulo do item Configurações na barra de navegação inferior"
+  }
+}

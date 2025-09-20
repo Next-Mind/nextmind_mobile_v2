@@ -1,0 +1,123 @@
+{
+    "@@locale": "en",
+    "fieldHintTextEmail": "Email",
+    "@fieldHintTextEmail": {
+        "description": "Label for the email input field on the sign-in form"
+    },
+    "fieldHintTextPassword": "Password",
+    "@fieldHintTextPassword": {
+        "description": "Label for the password input field on the sign-in form"
+    },
+    "forgotPassword": "Forgot password",
+    "@forgotPassword": {
+        "description": "Text of the button that navigates to the Forgot Password screen"
+    },
+    "signIn": "Sign in",
+    "@signIn": {
+        "description": "Primary button text to submit the sign-in form"
+    },
+    "signInWithGoogle": "Sign in with Google",
+    "@signInWithGoogle": {
+        "description": "Button text to start Google OAuth sign-in"
+    },
+    "createAccount": "Create an account",
+    "@createAccount": {
+        "description": "Text of the button/link that navigates to the sign-up screen"
+    },
+    "failureWithReason": "Failure: {reason}",
+    "@failureWithReason": {
+        "description": "Error message shown in the SnackBar when login fails. Includes the failure reason.",
+        "placeholders": {
+            "reason": {
+                "type": "String",
+                "example": "Invalid credentials"
+            }
+        }
+    },
+    "fieldHintTextName": "Full name",
+    "@fieldHintTextName": {
+        "description": "Placeholder for the name input on the sign-up form"
+    },
+    "fieldHintTextBirthday": "Birthday",
+    "@fieldHintTextBirthday": {
+        "description": "Placeholder for the birthday input (use local date format, e.g., MM/DD/YYYY or DD/MM/YYYY)"
+    },
+    "fieldHintTextRa": "Student ID (RA)",
+    "@fieldHintTextRa": {
+        "description": "Placeholder for the RA/Student ID field"
+    },
+    "signUp": "Sign up",
+    "@signUp": {
+        "description": "Primary button text to submit the sign-up form"
+    },
+    "textSendButton": "Send",
+    "@textSendButton": {
+        "description": "Send button label"
+    },
+    "successSendEmail": "Success! Please check your email",
+    "@successSendEmail": {
+        "description": "Success sending email"
+    },
+    "forgotPasswordPageTitle": "Forgot Password",
+    "@forgotPasswordPageTitle": {
+        "description": "Title of forgot password page"
+    },
+    "titleLastPosts": "Latest posts",
+    "@titleLastPosts": {
+        "description": "Section title for the recent posts on the home screen"
+    },
+    "nextAppointmentEmptyTitle": "No appointments scheduled",
+    "@nextAppointmentEmptyTitle": {
+        "description": "Title shown when there is no upcoming appointment"
+    },
+    "nextAppointmentEmptyHint": "Schedule an appointment",
+    "@nextAppointmentEmptyHint": {
+        "description": "Call to action when there are no appointments"
+    },
+    "nextAppointmentEmptyButton": "Schedule",
+    "@nextAppointmentEmptyButton": {
+        "description": "Button to start scheduling when there are no appointments"
+    },
+    "nextAppointmentTitleUpcoming": "Next appointment in",
+    "@nextAppointmentTitleUpcoming": {
+        "description": "Title shown before the relative date text of the next appointment"
+    },
+    "nextAppointmentDateRelative": "{days, plural, =0 {Today} one {{days} day} other {{days} days}}",
+    "@nextAppointmentDateRelative": {
+        "description": "Relative text for the next appointment. 0 = Today; 1 = 1 day; >1 = N days.",
+        "placeholders": {
+            "days": {
+                "type": "int",
+                "example": "3"
+            }
+        }
+    },
+    "nextAppointmentHint": "Confirm your attendance or cancel the appointment",
+    "@nextAppointmentHint": {
+        "description": "Helper text for an upcoming appointment"
+    },
+    "nextAppointmentButtonConfirm": "Confirm attendance",
+    "@nextAppointmentButtonConfirm": {
+        "description": "Button to confirm attendance for the next appointment"
+    },
+    "unknownAppointmentType": "Unknown appointment type",
+    "@unknownAppointmentType": {
+        "description": "Error message for an unrecognized appointment type (internal/developer use)"
+    },
+    "navHome": "Home",
+    "@navHome": {
+        "description": "Label for the Home item in the bottom navigation bar"
+    },
+    "navAppointment": "Appointments",
+    "@navAppointment": {
+        "description": "Label for the Appointments/Schedule item in the bottom navigation bar"
+    },
+    "navChat": "Chat",
+    "@navChat": {
+        "description": "Label for the Chat/Messages item in the bottom navigation bar"
+    },
+    "navSettings": "Settings",
+    "@navSettings": {
+        "description": "Label for the Settings item in the bottom navigation bar"
+    }
+}

@@ -81,7 +81,9 @@ class ClientHttp {
               options.path.endsWith('/auth/google/token');
 
           if (!skipAuth) {
-            final token = await _authLocalStorage.getUserAccessToken();
+            final token = await _authLocalStorage
+                .getUserAccessToken()
+                .getOrThrow();
             options.headers['Authorization'] = 'Bearer $token';
           }
 

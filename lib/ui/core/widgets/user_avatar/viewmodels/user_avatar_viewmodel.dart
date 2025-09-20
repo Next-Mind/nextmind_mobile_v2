@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 import 'package:nextmind_mobile_v2/data/repositories/auth/auth_repository.dart';
 import 'package:nextmind_mobile_v2/domain/models/users/user.dart';
 import 'package:result_command/result_command.dart';
@@ -6,6 +7,7 @@ import 'package:result_dart/result_dart.dart';
 
 class UserAvatarViewmodel extends ChangeNotifier {
   final AuthRepository _authRepository;
+  final Logger _log;
 
   final _userName = ValueNotifier<String>('');
   final _userProfileUrl = ValueNotifier<String>('');
@@ -13,7 +15,10 @@ class UserAvatarViewmodel extends ChangeNotifier {
   String get userName => _userName.value;
   String get userProfileUrl => _userProfileUrl.value;
 
-  UserAvatarViewmodel(this._authRepository);
+  UserAvatarViewmodel(this._authRepository, this._log) {
+    _log.d("Iniciando Viewmodel de User Avatar");
+    fetchUserCommand.execute();
+  }
 
   late final fetchUserCommand = Command0(_fetchUser);
 

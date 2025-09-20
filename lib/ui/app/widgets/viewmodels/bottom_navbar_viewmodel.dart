@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:logger/web.dart';
 import 'package:nextmind_mobile_v2/main.dart';
 import 'package:routefly/routefly.dart';
 
 class BottomNavbarViewmodel extends ChangeNotifier {
-  final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(1);
+  final Logger _log;
+  final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(0);
   get selectedIndex => _selectedIndex;
+
+  BottomNavbarViewmodel(this._log) {
+    _log.d("Iniciando $runtimeType");
+  }
 
   void handle(value) {
     _selectedIndex.value = value;

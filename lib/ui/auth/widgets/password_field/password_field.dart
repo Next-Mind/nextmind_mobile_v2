@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nextmind_mobile_v2/config/dependencies.dart';
+import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
 import 'package:nextmind_mobile_v2/ui/auth/widgets/password_field/viewmodels/password_field_viewmodel.dart';
 
 class PasswordField extends StatefulWidget {
@@ -24,7 +25,7 @@ class _PasswordFieldState extends State<PasswordField> {
           onChanged: widget.onChanged,
           validator: widget.validator,
           decoration: InputDecoration(
-            labelText: 'fieldHintTextPassword',
+            labelText: AppLocalizations.of(context)!.fieldHintTextPassword,
             prefixIcon: Icon(Icons.lock_outline),
             suffixIcon: IconButton(
               onPressed: viewModel.togglePasswordVisibility,

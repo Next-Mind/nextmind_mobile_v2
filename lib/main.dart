@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:nextmind_mobile_v2/config/dependencies.dart';
 import 'package:nextmind_mobile_v2/domain/models/users/user.dart';
+import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
 import 'package:nextmind_mobile_v2/main_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/splash/splash_page.dart';
 import 'ui/core/util.dart';
@@ -53,6 +55,14 @@ class _MyAppState extends State<MyApp> {
     MaterialTheme theme = MaterialTheme(textTheme);
     return MaterialApp.router(
       title: 'NextMind Mobile',
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [Locale('en'), Locale('pt')],
+      locale: Locale('en'),
       debugShowCheckedModeBanner: false,
       theme: brightness == Brightness.light ? theme.light() : theme.dark(),
       routerConfig: Routefly.routerConfig(
