@@ -13,7 +13,6 @@ class HomeViewmodel extends ChangeNotifier {
   }
 
   AsyncResult<Unit> _init() async {
-    await Future.delayed(Duration(seconds: 2));
     return Success(unit);
   }
 }

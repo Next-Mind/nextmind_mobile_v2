@@ -53,7 +53,6 @@ class PostCard extends StatelessWidget {
                       post.category.name,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         color: Theme.of(context).colorScheme.onPrimaryContainer,
-                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
@@ -62,7 +61,9 @@ class PostCard extends StatelessWidget {
                   // Title
                   Text(
                     post.title,
-                    style: Theme.of(context).textTheme.headlineSmall,
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),

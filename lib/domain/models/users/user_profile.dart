@@ -5,9 +5,7 @@ part 'user_profile.g.dart';
 
 @freezed
 sealed class UserProfile with _$UserProfile {
-  factory UserProfile({required int id}) = _BaseUserProfile;
-
-  factory UserProfile.student({
+  factory UserProfile({
     required int id,
     @Default('undefined') String ra,
     @Default('undefined') String course,

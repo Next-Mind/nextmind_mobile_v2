@@ -259,6 +259,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Settings'**
   String get navSettings;
+
+  /// Label for the Settings item in the bottom navigation bar
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settingsPageTitle;
+
+  /// Label for the Settings item in the bottom navigation bar
+  ///
+  /// In en, this message translates to:
+  /// **'Settings and Preferences'**
+  String get settingsPageSubtitle;
+
+  /// Label for the Notification Settings
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get settingsLabelNotifications;
+
+  /// Label for the Security Settings
+  ///
+  /// In en, this message translates to:
+  /// **'Security'**
+  String get settingsLabelSecurity;
+
+  /// Label for the Dark Mode Settings
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Mode'**
+  String get settingsLabelDarkMode;
+
+  /// Label for the Language Settings
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get settingsLabelLanguage;
+
+  /// Label for the Support Settings
+  ///
+  /// In en, this message translates to:
+  /// **'Support'**
+  String get settingsLabelSupport;
+
+  /// Label for the Help Center Settings
+  ///
+  /// In en, this message translates to:
+  /// **'Help Center'**
+  String get settingsLabelHelpCenter;
+
+  /// Label for the Feedback Settings
+  ///
+  /// In en, this message translates to:
+  /// **'Feedback'**
+  String get settingsLabelFeedback;
+
+  /// Label for the About Settings
+  ///
+  /// In en, this message translates to:
+  /// **'About App'**
+  String get settingsLabelAbout;
+
+  /// Label for the Legal Information Settings
+  ///
+  /// In en, this message translates to:
+  /// **'Legal Information'**
+  String get settingsLegalInformation;
+
+  /// Label for the Software Information Settings
+  ///
+  /// In en, this message translates to:
+  /// **'Software Information'**
+  String get settingsSoftwareInformation;
+
+  /// AppBar title on the user account screen
+  ///
+  /// In en, this message translates to:
+  /// **'My Account'**
+  String get settingsUserAccountTitle;
+
+  /// Message shown when the user is not logged in
+  ///
+  /// In en, this message translates to:
+  /// **'User not authenticated'**
+  String get settingsUserAccountUnauthenticated;
+
+  /// Header for the profile information section
+  ///
+  /// In en, this message translates to:
+  /// **'Profile information'**
+  String get settingsUserAccountSectionProfileInfo;
+
+  /// Label for the Name field
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get settingsUserAccountFieldName;
+
+  /// Label for the birth date field
+  ///
+  /// In en, this message translates to:
+  /// **'Date of birth'**
+  String get settingsUserAccountFieldBirthDate;
+
+  /// Label for the Email field
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get settingsUserAccountFieldEmail;
+
+  /// Label for the RA (academic registration) field
+  ///
+  /// In en, this message translates to:
+  /// **'Academic ID'**
+  String get settingsUserAccountFieldRA;
+
+  /// Text shown when a field is missing
+  ///
+  /// In en, this message translates to:
+  /// **'Not provided'**
+  String get settingsUserAccountNotProvided;
+
+  /// Label for the sign-out button
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out'**
+  String get settingsUserAccountSignOut;
 }
 
 class _AppLocalizationsDelegate

@@ -5,23 +5,29 @@ import 'package:routefly/routefly.dart';
 
 import 'ui/app/app_layout.dart' as a0;
 import 'ui/app/home/home_page.dart' as a1;
-import 'ui/auth/(sign_in)/forgot_password_page.dart' as a2;
-import 'ui/auth/(sign_in)/signin_page.dart' as a3;
-import 'ui/auth/(sign_up)/signup_page.dart' as a4;
-import 'ui/not_found_page.dart' as a5;
-import 'ui/splash/splash_page.dart' as a6;
+import 'ui/app/settings/settings_page.dart' as a2;
+import 'ui/app/settings/user_account_page.dart' as a3;
+import 'ui/auth/(sign_in)/forgot_password_page.dart' as a4;
+import 'ui/auth/(sign_in)/signin_page.dart' as a5;
+import 'ui/auth/(sign_up)/signup_page.dart' as a6;
+import 'ui/not_found_page.dart' as a7;
+import 'ui/splash/splash_page.dart' as a8;
 
 Route b0Builder(BuildContext ctx, RouteSettings settings) =>
     Routefly.defaultRouteBuilder(ctx, settings, const a0.AppLayout());
 Route b1Builder(BuildContext ctx, RouteSettings settings) =>
     Routefly.defaultRouteBuilder(ctx, settings, const a1.HomePage());
 Route b2Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a2.ForgotPasswordPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a2.SettingsPage());
 Route b3Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a3.SigninPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a3.UserAccountPage());
 Route b4Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a4.SignupPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a4.ForgotPasswordPage());
 Route b5Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a5.NotFoundPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a5.SigninPage());
 Route b6Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a6.SplashPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a6.SignupPage());
+Route b7Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a7.NotFoundPage());
+Route b8Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a8.SplashPage());

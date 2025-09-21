@@ -11,35 +11,54 @@ List<RouteEntity> get routes => [
     routeBuilder: b1Builder,
   ),
   RouteEntity(
+    key: '/app/settings',
+    parent: '/app',
+    uri: Uri.parse('/app/settings'),
+    routeBuilder: b2Builder,
+  ),
+  RouteEntity(
+    key: '/app/settings/user_account',
+    parent: '/app',
+    uri: Uri.parse('/app/settings/user_account'),
+    routeBuilder: b3Builder,
+  ),
+  RouteEntity(
     key: '/auth/forgot_password',
     uri: Uri.parse('/auth/forgot_password'),
-    routeBuilder: b2Builder,
+    routeBuilder: b4Builder,
   ),
   RouteEntity(
     key: '/auth/signin',
     uri: Uri.parse('/auth/signin'),
-    routeBuilder: b3Builder,
+    routeBuilder: b5Builder,
   ),
   RouteEntity(
     key: '/auth/signup',
     uri: Uri.parse('/auth/signup'),
-    routeBuilder: b4Builder,
+    routeBuilder: b6Builder,
   ),
   RouteEntity(
     key: '/not_found',
     uri: Uri.parse('/not_found'),
-    routeBuilder: b5Builder,
+    routeBuilder: b7Builder,
   ),
   RouteEntity(
     key: '/splash',
     uri: Uri.parse('/splash'),
-    routeBuilder: b6Builder,
+    routeBuilder: b8Builder,
   ),
 ];
 
 const routePaths = (
   path: '/',
-  app: (path: '/app', home: '/app/home'),
+  app: (
+    path: '/app',
+    home: '/app/home',
+    settings: (
+      path: '/app/settings',
+      userAccount: '/app/settings/user_account',
+    ),
+  ),
   auth: (
     path: '/auth',
     forgotPassword: '/auth/forgot_password',

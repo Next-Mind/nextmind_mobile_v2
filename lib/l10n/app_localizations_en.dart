@@ -100,4 +100,67 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get navSettings => 'Settings';
+
+  @override
+  String get settingsPageTitle => 'Settings';
+
+  @override
+  String get settingsPageSubtitle => 'Settings and Preferences';
+
+  @override
+  String get settingsLabelNotifications => 'Notifications';
+
+  @override
+  String get settingsLabelSecurity => 'Security';
+
+  @override
+  String get settingsLabelDarkMode => 'Dark Mode';
+
+  @override
+  String get settingsLabelLanguage => 'Language';
+
+  @override
+  String get settingsLabelSupport => 'Support';
+
+  @override
+  String get settingsLabelHelpCenter => 'Help Center';
+
+  @override
+  String get settingsLabelFeedback => 'Feedback';
+
+  @override
+  String get settingsLabelAbout => 'About App';
+
+  @override
+  String get settingsLegalInformation => 'Legal Information';
+
+  @override
+  String get settingsSoftwareInformation => 'Software Information';
+
+  @override
+  String get settingsUserAccountTitle => 'My Account';
+
+  @override
+  String get settingsUserAccountUnauthenticated => 'User not authenticated';
+
+  @override
+  String get settingsUserAccountSectionProfileInfo => 'Profile information';
+
+  @override
+  String get settingsUserAccountFieldName => 'Name';
+
+  @override
+  String get settingsUserAccountFieldBirthDate => 'Date of birth';
+
+  @override
+  String get settingsUserAccountFieldEmail => 'Email';
+
+  @override
+  String get settingsUserAccountFieldRA => 'Academic ID';
+
+  @override
+  String get settingsUserAccountNotProvided => 'Not provided';
+
+  @override
+  String get settingsUserAccountSignOut => 'Sign out';
 }

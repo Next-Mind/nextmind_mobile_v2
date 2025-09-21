@@ -62,12 +62,11 @@ class _MyAppState extends State<MyApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: [Locale('en'), Locale('pt')],
-      locale: Locale('en'),
       debugShowCheckedModeBanner: false,
       theme: brightness == Brightness.light ? theme.light() : theme.dark(),
       routerConfig: Routefly.routerConfig(
         routes: routes,
-        initialPath: routePaths.auth.signin,
+        initialPath: routePaths.splash,
         notFoundPath: routePaths.notFound,
       ),
     );

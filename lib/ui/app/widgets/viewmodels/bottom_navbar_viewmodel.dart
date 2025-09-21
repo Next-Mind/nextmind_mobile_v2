@@ -16,19 +16,19 @@ class BottomNavbarViewmodel extends ChangeNotifier {
     _selectedIndex.value = value;
     switch (value) {
       case 0:
-        Routefly.push(routePaths.app.home);
+        Routefly.navigate(routePaths.app.home);
         break;
       case 1:
-        Routefly.push(routePaths.app.home);
+        Routefly.navigate(routePaths.app.home);
         break;
       case 2:
-        Routefly.push(routePaths.app.home);
+        Routefly.navigate(routePaths.app.home);
         break;
       case 3:
-        Routefly.push(routePaths.app.home);
+        Routefly.navigate(routePaths.app.settings.path);
         break;
       default:
-        Routefly.push(routePaths.notFound);
+        Routefly.navigate(routePaths.notFound);
         break;
     }
   }

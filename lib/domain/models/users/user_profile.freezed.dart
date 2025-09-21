@@ -16,10 +16,6 @@ UserProfile _$UserProfileFromJson(
 ) {
         switch (json['runtimeType']) {
                   case 'default':
-          return _BaseUserProfile.fromJson(
-            json
-          );
-                case 'student':
           return StudentProfile.fromJson(
             json
           );
@@ -85,12 +81,11 @@ extension UserProfilePatterns on UserProfile {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _BaseUserProfile value)?  $default,{TResult Function( StudentProfile value)?  student,TResult Function( EmptyUserProfile value)?  empty,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( StudentProfile value)?  $default,{TResult Function( EmptyUserProfile value)?  empty,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _BaseUserProfile() when $default != null:
-return $default(_that);case StudentProfile() when student != null:
-return student(_that);case EmptyUserProfile() when empty != null:
+case StudentProfile() when $default != null:
+return $default(_that);case EmptyUserProfile() when empty != null:
 return empty(_that);case _:
   return orElse();
 
@@ -109,12 +104,11 @@ return empty(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _BaseUserProfile value)  $default,{required TResult Function( StudentProfile value)  student,required TResult Function( EmptyUserProfile value)  empty,}){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( StudentProfile value)  $default,{required TResult Function( EmptyUserProfile value)  empty,}){
 final _that = this;
 switch (_that) {
-case _BaseUserProfile():
-return $default(_that);case StudentProfile():
-return student(_that);case EmptyUserProfile():
+case StudentProfile():
+return $default(_that);case EmptyUserProfile():
 return empty(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -129,12 +123,11 @@ return empty(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _BaseUserProfile value)?  $default,{TResult? Function( StudentProfile value)?  student,TResult? Function( EmptyUserProfile value)?  empty,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( StudentProfile value)?  $default,{TResult? Function( EmptyUserProfile value)?  empty,}){
 final _that = this;
 switch (_that) {
-case _BaseUserProfile() when $default != null:
-return $default(_that);case StudentProfile() when student != null:
-return student(_that);case EmptyUserProfile() when empty != null:
+case StudentProfile() when $default != null:
+return $default(_that);case EmptyUserProfile() when empty != null:
 return empty(_that);case _:
   return null;
 
@@ -152,11 +145,10 @@ return empty(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id)?  $default,{TResult Function( int id,  String ra,  String course,  String bio)?  student,TResult Function()?  empty,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String ra,  String course,  String bio)?  $default,{TResult Function()?  empty,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _BaseUserProfile() when $default != null:
-return $default(_that.id);case StudentProfile() when student != null:
-return student(_that.id,_that.ra,_that.course,_that.bio);case EmptyUserProfile() when empty != null:
+case StudentProfile() when $default != null:
+return $default(_that.id,_that.ra,_that.course,_that.bio);case EmptyUserProfile() when empty != null:
 return empty();case _:
   return orElse();
 
@@ -175,11 +167,10 @@ return empty();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id)  $default,{required TResult Function( int id,  String ra,  String course,  String bio)  student,required TResult Function()  empty,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String ra,  String course,  String bio)  $default,{required TResult Function()  empty,}) {final _that = this;
 switch (_that) {
-case _BaseUserProfile():
-return $default(_that.id);case StudentProfile():
-return student(_that.id,_that.ra,_that.course,_that.bio);case EmptyUserProfile():
+case StudentProfile():
+return $default(_that.id,_that.ra,_that.course,_that.bio);case EmptyUserProfile():
 return empty();}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -194,11 +185,10 @@ return empty();}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id)?  $default,{TResult? Function( int id,  String ra,  String course,  String bio)?  student,TResult? Function()?  empty,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String ra,  String course,  String bio)?  $default,{TResult? Function()?  empty,}) {final _that = this;
 switch (_that) {
-case _BaseUserProfile() when $default != null:
-return $default(_that.id);case StudentProfile() when student != null:
-return student(_that.id,_that.ra,_that.course,_that.bio);case EmptyUserProfile() when empty != null:
+case StudentProfile() when $default != null:
+return $default(_that.id,_that.ra,_that.course,_that.bio);case EmptyUserProfile() when empty != null:
 return empty();case _:
   return null;
 
@@ -210,81 +200,8 @@ return empty();case _:
 /// @nodoc
 @JsonSerializable()
 
-class _BaseUserProfile implements UserProfile {
-   _BaseUserProfile({required this.id, final  String? $type}): $type = $type ?? 'default';
-  factory _BaseUserProfile.fromJson(Map<String, dynamic> json) => _$BaseUserProfileFromJson(json);
-
- final  int id;
-
-@JsonKey(name: 'runtimeType')
-final String $type;
-
-
-/// Create a copy of UserProfile
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$BaseUserProfileCopyWith<_BaseUserProfile> get copyWith => __$BaseUserProfileCopyWithImpl<_BaseUserProfile>(this, _$identity);
-
-@override
-Map<String, dynamic> toJson() {
-  return _$BaseUserProfileToJson(this, );
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BaseUserProfile&&(identical(other.id, id) || other.id == id));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,id);
-
-@override
-String toString() {
-  return 'UserProfile(id: $id)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$BaseUserProfileCopyWith<$Res> implements $UserProfileCopyWith<$Res> {
-  factory _$BaseUserProfileCopyWith(_BaseUserProfile value, $Res Function(_BaseUserProfile) _then) = __$BaseUserProfileCopyWithImpl;
-@useResult
-$Res call({
- int id
-});
-
-
-
-
-}
-/// @nodoc
-class __$BaseUserProfileCopyWithImpl<$Res>
-    implements _$BaseUserProfileCopyWith<$Res> {
-  __$BaseUserProfileCopyWithImpl(this._self, this._then);
-
-  final _BaseUserProfile _self;
-  final $Res Function(_BaseUserProfile) _then;
-
-/// Create a copy of UserProfile
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? id = null,}) {
-  return _then(_BaseUserProfile(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,
-  ));
-}
-
-
-}
-
-/// @nodoc
-@JsonSerializable()
-
 class StudentProfile implements UserProfile {
-   StudentProfile({required this.id, this.ra = 'undefined', this.course = 'undefined', this.bio = 'undefined', final  String? $type}): $type = $type ?? 'student';
+   StudentProfile({required this.id, this.ra = 'undefined', this.course = 'undefined', this.bio = 'undefined', final  String? $type}): $type = $type ?? 'default';
   factory StudentProfile.fromJson(Map<String, dynamic> json) => _$StudentProfileFromJson(json);
 
  final  int id;
@@ -318,7 +235,7 @@ int get hashCode => Object.hash(runtimeType,id,ra,course,bio);
 
 @override
 String toString() {
-  return 'UserProfile.student(id: $id, ra: $ra, course: $course, bio: $bio)';
+  return 'UserProfile(id: $id, ra: $ra, course: $course, bio: $bio)';
 }
 
 

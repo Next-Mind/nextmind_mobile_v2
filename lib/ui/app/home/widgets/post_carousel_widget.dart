@@ -11,7 +11,7 @@ class PostCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     final PostCarouselViewmodel viewModel = injector.get();
     return SizedBox(
-      height: 320,
+      height: 296,
       child: ListenableBuilder(
         listenable: viewModel.fetchPostsCommand,
         builder: (context, child) {

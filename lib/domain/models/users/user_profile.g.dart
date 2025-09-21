@@ -6,15 +6,6 @@ part of 'user_profile.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_BaseUserProfile _$BaseUserProfileFromJson(Map<String, dynamic> json) =>
-    _BaseUserProfile(
-      id: (json['id'] as num).toInt(),
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$BaseUserProfileToJson(_BaseUserProfile instance) =>
-    <String, dynamic>{'id': instance.id, 'runtimeType': instance.$type};
-
 StudentProfile _$StudentProfileFromJson(Map<String, dynamic> json) =>
     StudentProfile(
       id: (json['id'] as num).toInt(),

@@ -89,8 +89,92 @@
   "@navChat": {
     "description": "Rótulo do item Chat/Mensagens na barra de navegação inferior"
   },
-  "navSettings": "Configurações",
+  "navSettings": "Configs.",
   "@navSettings": {
     "description": "Rótulo do item Configurações na barra de navegação inferior"
+  },
+  "settingsPageTitle": "Configurações",
+  "@settingsPageTitle": {
+    "description": "Titulo da aba de configurações"
+  },
+  "settingsPageSubtitle": "Configurações e Preferências",
+  "@settingsPageSubtitle": {
+    "description": "Subtitulo da aba de configurações"
+  },
+  "settingsLabelNotifications": "Notificações",
+  "@settingsLabelNotifications": {
+    "description": "Rótulo para as configurações de Notificações"
+  },
+  "settingsLabelSecurity": "Segurança",
+  "@settingsLabelSecurity": {
+    "description": "Rótulo para as configurações de Segurança"
+  },
+  "settingsLabelDarkMode": "Modo escuro",
+  "@settingsLabelDarkMode": {
+    "description": "Rótulo para as configurações de Modo escuro"
+  },
+  "settingsLabelLanguage": "Idioma",
+  "@settingsLabelLanguage": {
+    "description": "Rótulo para as configurações de Idioma"
+  },
+  "settingsLabelSupport": "Suporte",
+  "@settingsLabelSupport": {
+    "description": "Rótulo para as configurações de Suporte"
+  },
+  "settingsLabelHelpCenter": "Central de ajuda",
+  "@settingsLabelHelpCenter": {
+    "description": "Rótulo para a Central de ajuda"
+  },
+  "settingsLabelFeedback": "Feedback",
+  "@settingsLabelFeedback": {
+    "description": "Rótulo para a seção de Feedback"
+  },
+  "settingsLabelAbout": "Sobre o aplicativo",
+  "@settingsLabelAbout": {
+    "description": "Rótulo para a seção Sobre"
+  },
+  "settingsLegalInformation": "Informações legais",
+  "@settingsLegalInformation": {
+    "description": "Rótulo para Informações legais"
+  },
+  "settingsSoftwareInformation": "Informações do software",
+  "@settingsSoftwareInformation": {
+    "description": "Rótulo para Informações do software"
+  },
+  "settingsUserAccountTitle": "Minha Conta",
+  "@settingsUserAccountTitle": {
+    "description": "Título da AppBar na tela de conta do usuário"
+  },
+  "settingsUserAccountUnauthenticated": "Usuário não autenticado",
+  "@settingsUserAccountUnauthenticated": {
+    "description": "Mensagem mostrada quando o usuário não está logado"
+  },
+  "settingsUserAccountSectionProfileInfo": "Informações de Perfil",
+  "@settingsUserAccountSectionProfileInfo": {
+    "description": "Título da seção com informações do perfil"
+  },
+  "settingsUserAccountFieldName": "Nome",
+  "@settingsUserAccountFieldName": {
+    "description": "Rótulo do campo Nome"
+  },
+  "settingsUserAccountFieldBirthDate": "Data",
+  "@settingsUserAccountFieldBirthDate": {
+    "description": "Rótulo do campo Data de nascimento"
+  },
+  "settingsUserAccountFieldEmail": "Email",
+  "@settingsUserAccountFieldEmail": {
+    "description": "Rótulo do campo Email"
+  },
+  "settingsUserAccountFieldRA": "RA",
+  "@settingsUserAccountFieldRA": {
+    "description": "Rótulo do campo RA (registro acadêmico)"
+  },
+  "settingsUserAccountNotProvided": "Não informado",
+  "@settingsUserAccountNotProvided": {
+    "description": "Texto mostrado quando uma informação não foi preenchida"
+  },
+  "settingsUserAccountSignOut": "Sair da Conta",
+  "@settingsUserAccountSignOut": {
+    "description": "Rótulo do botão para encerrar a sessão"
   }
 }

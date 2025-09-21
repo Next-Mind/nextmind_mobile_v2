@@ -99,5 +99,68 @@ class AppLocalizationsPt extends AppLocalizations {
   String get navChat => 'Chat';
 
   @override
-  String get navSettings => 'Configurações';
+  String get navSettings => 'Configs.';
+
+  @override
+  String get settingsPageTitle => 'Configurações';
+
+  @override
+  String get settingsPageSubtitle => 'Configurações e Preferências';
+
+  @override
+  String get settingsLabelNotifications => 'Notificações';
+
+  @override
+  String get settingsLabelSecurity => 'Segurança';
+
+  @override
+  String get settingsLabelDarkMode => 'Modo escuro';
+
+  @override
+  String get settingsLabelLanguage => 'Idioma';
+
+  @override
+  String get settingsLabelSupport => 'Suporte';
+
+  @override
+  String get settingsLabelHelpCenter => 'Central de ajuda';
+
+  @override
+  String get settingsLabelFeedback => 'Feedback';
+
+  @override
+  String get settingsLabelAbout => 'Sobre o aplicativo';
+
+  @override
+  String get settingsLegalInformation => 'Informações legais';
+
+  @override
+  String get settingsSoftwareInformation => 'Informações do software';
+
+  @override
+  String get settingsUserAccountTitle => 'Minha Conta';
+
+  @override
+  String get settingsUserAccountUnauthenticated => 'Usuário não autenticado';
+
+  @override
+  String get settingsUserAccountSectionProfileInfo => 'Informações de Perfil';
+
+  @override
+  String get settingsUserAccountFieldName => 'Nome';
+
+  @override
+  String get settingsUserAccountFieldBirthDate => 'Data';
+
+  @override
+  String get settingsUserAccountFieldEmail => 'Email';
+
+  @override
+  String get settingsUserAccountFieldRA => 'RA';
+
+  @override
+  String get settingsUserAccountNotProvided => 'Não informado';
+
+  @override
+  String get settingsUserAccountSignOut => 'Sair da Conta';
 }

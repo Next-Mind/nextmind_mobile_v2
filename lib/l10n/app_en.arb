@@ -119,5 +119,89 @@
     "navSettings": "Settings",
     "@navSettings": {
         "description": "Label for the Settings item in the bottom navigation bar"
+    },
+    "settingsPageTitle": "Settings",
+    "@settingsPageTitle": {
+        "description": "Label for the Settings item in the bottom navigation bar"
+    },
+    "settingsPageSubtitle": "Settings and Preferences",
+    "@settingsPageSubtitle": {
+        "description": "Label for the Settings item in the bottom navigation bar"
+    },
+    "settingsLabelNotifications": "Notifications",
+    "@settingsLabelNotifications": {
+        "description": "Label for the Notification Settings"
+    },
+    "settingsLabelSecurity": "Security",
+    "@settingsLabelSecurity": {
+        "description": "Label for the Security Settings"
+    },
+    "settingsLabelDarkMode": "Dark Mode",
+    "@settingsLabelDarkMode": {
+        "description": "Label for the Dark Mode Settings"
+    },
+    "settingsLabelLanguage": "Language",
+    "@settingsLabelLanguage": {
+        "description": "Label for the Language Settings"
+    },
+    "settingsLabelSupport": "Support",
+    "@settingsLabelSupport": {
+        "description": "Label for the Support Settings"
+    },
+    "settingsLabelHelpCenter": "Help Center",
+    "@settingsLabelHelpCenter": {
+        "description": "Label for the Help Center Settings"
+    },
+    "settingsLabelFeedback": "Feedback",
+    "@settingsLabelFeedback": {
+        "description": "Label for the Feedback Settings"
+    },
+    "settingsLabelAbout": "About App",
+    "@settingsLabelAbout": {
+        "description": "Label for the About Settings"
+    },
+    "settingsLegalInformation": "Legal Information",
+    "@settingsLegalInformation": {
+        "description": "Label for the Legal Information Settings"
+    },
+    "settingsSoftwareInformation": "Software Information",
+    "@settingsSoftwareInformation": {
+        "description": "Label for the Software Information Settings"
+    },
+    "settingsUserAccountTitle": "My Account",
+    "@settingsUserAccountTitle": {
+        "description": "AppBar title on the user account screen"
+    },
+    "settingsUserAccountUnauthenticated": "User not authenticated",
+    "@settingsUserAccountUnauthenticated": {
+        "description": "Message shown when the user is not logged in"
+    },
+    "settingsUserAccountSectionProfileInfo": "Profile information",
+    "@settingsUserAccountSectionProfileInfo": {
+        "description": "Header for the profile information section"
+    },
+    "settingsUserAccountFieldName": "Name",
+    "@settingsUserAccountFieldName": {
+        "description": "Label for the Name field"
+    },
+    "settingsUserAccountFieldBirthDate": "Date of birth",
+    "@settingsUserAccountFieldBirthDate": {
+        "description": "Label for the birth date field"
+    },
+    "settingsUserAccountFieldEmail": "Email",
+    "@settingsUserAccountFieldEmail": {
+        "description": "Label for the Email field"
+    },
+    "settingsUserAccountFieldRA": "Academic ID",
+    "@settingsUserAccountFieldRA": {
+        "description": "Label for the RA (academic registration) field"
+    },
+    "settingsUserAccountNotProvided": "Not provided",
+    "@settingsUserAccountNotProvided": {
+        "description": "Text shown when a field is missing"
+    },
+    "settingsUserAccountSignOut": "Sign out",
+    "@settingsUserAccountSignOut": {
+        "description": "Label for the sign-out button"
     }
 }

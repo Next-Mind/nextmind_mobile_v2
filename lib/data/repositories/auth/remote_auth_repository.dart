@@ -71,10 +71,22 @@ class RemoteAuthRepository implements AuthRepository {
 
   @override
   AsyncResult<Unit> initRepository() async {
-    final user = await getUser().fold(
+    User user = await getUser().fold(
       (loggedUser) => loggedUser,
       (_) => NotLoggedUser(),
     );
+
+    //testando se o token ainda é valido
+    if (user is LoggedUser) {
+      await _authClientHttp.getUserDetails().fold(
+        (loggedUser) {
+          user = loggedUser;
+        },
+        (_) {
+          user = NotLoggedUser();
+        },
+      );
+    }
     _streamController.add(user);
     return Success(unit);
   }
