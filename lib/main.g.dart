@@ -3,68 +3,75 @@
 part of 'main.dart';
 
 List<RouteEntity> get routes => [
-  RouteEntity(key: '/app', uri: Uri.parse('/app'), routeBuilder: b0Builder),
+  RouteEntity(
+    key: '/splash',
+    uri: Uri.parse('/splash'),
+    routeBuilder: b0Builder,
+  ),
+  RouteEntity(
+    key: '/auth/signup',
+    uri: Uri.parse('/auth/signup'),
+    routeBuilder: b1Builder,
+  ),
+  RouteEntity(
+    key: '/auth/signin',
+    uri: Uri.parse('/auth/signin'),
+    routeBuilder: b2Builder,
+  ),
+  RouteEntity(
+    key: '/auth/forgot_password',
+    uri: Uri.parse('/auth/forgot_password'),
+    routeBuilder: b3Builder,
+  ),
+  RouteEntity(
+    key: '/not_found',
+    uri: Uri.parse('/not_found'),
+    routeBuilder: b4Builder,
+  ),
   RouteEntity(
     key: '/app/home',
     parent: '/app',
     uri: Uri.parse('/app/home'),
-    routeBuilder: b1Builder,
+    routeBuilder: b5Builder,
+  ),
+  RouteEntity(key: '/app', uri: Uri.parse('/app'), routeBuilder: b6Builder),
+  RouteEntity(
+    key: '/app/settings/user_account',
+    parent: '/app',
+    uri: Uri.parse('/app/settings/user_account'),
+    routeBuilder: b7Builder,
+  ),
+  RouteEntity(
+    key: '/app/settings/language',
+    parent: '/app',
+    uri: Uri.parse('/app/settings/language'),
+    routeBuilder: b8Builder,
   ),
   RouteEntity(
     key: '/app/settings',
     parent: '/app',
     uri: Uri.parse('/app/settings'),
-    routeBuilder: b2Builder,
-  ),
-  RouteEntity(
-    key: '/app/settings/user_account',
-    parent: '/app',
-    uri: Uri.parse('/app/settings/user_account'),
-    routeBuilder: b3Builder,
-  ),
-  RouteEntity(
-    key: '/auth/forgot_password',
-    uri: Uri.parse('/auth/forgot_password'),
-    routeBuilder: b4Builder,
-  ),
-  RouteEntity(
-    key: '/auth/signin',
-    uri: Uri.parse('/auth/signin'),
-    routeBuilder: b5Builder,
-  ),
-  RouteEntity(
-    key: '/auth/signup',
-    uri: Uri.parse('/auth/signup'),
-    routeBuilder: b6Builder,
-  ),
-  RouteEntity(
-    key: '/not_found',
-    uri: Uri.parse('/not_found'),
-    routeBuilder: b7Builder,
-  ),
-  RouteEntity(
-    key: '/splash',
-    uri: Uri.parse('/splash'),
-    routeBuilder: b8Builder,
+    routeBuilder: b9Builder,
   ),
 ];
 
 const routePaths = (
   path: '/',
+  splash: '/splash',
+  auth: (
+    path: '/auth',
+    signup: '/auth/signup',
+    signin: '/auth/signin',
+    forgotPassword: '/auth/forgot_password',
+  ),
+  notFound: '/not_found',
   app: (
     path: '/app',
     home: '/app/home',
     settings: (
       path: '/app/settings',
       userAccount: '/app/settings/user_account',
+      language: '/app/settings/language',
     ),
   ),
-  auth: (
-    path: '/auth',
-    forgotPassword: '/auth/forgot_password',
-    signin: '/auth/signin',
-    signup: '/auth/signup',
-  ),
-  notFound: '/not_found',
-  splash: '/splash',
 );

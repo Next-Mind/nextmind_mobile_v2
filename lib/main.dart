@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
       theme: brightness == Brightness.light ? theme.light() : theme.dark(),
       routerConfig: Routefly.routerConfig(
         routes: routes,
-        initialPath: routePaths.splash,
+        initialPath: routePaths.auth.signin,
         notFoundPath: routePaths.notFound,
       ),
     );

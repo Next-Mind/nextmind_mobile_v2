@@ -176,5 +176,61 @@
   "settingsUserAccountSignOut": "Sair da Conta",
   "@settingsUserAccountSignOut": {
     "description": "Rótulo do botão para encerrar a sessão"
+  },
+  "settingsNotificationsTitle": "Notificações",
+  "@settingsNotificationsTitle": {
+    "description": "Título da tela de notificações (AppBar)"
+  },
+  "settingsNotificationsAllowNotifications": "Permitir Notificações",
+  "@settingsNotificationsAllowNotifications": {
+    "description": "Switch para habilitar/desabilitar todas as notificações"
+  },
+  "settingsNotificationsSectionAlerts": "Alertas",
+  "@settingsNotificationsSectionAlerts": {
+    "description": "Título da seção de alertas"
+  },
+  "settingsNotificationsAllowAlarmReminder": "Permitir lembrete do Alarme",
+  "@settingsNotificationsAllowAlarmReminder": {
+    "description": "Opção de rádio para permitir lembretes de alarme"
+  },
+  "settingsNotificationsSilent": "Silencioso",
+  "@settingsNotificationsSilent": {
+    "description": "Opção de rádio para modo silencioso"
+  },
+  "settingsNotificationsSectionMessages": "Mensagens",
+  "@settingsNotificationsSectionMessages": {
+    "description": "Título da seção de mensagens"
+  },
+  "settingsNotificationsConversationSounds": "Sons de Conversa",
+  "@settingsNotificationsConversationSounds": {
+    "description": "Switch para sons de mensagens/conversas"
+  },
+  "settingsNotificationsOptionAll": "Todos",
+  "@settingsNotificationsOptionAll": {
+    "description": "Rótulo genérico para a opção 'All' quando exibida ao usuário"
+  },
+  "settingsNotificationsOptionNone": "Nenhum",
+  "@settingsNotificationsOptionNone": {
+    "description": "Rótulo genérico para a opção 'none' quando exibida ao usuário"
+  },
+  "settingsSecurityTitle": "Segurança",
+  "@settingsSecurityTitle": {
+    "description": "Título da tela de segurança (AppBar)"
+  },
+  "settingsSecurityChangePassword": "Alterar a senha da conta",
+  "@settingsSecurityChangePassword": {
+    "description": "Item para abrir a tela de alteração de senha"
+  },
+  "settingsSecuritySectionApp": "Config. do App",
+  "@settingsSecuritySectionApp": {
+    "description": "Título da seção de configurações do aplicativo"
+  },
+  "settingsSecurityRequirePasswordOnOpen": "Senha ao Abrir o App",
+  "@settingsSecurityRequirePasswordOnOpen": {
+    "description": "Alterna exigência de senha ao abrir o app"
+  },
+  "settingsSecuritySetPassword": "Definir Senha",
+  "@settingsSecuritySetPassword": {
+    "description": "Item para definir/alterar a senha do app quando a exigência está ativa"
   }
 }

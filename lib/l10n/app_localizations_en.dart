@@ -163,4 +163,47 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsUserAccountSignOut => 'Sign out';
+
+  @override
+  String get settingsNotificationsTitle => 'Notifications';
+
+  @override
+  String get settingsNotificationsAllowNotifications => 'Allow Notifications';
+
+  @override
+  String get settingsNotificationsSectionAlerts => 'Alerts';
+
+  @override
+  String get settingsNotificationsAllowAlarmReminder => 'Allow Alarm Reminder';
+
+  @override
+  String get settingsNotificationsSilent => 'Silent';
+
+  @override
+  String get settingsNotificationsSectionMessages => 'Messages';
+
+  @override
+  String get settingsNotificationsConversationSounds => 'Conversation Sounds';
+
+  @override
+  String get settingsNotificationsOptionAll => 'All';
+
+  @override
+  String get settingsNotificationsOptionNone => 'None';
+
+  @override
+  String get settingsSecurityTitle => 'Security';
+
+  @override
+  String get settingsSecurityChangePassword => 'Change account password';
+
+  @override
+  String get settingsSecuritySectionApp => 'App Settings';
+
+  @override
+  String get settingsSecurityRequirePasswordOnOpen =>
+      'Require password on launch';
+
+  @override
+  String get settingsSecuritySetPassword => 'Set Password';
 }

@@ -203,5 +203,61 @@
     "settingsUserAccountSignOut": "Sign out",
     "@settingsUserAccountSignOut": {
         "description": "Label for the sign-out button"
+    },
+    "settingsNotificationsTitle": "Notifications",
+    "@settingsNotificationsTitle": {
+        "description": "Notifications screen title (AppBar)"
+    },
+    "settingsNotificationsAllowNotifications": "Allow Notifications",
+    "@settingsNotificationsAllowNotifications": {
+        "description": "Switch to enable/disable all notifications"
+    },
+    "settingsNotificationsSectionAlerts": "Alerts",
+    "@settingsNotificationsSectionAlerts": {
+        "description": "Section title for alerts"
+    },
+    "settingsNotificationsAllowAlarmReminder": "Allow Alarm Reminder",
+    "@settingsNotificationsAllowAlarmReminder": {
+        "description": "Radio option to allow alarm reminders"
+    },
+    "settingsNotificationsSilent": "Silent",
+    "@settingsNotificationsSilent": {
+        "description": "Radio option for silent mode"
+    },
+    "settingsNotificationsSectionMessages": "Messages",
+    "@settingsNotificationsSectionMessages": {
+        "description": "Section title for messages"
+    },
+    "settingsNotificationsConversationSounds": "Conversation Sounds",
+    "@settingsNotificationsConversationSounds": {
+        "description": "Switch for message/conversation sounds"
+    },
+    "settingsNotificationsOptionAll": "All",
+    "@settingsNotificationsOptionAll": {
+        "description": "Generic label for the 'All' option when shown to users"
+    },
+    "settingsNotificationsOptionNone": "None",
+    "@settingsNotificationsOptionNone": {
+        "description": "Generic label for the 'none' option when shown to users"
+    },
+    "settingsSecurityTitle": "Security",
+    "@settingsSecurityTitle": {
+        "description": "Security screen title (AppBar)"
+    },
+    "settingsSecurityChangePassword": "Change account password",
+    "@settingsSecurityChangePassword": {
+        "description": "Item to open the change password screen"
+    },
+    "settingsSecuritySectionApp": "App Settings",
+    "@settingsSecuritySectionApp": {
+        "description": "Section title for application settings"
+    },
+    "settingsSecurityRequirePasswordOnOpen": "Require password on launch",
+    "@settingsSecurityRequirePasswordOnOpen": {
+        "description": "Toggle requiring a password when opening the app"
+    },
+    "settingsSecuritySetPassword": "Set Password",
+    "@settingsSecuritySetPassword": {
+        "description": "Item to set/change the app password when requirement is enabled"
     }
 }

@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:nextmind_mobile_v2/config/dependencies.dart';
 import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
-import 'package:nextmind_mobile_v2/main.dart';
+import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/language_page.dart';
+import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/notifications_page.dart';
+import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/security_page.dart';
+import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/user_account_page.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/viewmodels/settings_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/widgets/settings_item_widget.dart';
+import 'package:nextmind_mobile_v2/ui/app/settings/widgets/settings_section_title_widget.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/widgets/settings_switch_widget.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/widgets/user_info_card_widget.dart';
 import 'package:nextmind_mobile_v2/ui/core/dimens.dart';
 import 'package:result_command/result_command.dart';
-import 'package:routefly/routefly.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -44,24 +47,29 @@ class _SettingsPageState extends State<SettingsPage> {
       children: [
         UserInfoCard(
           user: viewModel.userLogged,
-          onTap: () => Routefly.navigate(routePaths.app.settings.userAccount),
+          onTap: () {
+            _showDialogPage(UserAccountPage());
+          },
         ),
 
         const Divider(height: Dimens.mediumPadding),
 
-        _sectionTitle(
-          context,
-          AppLocalizations.of(context)!.settingsPageSubtitle,
+        SettingsSectionTitle(
+          title: AppLocalizations.of(context)!.settingsPageSubtitle,
         ),
         SettingsItem(
           icon: Icons.notifications_none,
           text: AppLocalizations.of(context)!.settingsLabelNotifications,
-          onTap: () {},
+          onTap: () {
+            _showDialogPage(NotificationsPage());
+          },
         ),
         SizedBox(height: Dimens.mediumPadding),
         SettingsItem(
           text: AppLocalizations.of(context)!.settingsLabelSecurity,
-          onTap: () {},
+          onTap: () {
+            _showDialogPage(SecurityPage());
+          },
           icon: Icons.security,
         ),
         SizedBox(height: Dimens.mediumPadding),
@@ -75,12 +83,13 @@ class _SettingsPageState extends State<SettingsPage> {
         SettingsItem(
           icon: Icons.language,
           text: AppLocalizations.of(context)!.settingsLabelLanguage,
-          onTap: () {},
+          onTap: () {
+            _showDialogPage(LanguagePage());
+          },
         ),
         const Divider(height: Dimens.extraLargePadding),
-        _sectionTitle(
-          context,
-          AppLocalizations.of(context)!.settingsLabelSupport,
+        SettingsSectionTitle(
+          title: AppLocalizations.of(context)!.settingsLabelSupport,
         ),
         SettingsItem(
           icon: Icons.help_outline,
@@ -97,9 +106,8 @@ class _SettingsPageState extends State<SettingsPage> {
         const Divider(height: Dimens.extraLargePadding),
 
         // Sobre o aplicativo
-        _sectionTitle(
-          context,
-          AppLocalizations.of(context)!.settingsLabelAbout,
+        SettingsSectionTitle(
+          title: AppLocalizations.of(context)!.settingsLabelAbout,
         ),
         SettingsItem(
           icon: Icons.info_outline,
@@ -116,18 +124,13 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  Widget _sectionTitle(BuildContext context, String title) {
-    return Padding(
-      padding: EdgeInsetsGeometry.symmetric(
-        horizontal: Dimens.mediumPadding,
-        vertical: Dimens.smallPadding,
-      ),
-      child: Text(
-        title,
-        style: Theme.of(
-          context,
-        ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
-      ),
+  void _showDialogPage(Widget page) {
+    showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) {
+        return Dialog.fullscreen(child: page);
+      },
     );
   }
 }

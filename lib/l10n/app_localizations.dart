@@ -385,6 +385,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sign out'**
   String get settingsUserAccountSignOut;
+
+  /// Notifications screen title (AppBar)
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get settingsNotificationsTitle;
+
+  /// Switch to enable/disable all notifications
+  ///
+  /// In en, this message translates to:
+  /// **'Allow Notifications'**
+  String get settingsNotificationsAllowNotifications;
+
+  /// Section title for alerts
+  ///
+  /// In en, this message translates to:
+  /// **'Alerts'**
+  String get settingsNotificationsSectionAlerts;
+
+  /// Radio option to allow alarm reminders
+  ///
+  /// In en, this message translates to:
+  /// **'Allow Alarm Reminder'**
+  String get settingsNotificationsAllowAlarmReminder;
+
+  /// Radio option for silent mode
+  ///
+  /// In en, this message translates to:
+  /// **'Silent'**
+  String get settingsNotificationsSilent;
+
+  /// Section title for messages
+  ///
+  /// In en, this message translates to:
+  /// **'Messages'**
+  String get settingsNotificationsSectionMessages;
+
+  /// Switch for message/conversation sounds
+  ///
+  /// In en, this message translates to:
+  /// **'Conversation Sounds'**
+  String get settingsNotificationsConversationSounds;
+
+  /// Generic label for the 'All' option when shown to users
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get settingsNotificationsOptionAll;
+
+  /// Generic label for the 'none' option when shown to users
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get settingsNotificationsOptionNone;
+
+  /// Security screen title (AppBar)
+  ///
+  /// In en, this message translates to:
+  /// **'Security'**
+  String get settingsSecurityTitle;
+
+  /// Item to open the change password screen
+  ///
+  /// In en, this message translates to:
+  /// **'Change account password'**
+  String get settingsSecurityChangePassword;
+
+  /// Section title for application settings
+  ///
+  /// In en, this message translates to:
+  /// **'App Settings'**
+  String get settingsSecuritySectionApp;
+
+  /// Toggle requiring a password when opening the app
+  ///
+  /// In en, this message translates to:
+  /// **'Require password on launch'**
+  String get settingsSecurityRequirePasswordOnOpen;
+
+  /// Item to set/change the app password when requirement is enabled
+  ///
+  /// In en, this message translates to:
+  /// **'Set Password'**
+  String get settingsSecuritySetPassword;
 }
 
 class _AppLocalizationsDelegate

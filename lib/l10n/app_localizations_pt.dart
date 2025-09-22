@@ -163,4 +163,47 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get settingsUserAccountSignOut => 'Sair da Conta';
+
+  @override
+  String get settingsNotificationsTitle => 'Notificações';
+
+  @override
+  String get settingsNotificationsAllowNotifications => 'Permitir Notificações';
+
+  @override
+  String get settingsNotificationsSectionAlerts => 'Alertas';
+
+  @override
+  String get settingsNotificationsAllowAlarmReminder =>
+      'Permitir lembrete do Alarme';
+
+  @override
+  String get settingsNotificationsSilent => 'Silencioso';
+
+  @override
+  String get settingsNotificationsSectionMessages => 'Mensagens';
+
+  @override
+  String get settingsNotificationsConversationSounds => 'Sons de Conversa';
+
+  @override
+  String get settingsNotificationsOptionAll => 'Todos';
+
+  @override
+  String get settingsNotificationsOptionNone => 'Nenhum';
+
+  @override
+  String get settingsSecurityTitle => 'Segurança';
+
+  @override
+  String get settingsSecurityChangePassword => 'Alterar a senha da conta';
+
+  @override
+  String get settingsSecuritySectionApp => 'Config. do App';
+
+  @override
+  String get settingsSecurityRequirePasswordOnOpen => 'Senha ao Abrir o App';
+
+  @override
+  String get settingsSecuritySetPassword => 'Definir Senha';
 }
