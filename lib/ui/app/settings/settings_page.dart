@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:nextmind_mobile_v2/config/dependencies.dart';
 import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
+import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/feedback_page.dart';
+import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/help_central_page.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/language_page.dart';
+import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/legal_information_page.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/notifications_page.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/security_page.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/user_account_page.dart';
@@ -94,13 +97,17 @@ class _SettingsPageState extends State<SettingsPage> {
         SettingsItem(
           icon: Icons.help_outline,
           text: AppLocalizations.of(context)!.settingsLabelHelpCenter,
-          onTap: () {},
+          onTap: () {
+            _showDialogPage(HelpCentralPage());
+          },
         ),
         SizedBox(height: Dimens.mediumPadding),
         SettingsItem(
           icon: Icons.flag_outlined,
           text: AppLocalizations.of(context)!.settingsLabelFeedback,
-          onTap: () {},
+          onTap: () {
+            _showDialogPage(FeedbackPage());
+          },
         ),
 
         const Divider(height: Dimens.extraLargePadding),
@@ -112,7 +119,9 @@ class _SettingsPageState extends State<SettingsPage> {
         SettingsItem(
           icon: Icons.info_outline,
           text: AppLocalizations.of(context)!.settingsLegalInformation,
-          onTap: () {},
+          onTap: () {
+            _showDialogPage(LegalInformationPage());
+          },
         ),
         SizedBox(height: Dimens.mediumPadding),
         SettingsItem(

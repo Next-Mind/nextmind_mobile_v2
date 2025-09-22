@@ -232,5 +232,109 @@
   "settingsSecuritySetPassword": "Definir Senha",
   "@settingsSecuritySetPassword": {
     "description": "Item para definir/alterar a senha do app quando a exigência está ativa"
+  },
+  "settingsHelpCentralTitle": "Central de Ajuda",
+  "@settingsHelpCentralTitle": {
+    "description": "Título da tela da Central de Ajuda (AppBar)"
+  },
+  "settingsHelpCentralIntro1": "\nSe você estiver enfrentando problemas ou tiver dúvidas sobre como usar o aplicativo, estamos aqui para ajudar!",
+  "@settingsHelpCentralIntro1": {
+    "description": "Primeiro parágrafo introdutório da Central de Ajuda"
+  },
+  "settingsHelpCentralIntro2": "\nAcesse nossa Central de Ajuda para encontrar respostas para perguntas frequentes, tutoriais e orientações passo a passo. Caso precise de suporte adicional, você também poderá entrar em contato com a nossa equipe diretamente por aqui.",
+  "@settingsHelpCentralIntro2": {
+    "description": "Segundo parágrafo com orientações e sugestão de contato"
+  },
+  "settingsHelpCentralConfirm": "Confirmar",
+  "@settingsHelpCentralConfirm": {
+    "description": "Rótulo do botão principal para iniciar o contato/suporte"
+  },
+  "settingsHelpCentralEmailLaunchError": "Não foi possível abrir o aplicativo de e-mail.",
+  "@settingsHelpCentralEmailLaunchError": {
+    "description": "Mensagem de erro ao tentar abrir o app de e-mail externamente"
+  },
+  "settingsHelpCentralEmailSubject": "Ajuda com o Aplicativo",
+  "@settingsHelpCentralEmailSubject": {
+    "description": "Assunto padrão do e-mail de suporte"
+  },
+  "settingsHelpCentralEmailBody": "Descreva aqui a sua necessidade...",
+  "@settingsHelpCentralEmailBody": {
+    "description": "Corpo padrão do e-mail de suporte"
+  },
+  "settingsFeedbackTitle": "Relatar um problema",
+  "@settingsFeedbackTitle": {
+    "description": "Título da tela de Relatar um problema (AppBar)"
+  },
+  "settingsFeedbackIntro1": "\nSe você encontrou algum problema enquanto usava o aplicativo, pedimos desculpas pelo transtorno. Sua colaboração é muito importante para que possamos melhorar continuamente a sua experiência. Por favor, descreva o erro encontrado com o máximo de detalhes possível.",
+  "@settingsFeedbackIntro1": {
+    "description": "Parágrafo introdutório pedindo desculpas e solicitando detalhes do erro"
+  },
+  "settingsFeedbackIntro2": "\nNossa equipe analisará o seu relato o mais rápido possível e trabalhará para corrigir o problema. Agradecemos pela sua ajuda!",
+  "@settingsFeedbackIntro2": {
+    "description": "Parágrafo informando análise do relato e agradecendo"
+  },
+  "settingsLegalInformationTitle": "Informações Legais",
+  "@settingsLegalInformationTitle": {
+    "description": "Título da tela principal (AppBar)"
+  },
+  "settingsLegalInformationItemProject": "Informações Legais do Projeto",
+  "@settingsLegalInformationItemProject": {
+    "description": "Item de lista que abre detalhes legais do projeto"
+  },
+  "settingsLegalInformationItemGoogle": "Informações Legais do Google",
+  "@settingsLegalInformationItemGoogle": {
+    "description": "Item de lista que abre detalhes legais do Google"
+  },
+  "settingsLegalInformationItemTermsPolicy": "Termos e Política",
+  "@settingsLegalInformationItemTermsPolicy": {
+    "description": "Item de lista para termos e política"
+  },
+  "settingsLegalInformationItemTermsOfUse": "Termos de Uso",
+  "@settingsLegalInformationItemTermsOfUse": {
+    "description": "Item de lista para termos de uso"
+  },
+  "settingsLegalInformationItemPrivacyPolicy": "Política de Privacidade",
+  "@settingsLegalInformationItemPrivacyPolicy": {
+    "description": "Item de lista para política de privacidade"
+  },
+  "settingsLegalInformationDetailProjectTitle": "Informações do Projeto",
+  "@settingsLegalInformationDetailProjectTitle": {
+    "description": "Título da página de detalhes legais do projeto"
+  },
+  "settingsLegalInformationDetailProjectContent": "Este aplicativo foi desenvolvido com o propósito de facilitar a vida dos usuários através da tecnologia, respeitando as leis de proteção de dados e diretrizes de uso de software livre e proprietário.\n\nTodas as marcas, logos e conteúdos utilizados no aplicativo pertencem aos seus respectivos proprietários. O projeto respeita os princípios de transparência, responsabilidade e ética digital.",
+  "@settingsLegalInformationDetailProjectContent": {
+    "description": "Conteúdo dos detalhes legais do projeto"
+  },
+  "settingsLegalInformationDetailGoogleTitle": "Informações do Google",
+  "@settingsLegalInformationDetailGoogleTitle": {
+    "description": "Título da página de detalhes legais do Google"
+  },
+  "settingsLegalInformationDetailGoogleContent": "Este aplicativo pode utilizar APIs e serviços fornecidos pelo Google, incluindo Firebase, Google Maps, Google Sign-In, entre outros.\n\nA utilização desses serviços está sujeita aos Termos de Serviço do Google e à Política de Privacidade do Google. O uso do aplicativo implica na aceitação dessas condições, bem como no cumprimento das práticas exigidas pelas APIs do Google.",
+  "@settingsLegalInformationDetailGoogleContent": {
+    "description": "Conteúdo dos detalhes legais do Google"
+  },
+  "settingsLegalInformationDetailTermsPolicyTitle": "Termos e Política",
+  "@settingsLegalInformationDetailTermsPolicyTitle": {
+    "description": "Título da página de Termos e Política"
+  },
+  "settingsLegalInformationDetailTermsPolicyContent": "Ao utilizar este aplicativo, você concorda com nossos Termos de Uso e Política de Privacidade.\n\nNosso compromisso é garantir a transparência no tratamento dos seus dados, respeitando sua privacidade e protegendo suas informações pessoais.\n\nRecomendamos a leitura completa dos termos e políticas para compreender seus direitos e deveres como usuário.",
+  "@settingsLegalInformationDetailTermsPolicyContent": {
+    "description": "Conteúdo da página de Termos e Política"
+  },
+  "settingsLegalInformationDetailTermsOfUseTitle": "Termos de Uso",
+  "@settingsLegalInformationDetailTermsOfUseTitle": {
+    "description": "Título da página de Termos de Uso"
+  },
+  "settingsLegalInformationDetailTermsOfUseContent": "O uso deste aplicativo é permitido apenas para fins lícitos e conforme previsto nestes Termos de Uso.\n\nO usuário compromete-se a:\n- Utilizar o aplicativo de forma ética;\n- Não compartilhar conteúdos maliciosos ou ilegais;\n- Respeitar os demais usuários e as funcionalidades do sistema.\n\nO descumprimento destes termos poderá resultar em suspensão ou exclusão da conta.",
+  "@settingsLegalInformationDetailTermsOfUseContent": {
+    "description": "Conteúdo da página de Termos de Uso (inclui lista com marcadores)"
+  },
+  "settingsLegalInformationDetailPrivacyPolicyTitle": "Política de Privacidade",
+  "@settingsLegalInformationDetailPrivacyPolicyTitle": {
+    "description": "Título da página de Política de Privacidade"
+  },
+  "settingsLegalInformationDetailPrivacyPolicyContent": "Coletamos e utilizamos suas informações pessoais apenas quando necessário para fornecer e melhorar nossos serviços.\n\nSeus dados são tratados com segurança e não são compartilhados com terceiros sem sua permissão, exceto quando exigido por lei.\n\nVocê pode, a qualquer momento, solicitar a exclusão ou alteração dos seus dados, conforme previsto na Lei Geral de Proteção de Dados (LGPD).",
+  "@settingsLegalInformationDetailPrivacyPolicyContent": {
+    "description": "Conteúdo da página de Política de Privacidade"
   }
 }

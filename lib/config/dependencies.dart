@@ -18,6 +18,8 @@ import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/home_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/linear_calendar_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/next_appointment_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/post_carousel_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/app/settings/viewmodels/feedback_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/app/settings/viewmodels/help_central_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/viewmodels/language_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/viewmodels/notifications_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/viewmodels/security_viewmodel.dart';
@@ -70,6 +72,9 @@ void setupDependencies() {
   injector.addLazySingleton(NotificationsViewmodel.new);
 
   injector.addLazySingleton(SecurityViewmodel.new);
+
+  injector.addLazySingleton(HelpCentralViewmodel.new);
+  injector.addLazySingleton(FeedbackViewmodel.new);
 
   injector.commit();
 }

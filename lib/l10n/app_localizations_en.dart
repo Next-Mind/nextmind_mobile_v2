@@ -206,4 +206,94 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsSecuritySetPassword => 'Set Password';
+
+  @override
+  String get settingsHelpCentralTitle => 'Help Center';
+
+  @override
+  String get settingsHelpCentralIntro1 =>
+      '\nIf you’re experiencing issues or have questions about how to use the app, we’re here to help!';
+
+  @override
+  String get settingsHelpCentralIntro2 =>
+      '\nVisit our Help Center to find answers to frequently asked questions, tutorials, and step-by-step guides. If you need additional support, you can also contact our team directly from here.';
+
+  @override
+  String get settingsHelpCentralConfirm => 'Confirm';
+
+  @override
+  String get settingsHelpCentralEmailLaunchError =>
+      'Couldn\'t open the email app.';
+
+  @override
+  String get settingsHelpCentralEmailSubject => 'Help with the App';
+
+  @override
+  String get settingsHelpCentralEmailBody => 'Describe your need here...';
+
+  @override
+  String get settingsFeedbackTitle => 'Report a Problem';
+
+  @override
+  String get settingsFeedbackIntro1 =>
+      '\nIf you encountered any issue while using the app, we apologize for the inconvenience. Your feedback is very important to help us continuously improve your experience. Please describe the error you found with as much detail as possible.';
+
+  @override
+  String get settingsFeedbackIntro2 =>
+      '\nOur team will review your report as quickly as possible and work to fix the issue. Thank you for your help!';
+
+  @override
+  String get settingsLegalInformationTitle => 'Legal Information';
+
+  @override
+  String get settingsLegalInformationItemProject => 'Project Legal Information';
+
+  @override
+  String get settingsLegalInformationItemGoogle => 'Google Legal Information';
+
+  @override
+  String get settingsLegalInformationItemTermsPolicy => 'Terms & Policy';
+
+  @override
+  String get settingsLegalInformationItemTermsOfUse => 'Terms of Use';
+
+  @override
+  String get settingsLegalInformationItemPrivacyPolicy => 'Privacy Policy';
+
+  @override
+  String get settingsLegalInformationDetailProjectTitle =>
+      'Project Information';
+
+  @override
+  String get settingsLegalInformationDetailProjectContent =>
+      'This app was developed to make users’ lives easier through technology, in compliance with data protection laws and guidelines for the use of free and proprietary software.\n\nAll trademarks, logos, and content used in the app belong to their respective owners. The project upholds the principles of transparency, accountability, and digital ethics.';
+
+  @override
+  String get settingsLegalInformationDetailGoogleTitle => 'Google Information';
+
+  @override
+  String get settingsLegalInformationDetailGoogleContent =>
+      'This app may use APIs and services provided by Google, including Firebase, Google Maps, Google Sign-In, among others.\n\nUse of these services is subject to Google’s Terms of Service and Google’s Privacy Policy. Using the app implies acceptance of these conditions, as well as compliance with the practices required by Google APIs.';
+
+  @override
+  String get settingsLegalInformationDetailTermsPolicyTitle => 'Terms & Policy';
+
+  @override
+  String get settingsLegalInformationDetailTermsPolicyContent =>
+      'By using this app, you agree to our Terms of Use and Privacy Policy.\n\nOur commitment is to ensure transparency in the processing of your data, respecting your privacy and protecting your personal information.\n\nWe recommend reading the full terms and policies to understand your rights and responsibilities as a user.';
+
+  @override
+  String get settingsLegalInformationDetailTermsOfUseTitle => 'Terms of Use';
+
+  @override
+  String get settingsLegalInformationDetailTermsOfUseContent =>
+      'Use of this app is allowed only for lawful purposes and as provided in these Terms of Use.\n\nThe user agrees to:\n- Use the app ethically;\n- Not share malicious or illegal content;\n- Respect other users and the system’s features.\n\nFailure to comply with these terms may result in account suspension or deletion.';
+
+  @override
+  String get settingsLegalInformationDetailPrivacyPolicyTitle =>
+      'Privacy Policy';
+
+  @override
+  String get settingsLegalInformationDetailPrivacyPolicyContent =>
+      'We collect and use your personal information only when necessary to provide and improve our services.\n\nYour data is handled securely and is not shared with third parties without your permission, except when required by law.\n\nYou may request deletion or modification of your data at any time, as provided for by the Brazilian General Data Protection Law (LGPD).';
 }

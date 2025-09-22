@@ -469,6 +469,162 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Set Password'**
   String get settingsSecuritySetPassword;
+
+  /// Help Center screen title (AppBar)
+  ///
+  /// In en, this message translates to:
+  /// **'Help Center'**
+  String get settingsHelpCentralTitle;
+
+  /// First introductory paragraph on the Help Center screen
+  ///
+  /// In en, this message translates to:
+  /// **'\nIf you’re experiencing issues or have questions about how to use the app, we’re here to help!'**
+  String get settingsHelpCentralIntro1;
+
+  /// Second paragraph with guidance and contact suggestion
+  ///
+  /// In en, this message translates to:
+  /// **'\nVisit our Help Center to find answers to frequently asked questions, tutorials, and step-by-step guides. If you need additional support, you can also contact our team directly from here.'**
+  String get settingsHelpCentralIntro2;
+
+  /// Primary button label to start support/contact
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get settingsHelpCentralConfirm;
+
+  /// Error message when failing to open the external email app
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t open the email app.'**
+  String get settingsHelpCentralEmailLaunchError;
+
+  /// Default support email subject
+  ///
+  /// In en, this message translates to:
+  /// **'Help with the App'**
+  String get settingsHelpCentralEmailSubject;
+
+  /// Default support email body
+  ///
+  /// In en, this message translates to:
+  /// **'Describe your need here...'**
+  String get settingsHelpCentralEmailBody;
+
+  /// Feedback screen title (AppBar)
+  ///
+  /// In en, this message translates to:
+  /// **'Report a Problem'**
+  String get settingsFeedbackTitle;
+
+  /// Intro paragraph apologizing and requesting detailed error description
+  ///
+  /// In en, this message translates to:
+  /// **'\nIf you encountered any issue while using the app, we apologize for the inconvenience. Your feedback is very important to help us continuously improve your experience. Please describe the error you found with as much detail as possible.'**
+  String get settingsFeedbackIntro1;
+
+  /// Paragraph stating the team will review and thanking the user
+  ///
+  /// In en, this message translates to:
+  /// **'\nOur team will review your report as quickly as possible and work to fix the issue. Thank you for your help!'**
+  String get settingsFeedbackIntro2;
+
+  /// Main screen title (AppBar)
+  ///
+  /// In en, this message translates to:
+  /// **'Legal Information'**
+  String get settingsLegalInformationTitle;
+
+  /// List item that opens project legal details
+  ///
+  /// In en, this message translates to:
+  /// **'Project Legal Information'**
+  String get settingsLegalInformationItemProject;
+
+  /// List item that opens Google legal details
+  ///
+  /// In en, this message translates to:
+  /// **'Google Legal Information'**
+  String get settingsLegalInformationItemGoogle;
+
+  /// List item for terms and policy
+  ///
+  /// In en, this message translates to:
+  /// **'Terms & Policy'**
+  String get settingsLegalInformationItemTermsPolicy;
+
+  /// List item for terms of use
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of Use'**
+  String get settingsLegalInformationItemTermsOfUse;
+
+  /// List item for privacy policy
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get settingsLegalInformationItemPrivacyPolicy;
+
+  /// Detail page title for project legal info
+  ///
+  /// In en, this message translates to:
+  /// **'Project Information'**
+  String get settingsLegalInformationDetailProjectTitle;
+
+  /// Detail content for project legal info
+  ///
+  /// In en, this message translates to:
+  /// **'This app was developed to make users’ lives easier through technology, in compliance with data protection laws and guidelines for the use of free and proprietary software.\n\nAll trademarks, logos, and content used in the app belong to their respective owners. The project upholds the principles of transparency, accountability, and digital ethics.'**
+  String get settingsLegalInformationDetailProjectContent;
+
+  /// Detail page title for Google legal info
+  ///
+  /// In en, this message translates to:
+  /// **'Google Information'**
+  String get settingsLegalInformationDetailGoogleTitle;
+
+  /// Detail content for Google legal info
+  ///
+  /// In en, this message translates to:
+  /// **'This app may use APIs and services provided by Google, including Firebase, Google Maps, Google Sign-In, among others.\n\nUse of these services is subject to Google’s Terms of Service and Google’s Privacy Policy. Using the app implies acceptance of these conditions, as well as compliance with the practices required by Google APIs.'**
+  String get settingsLegalInformationDetailGoogleContent;
+
+  /// Detail page title for Terms & Policy
+  ///
+  /// In en, this message translates to:
+  /// **'Terms & Policy'**
+  String get settingsLegalInformationDetailTermsPolicyTitle;
+
+  /// Detail content for Terms & Policy
+  ///
+  /// In en, this message translates to:
+  /// **'By using this app, you agree to our Terms of Use and Privacy Policy.\n\nOur commitment is to ensure transparency in the processing of your data, respecting your privacy and protecting your personal information.\n\nWe recommend reading the full terms and policies to understand your rights and responsibilities as a user.'**
+  String get settingsLegalInformationDetailTermsPolicyContent;
+
+  /// Detail page title for Terms of Use
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of Use'**
+  String get settingsLegalInformationDetailTermsOfUseTitle;
+
+  /// Detail content for Terms of Use (includes bullet list)
+  ///
+  /// In en, this message translates to:
+  /// **'Use of this app is allowed only for lawful purposes and as provided in these Terms of Use.\n\nThe user agrees to:\n- Use the app ethically;\n- Not share malicious or illegal content;\n- Respect other users and the system’s features.\n\nFailure to comply with these terms may result in account suspension or deletion.'**
+  String get settingsLegalInformationDetailTermsOfUseContent;
+
+  /// Detail page title for Privacy Policy
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get settingsLegalInformationDetailPrivacyPolicyTitle;
+
+  /// Detail content for Privacy Policy
+  ///
+  /// In en, this message translates to:
+  /// **'We collect and use your personal information only when necessary to provide and improve our services.\n\nYour data is handled securely and is not shared with third parties without your permission, except when required by law.\n\nYou may request deletion or modification of your data at any time, as provided for by the Brazilian General Data Protection Law (LGPD).'**
+  String get settingsLegalInformationDetailPrivacyPolicyContent;
 }
 
 class _AppLocalizationsDelegate
