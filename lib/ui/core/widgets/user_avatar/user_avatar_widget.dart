@@ -6,7 +6,8 @@ import 'package:result_command/result_command.dart';
 
 class UserAvatar extends StatelessWidget {
   final double profileSize;
-  const UserAvatar({super.key, required this.profileSize});
+  final VoidCallback? onTap;
+  const UserAvatar({super.key, required this.profileSize, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +20,19 @@ class UserAvatar extends StatelessWidget {
                 size: profileSize * 2,
                 fadeTheme: FadeTheme.dark,
               )
-            : CircleAvatar(
-                radius: profileSize,
-                backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-                child: ClipOval(
-                  child: Image.network(
-                    viewModel.userProfileUrl,
-                    errorBuilder: (context, error, stackTrace) =>
-                        Icon(Icons.person_off_outlined),
+            : GestureDetector(
+                onTap: onTap,
+                child: CircleAvatar(
+                  radius: profileSize,
+                  backgroundColor: Theme.of(
+                    context,
+                  ).colorScheme.primaryContainer,
+                  child: ClipOval(
+                    child: Image.network(
+                      viewModel.userProfileUrl,
+                      errorBuilder: (context, error, stackTrace) =>
+                          Icon(Icons.person_off_outlined),
+                    ),
                   ),
                 ),
               );

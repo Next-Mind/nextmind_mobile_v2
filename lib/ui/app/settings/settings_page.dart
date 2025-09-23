@@ -7,6 +7,7 @@ import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/language_page.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/legal_information_page.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/notifications_page.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/security_page.dart';
+import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/software_information_page.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/user_account_page.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/viewmodels/settings_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/widgets/settings_item_widget.dart';
@@ -127,7 +128,9 @@ class _SettingsPageState extends State<SettingsPage> {
         SettingsItem(
           icon: Icons.developer_board,
           text: AppLocalizations.of(context)!.settingsSoftwareInformation,
-          onTap: () {},
+          onTap: () {
+            _showDialogPage(SoftwareInformationScreen());
+          },
         ),
       ],
     );

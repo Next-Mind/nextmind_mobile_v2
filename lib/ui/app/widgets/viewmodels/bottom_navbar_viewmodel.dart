@@ -12,6 +12,10 @@ class BottomNavbarViewmodel extends ChangeNotifier {
     _log.d("Iniciando $runtimeType");
   }
 
+  void resetIndex() {
+    _selectedIndex.value = 0;
+  }
+
   void handle(value) {
     _selectedIndex.value = value;
     switch (value) {

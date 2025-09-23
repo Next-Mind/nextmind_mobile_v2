@@ -3,10 +3,21 @@ import 'package:nextmind_mobile_v2/config/dependencies.dart';
 import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
 import 'package:nextmind_mobile_v2/ui/app/widgets/viewmodels/bottom_navbar_viewmodel.dart';
 
-class BottomNavbar extends StatelessWidget {
+class BottomNavbar extends StatefulWidget {
   BottomNavbar({super.key});
 
+  @override
+  State<BottomNavbar> createState() => _BottomNavbarState();
+}
+
+class _BottomNavbarState extends State<BottomNavbar> {
   final viewModel = injector.get<BottomNavbarViewmodel>();
+
+  @override
+  void dispose() {
+    super.dispose();
+    viewModel.resetIndex();
+  }
 
   @override
   Widget build(BuildContext context) {

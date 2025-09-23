@@ -28,22 +28,24 @@ class _SigninPageState extends State<SigninPage> {
   @override
   void initState() {
     super.initState();
-    viewModel.loginWithEmailCommand.addListener(() {
-      final status = viewModel.loginWithEmailCommand.value;
-      if (status is FailureCommand) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Failure: ${status.toString()}'), //
-          ),
-        );
-      }
-    });
+    viewModel.loginWithEmailCommand.addListener(_listenable);
+  }
+
+  void _listenable() {
+    final status = viewModel.loginWithEmailCommand.value;
+    if (status is FailureCommand) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Failure: ${status.toString()}'), //
+        ),
+      );
+    }
   }
 
   @override
   void dispose() {
     super.dispose();
-    viewModel.loginWithEmailCommand.dispose();
+    viewModel.loginWithEmailCommand.removeListener(_listenable);
   }
 
   @override

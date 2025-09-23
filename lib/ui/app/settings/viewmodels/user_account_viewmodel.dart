@@ -26,4 +26,32 @@ class UserAccountViewmodel {
       },
     );
   }
+
+  String calculateAge() {
+    final today = DateTime.now();
+
+    final String? birthStr = userLogged.birthDate;
+    if (birthStr == null || birthStr.trim().isEmpty) {
+      return '';
+    }
+
+    DateTime birthDate;
+    try {
+      birthDate = DateTime.parse(birthStr);
+    } catch (_) {
+      return ''; // formato inválido
+    }
+
+    if (birthDate.isAfter(today)) {
+      return ''; // data no futuro
+    }
+
+    int age = today.year - birthDate.year;
+    if (today.month < birthDate.month ||
+        (today.month == birthDate.month && today.day < birthDate.day)) {
+      age--;
+    }
+
+    return age.toString();
+  }
 }

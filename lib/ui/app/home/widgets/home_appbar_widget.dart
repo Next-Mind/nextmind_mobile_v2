@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/user_account_page.dart';
 import 'package:nextmind_mobile_v2/ui/core/widgets/user_avatar/user_avatar_widget.dart';
 
-class HomeAppBar extends StatelessWidget {
+class HomeAppBar extends StatefulWidget {
   final VoidCallback onMenuTap;
 
   const HomeAppBar({super.key, required this.onMenuTap});
 
+  @override
+  State<HomeAppBar> createState() => _HomeAppBarState();
+}
+
+class _HomeAppBarState extends State<HomeAppBar> {
   @override
   Widget build(BuildContext context) {
     final locale = Localizations.localeOf(context).toString();
@@ -19,7 +25,7 @@ class HomeAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
-            onTap: onMenuTap,
+            onTap: widget.onMenuTap,
             child: Icon(Icons.menu, color: Colors.white),
           ),
           Text(
@@ -30,9 +36,22 @@ class HomeAppBar extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          UserAvatar(profileSize: 16),
+          UserAvatar(
+            profileSize: 16,
+            onTap: () => _showDialogPage(UserAccountPage()),
+          ),
         ],
       ),
+    );
+  }
+
+  void _showDialogPage(Widget page) {
+    showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) {
+        return Dialog.fullscreen(child: page);
+      },
     );
   }
 }

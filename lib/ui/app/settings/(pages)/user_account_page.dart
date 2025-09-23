@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:nextmind_mobile_v2/config/dependencies.dart';
 import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/viewmodels/user_account_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/app/settings/widgets/settings_info_item_widget.dart';
+import 'package:nextmind_mobile_v2/ui/app/settings/widgets/user_account_page/user_account_profile_section_widget.dart';
+import 'package:nextmind_mobile_v2/ui/auth/widgets/sign_out/sign_out_button.dart';
 import 'package:nextmind_mobile_v2/ui/core/dimens.dart';
 import 'package:nextmind_mobile_v2/ui/core/widgets/user_avatar/user_avatar_widget.dart';
 import 'package:result_command/result_command.dart';
@@ -21,6 +24,7 @@ class _UserAccountPageState extends State<UserAccountPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.settingsUserAccountTitle),
+        centerTitle: true,
       ),
       body: ListenableBuilder(
         listenable: viewModel.fetchUserCommand,
@@ -83,14 +87,16 @@ class _UserAccountPageState extends State<UserAccountPage> {
             ),
           ),
           const SizedBox(height: Dimens.extraLargePadding),
-          Text(
-            AppLocalizations.of(context)!.settingsUserAccountSectionProfileInfo,
-            style: Theme.of(
-              context,
-            ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
-          ),
-          const Divider(),
-          // InfoItem(title: "Nome", subtitle: user.name),
+          ProfileSection(viewModel: viewModel),
+          SignOutButton(),
+          // Text(
+          //   AppLocalizations.of(context)!.settingsUserAccountSectionProfileInfo,
+          //   style: Theme.of(
+          //     context,
+          //   ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+          // ),
+          // const Divider(),
+          // SettingsInfoItem(title: "Nome", subtitle: user.name),
           // const SizedBox(height: 10),
           // InfoItem(title: "Data", subtitle: user.birthDate ?? 'Não informado'),
           // const SizedBox(height: 10),

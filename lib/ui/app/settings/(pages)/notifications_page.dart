@@ -58,7 +58,6 @@ class _NotificationsPageState extends State<NotificationsPage> {
             context,
           )!.settingsNotificationsSectionAlerts,
         ),
-        SizedBox(height: Dimens.mediumPadding),
         SettingsItemRadio(
           text: AppLocalizations.of(
             context,
