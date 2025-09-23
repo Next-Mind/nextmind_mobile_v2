@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/widgets/settings_info_item_widget.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-class SoftwareInformationScreen extends StatefulWidget {
-  const SoftwareInformationScreen({super.key});
+class SoftwareInformationPage extends StatefulWidget {
+  const SoftwareInformationPage({super.key});
 
   @override
-  State<SoftwareInformationScreen> createState() =>
-      _SoftwareInformationScreenState();
+  State<SoftwareInformationPage> createState() =>
+      _SoftwareInformationPageState();
 }
 
-class _SoftwareInformationScreenState extends State<SoftwareInformationScreen> {
+class _SoftwareInformationPageState extends State<SoftwareInformationPage> {
   late Future<PackageInfo> _packageInfo;
 
   @override

@@ -129,7 +129,7 @@ class _SettingsPageState extends State<SettingsPage> {
           icon: Icons.developer_board,
           text: AppLocalizations.of(context)!.settingsSoftwareInformation,
           onTap: () {
-            _showDialogPage(SoftwareInformationScreen());
+            _showDialogPage(SoftwareInformationPage());
           },
         ),
       ],

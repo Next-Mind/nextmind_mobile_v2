@@ -302,4 +302,44 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get settingsLegalInformationDetailPrivacyPolicyContent =>
       'Coletamos e utilizamos suas informações pessoais apenas quando necessário para fornecer e melhorar nossos serviços.\n\nSeus dados são tratados com segurança e não são compartilhados com terceiros sem sua permissão, exceto quando exigido por lei.\n\nVocê pode, a qualquer momento, solicitar a exclusão ou alteração dos seus dados, conforme previsto na Lei Geral de Proteção de Dados (LGPD).';
+
+  @override
+  String get chatAppBarTitle => 'Mensagens';
+
+  @override
+  String get chatSearchHint => 'Pesquisar...';
+
+  @override
+  String get chatAddButton => 'Adicionar';
+
+  @override
+  String get chatEditNameTitle => 'Editar Nome';
+
+  @override
+  String get chatNameLabel => 'Nome';
+
+  @override
+  String get chatCancel => 'Cancelar';
+
+  @override
+  String get chatSave => 'Salvar';
+
+  @override
+  String get chatEmptyTitle => 'Você ainda não tem conversas.';
+
+  @override
+  String get chatEmptySubtitle => 'Adicione contatos para começar a conversar.';
+
+  @override
+  String get chatEmptyAddContact => 'Adicionar contato';
+
+  @override
+  String get chatConfirm => 'Confirmar';
+
+  @override
+  String get chatConfirmDeleteMessage =>
+      'Tem certeza que deseja excluir este contato?';
+
+  @override
+  String get chatDelete => 'Excluir';
 }

@@ -625,6 +625,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'We collect and use your personal information only when necessary to provide and improve our services.\n\nYour data is handled securely and is not shared with third parties without your permission, except when required by law.\n\nYou may request deletion or modification of your data at any time, as provided for by the Brazilian General Data Protection Law (LGPD).'**
   String get settingsLegalInformationDetailPrivacyPolicyContent;
+
+  /// AppBar title for the contacts/conversations list
+  ///
+  /// In en, this message translates to:
+  /// **'Messages'**
+  String get chatAppBarTitle;
+
+  /// Placeholder for the search text field
+  ///
+  /// In en, this message translates to:
+  /// **'Search...'**
+  String get chatSearchHint;
+
+  /// Button to add a new contact in the dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get chatAddButton;
+
+  /// Dialog title to edit the contact name
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Name'**
+  String get chatEditNameTitle;
+
+  /// Label for the name text field
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get chatNameLabel;
+
+  /// Label for cancel buttons in dialogs
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get chatCancel;
+
+  /// Label for save buttons in dialogs
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get chatSave;
+
+  /// Empty state title when there are no conversations
+  ///
+  /// In en, this message translates to:
+  /// **'You don’t have any conversations yet.'**
+  String get chatEmptyTitle;
+
+  /// Empty state subtitle guiding the user
+  ///
+  /// In en, this message translates to:
+  /// **'Add contacts to start chatting.'**
+  String get chatEmptySubtitle;
+
+  /// Button to add a contact in the empty state
+  ///
+  /// In en, this message translates to:
+  /// **'Add contact'**
+  String get chatEmptyAddContact;
+
+  /// Generic confirmation dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get chatConfirm;
+
+  /// Confirmation message for deleting a contact
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this contact?'**
+  String get chatConfirmDeleteMessage;
+
+  /// Label for delete buttons
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get chatDelete;
 }
 
 class _AppLocalizationsDelegate

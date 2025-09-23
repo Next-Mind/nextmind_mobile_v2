@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:nextmind_mobile_v2/config/dependencies.dart';
 import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/viewmodels/user_account_viewmodel.dart';
-import 'package:nextmind_mobile_v2/ui/app/settings/widgets/settings_info_item_widget.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/widgets/user_account_page/user_account_profile_section_widget.dart';
 import 'package:nextmind_mobile_v2/ui/auth/widgets/sign_out/sign_out_button.dart';
 import 'package:nextmind_mobile_v2/ui/core/dimens.dart';

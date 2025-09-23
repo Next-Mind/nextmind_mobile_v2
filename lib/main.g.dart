@@ -42,16 +42,58 @@ List<RouteEntity> get routes => [
     routeBuilder: b7Builder,
   ),
   RouteEntity(
+    key: '/app/settings/legal_information',
+    parent: '/app',
+    uri: Uri.parse('/app/settings/legal_information'),
+    routeBuilder: b8Builder,
+  ),
+  RouteEntity(
+    key: '/app/settings/security',
+    parent: '/app',
+    uri: Uri.parse('/app/settings/security'),
+    routeBuilder: b9Builder,
+  ),
+  RouteEntity(
+    key: '/app/settings/software_information',
+    parent: '/app',
+    uri: Uri.parse('/app/settings/software_information'),
+    routeBuilder: b10Builder,
+  ),
+  RouteEntity(
+    key: '/app/settings/help_central',
+    parent: '/app',
+    uri: Uri.parse('/app/settings/help_central'),
+    routeBuilder: b11Builder,
+  ),
+  RouteEntity(
+    key: '/app/settings/feedback',
+    parent: '/app',
+    uri: Uri.parse('/app/settings/feedback'),
+    routeBuilder: b12Builder,
+  ),
+  RouteEntity(
+    key: '/app/settings/notifications',
+    parent: '/app',
+    uri: Uri.parse('/app/settings/notifications'),
+    routeBuilder: b13Builder,
+  ),
+  RouteEntity(
     key: '/app/settings/language',
     parent: '/app',
     uri: Uri.parse('/app/settings/language'),
-    routeBuilder: b8Builder,
+    routeBuilder: b14Builder,
   ),
   RouteEntity(
     key: '/app/settings',
     parent: '/app',
     uri: Uri.parse('/app/settings'),
-    routeBuilder: b9Builder,
+    routeBuilder: b15Builder,
+  ),
+  RouteEntity(
+    key: '/app/chat',
+    parent: '/app',
+    uri: Uri.parse('/app/chat'),
+    routeBuilder: b16Builder,
   ),
 ];
 
@@ -71,7 +113,14 @@ const routePaths = (
     settings: (
       path: '/app/settings',
       userAccount: '/app/settings/user_account',
+      legalInformation: '/app/settings/legal_information',
+      security: '/app/settings/security',
+      softwareInformation: '/app/settings/software_information',
+      helpCentral: '/app/settings/help_central',
+      feedback: '/app/settings/feedback',
+      notifications: '/app/settings/notifications',
       language: '/app/settings/language',
     ),
+    chat: '/app/chat',
   ),
 );

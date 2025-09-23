@@ -336,5 +336,57 @@
   "settingsLegalInformationDetailPrivacyPolicyContent": "Coletamos e utilizamos suas informações pessoais apenas quando necessário para fornecer e melhorar nossos serviços.\n\nSeus dados são tratados com segurança e não são compartilhados com terceiros sem sua permissão, exceto quando exigido por lei.\n\nVocê pode, a qualquer momento, solicitar a exclusão ou alteração dos seus dados, conforme previsto na Lei Geral de Proteção de Dados (LGPD).",
   "@settingsLegalInformationDetailPrivacyPolicyContent": {
     "description": "Conteúdo da página de Política de Privacidade"
+  },
+  "chatAppBarTitle": "Mensagens",
+  "@chatAppBarTitle": {
+    "description": "Título da AppBar da lista de contatos/conversas"
+  },
+  "chatSearchHint": "Pesquisar...",
+  "@chatSearchHint": {
+    "description": "Placeholder do campo de busca"
+  },
+  "chatAddButton": "Adicionar",
+  "@chatAddButton": {
+    "description": "Botão para adicionar novo contato no diálogo"
+  },
+  "chatEditNameTitle": "Editar Nome",
+  "@chatEditNameTitle": {
+    "description": "Título do diálogo para editar o nome do contato"
+  },
+  "chatNameLabel": "Nome",
+  "@chatNameLabel": {
+    "description": "Rótulo do campo de texto para nome"
+  },
+  "chatCancel": "Cancelar",
+  "@chatCancel": {
+    "description": "Rótulo do botão de cancelar em diálogos"
+  },
+  "chatSave": "Salvar",
+  "@chatSave": {
+    "description": "Rótulo do botão de salvar em diálogos"
+  },
+  "chatEmptyTitle": "Você ainda não tem conversas.",
+  "@chatEmptyTitle": {
+    "description": "Título do estado vazio quando não há conversas"
+  },
+  "chatEmptySubtitle": "Adicione contatos para começar a conversar.",
+  "@chatEmptySubtitle": {
+    "description": "Subtítulo do estado vazio com orientação ao usuário"
+  },
+  "chatEmptyAddContact": "Adicionar contato",
+  "@chatEmptyAddContact": {
+    "description": "Botão para adicionar contato no estado vazio"
+  },
+  "chatConfirm": "Confirmar",
+  "@chatConfirm": {
+    "description": "Título de diálogo de confirmação genérico"
+  },
+  "chatConfirmDeleteMessage": "Tem certeza que deseja excluir este contato?",
+  "@chatConfirmDeleteMessage": {
+    "description": "Mensagem de confirmação para exclusão de contato"
+  },
+  "chatDelete": "Excluir",
+  "@chatDelete": {
+    "description": "Rótulo do botão de excluir"
   }
 }

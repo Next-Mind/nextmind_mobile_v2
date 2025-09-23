@@ -4,10 +4,17 @@ import 'package:flutter/widgets.dart';
 import 'package:routefly/routefly.dart';
 
 import 'ui/app/app_layout.dart' as a6;
+import 'ui/app/chat/chat_page.dart' as a16;
 import 'ui/app/home/home_page.dart' as a5;
-import 'ui/app/settings/(pages)/language_page.dart' as a8;
+import 'ui/app/settings/(pages)/feedback_page.dart' as a12;
+import 'ui/app/settings/(pages)/help_central_page.dart' as a11;
+import 'ui/app/settings/(pages)/language_page.dart' as a14;
+import 'ui/app/settings/(pages)/legal_information_page.dart' as a8;
+import 'ui/app/settings/(pages)/notifications_page.dart' as a13;
+import 'ui/app/settings/(pages)/security_page.dart' as a9;
+import 'ui/app/settings/(pages)/software_information_page.dart' as a10;
 import 'ui/app/settings/(pages)/user_account_page.dart' as a7;
-import 'ui/app/settings/settings_page.dart' as a9;
+import 'ui/app/settings/settings_page.dart' as a15;
 import 'ui/auth/(sign_in)/forgot_password_page.dart' as a3;
 import 'ui/auth/(sign_in)/signin_page.dart' as a2;
 import 'ui/auth/(sign_up)/signup_page.dart' as a1;
@@ -31,6 +38,28 @@ Route b6Builder(BuildContext ctx, RouteSettings settings) =>
 Route b7Builder(BuildContext ctx, RouteSettings settings) =>
     Routefly.defaultRouteBuilder(ctx, settings, const a7.UserAccountPage());
 Route b8Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a8.LanguagePage());
+    Routefly.defaultRouteBuilder(
+      ctx,
+      settings,
+      const a8.LegalInformationPage(),
+    );
 Route b9Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a9.SettingsPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a9.SecurityPage());
+Route b10Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(
+      ctx,
+      settings,
+      const a10.SoftwareInformationPage(),
+    );
+Route b11Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a11.HelpCentralPage());
+Route b12Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a12.FeedbackPage());
+Route b13Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a13.NotificationsPage());
+Route b14Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a14.LanguagePage());
+Route b15Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a15.SettingsPage());
+Route b16Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a16.ChatPage());

@@ -363,5 +363,57 @@
     "settingsLegalInformationDetailPrivacyPolicyContent": "We collect and use your personal information only when necessary to provide and improve our services.\n\nYour data is handled securely and is not shared with third parties without your permission, except when required by law.\n\nYou may request deletion or modification of your data at any time, as provided for by the Brazilian General Data Protection Law (LGPD).",
     "@settingsLegalInformationDetailPrivacyPolicyContent": {
         "description": "Detail content for Privacy Policy"
+    },
+    "chatAppBarTitle": "Messages",
+    "@chatAppBarTitle": {
+        "description": "AppBar title for the contacts/conversations list"
+    },
+    "chatSearchHint": "Search...",
+    "@chatSearchHint": {
+        "description": "Placeholder for the search text field"
+    },
+    "chatAddButton": "Add",
+    "@chatAddButton": {
+        "description": "Button to add a new contact in the dialog"
+    },
+    "chatEditNameTitle": "Edit Name",
+    "@chatEditNameTitle": {
+        "description": "Dialog title to edit the contact name"
+    },
+    "chatNameLabel": "Name",
+    "@chatNameLabel": {
+        "description": "Label for the name text field"
+    },
+    "chatCancel": "Cancel",
+    "@chatCancel": {
+        "description": "Label for cancel buttons in dialogs"
+    },
+    "chatSave": "Save",
+    "@chatSave": {
+        "description": "Label for save buttons in dialogs"
+    },
+    "chatEmptyTitle": "You don’t have any conversations yet.",
+    "@chatEmptyTitle": {
+        "description": "Empty state title when there are no conversations"
+    },
+    "chatEmptySubtitle": "Add contacts to start chatting.",
+    "@chatEmptySubtitle": {
+        "description": "Empty state subtitle guiding the user"
+    },
+    "chatEmptyAddContact": "Add contact",
+    "@chatEmptyAddContact": {
+        "description": "Button to add a contact in the empty state"
+    },
+    "chatConfirm": "Confirm",
+    "@chatConfirm": {
+        "description": "Generic confirmation dialog title"
+    },
+    "chatConfirmDeleteMessage": "Are you sure you want to delete this contact?",
+    "@chatConfirmDeleteMessage": {
+        "description": "Confirmation message for deleting a contact"
+    },
+    "chatDelete": "Delete",
+    "@chatDelete": {
+        "description": "Label for delete buttons"
     }
 }

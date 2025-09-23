@@ -296,4 +296,44 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get settingsLegalInformationDetailPrivacyPolicyContent =>
       'We collect and use your personal information only when necessary to provide and improve our services.\n\nYour data is handled securely and is not shared with third parties without your permission, except when required by law.\n\nYou may request deletion or modification of your data at any time, as provided for by the Brazilian General Data Protection Law (LGPD).';
+
+  @override
+  String get chatAppBarTitle => 'Messages';
+
+  @override
+  String get chatSearchHint => 'Search...';
+
+  @override
+  String get chatAddButton => 'Add';
+
+  @override
+  String get chatEditNameTitle => 'Edit Name';
+
+  @override
+  String get chatNameLabel => 'Name';
+
+  @override
+  String get chatCancel => 'Cancel';
+
+  @override
+  String get chatSave => 'Save';
+
+  @override
+  String get chatEmptyTitle => 'You don’t have any conversations yet.';
+
+  @override
+  String get chatEmptySubtitle => 'Add contacts to start chatting.';
+
+  @override
+  String get chatEmptyAddContact => 'Add contact';
+
+  @override
+  String get chatConfirm => 'Confirm';
+
+  @override
+  String get chatConfirmDeleteMessage =>
+      'Are you sure you want to delete this contact?';
+
+  @override
+  String get chatDelete => 'Delete';
 }

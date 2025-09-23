@@ -4,7 +4,7 @@ import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
 import 'package:nextmind_mobile_v2/ui/app/widgets/viewmodels/bottom_navbar_viewmodel.dart';
 
 class BottomNavbar extends StatefulWidget {
-  BottomNavbar({super.key});
+  const BottomNavbar({super.key});
 
   @override
   State<BottomNavbar> createState() => _BottomNavbarState();
