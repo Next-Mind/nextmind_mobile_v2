@@ -376,4 +376,45 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get fieldNotEmpty => 'Este campo não pode ficar vazio';
+
+  @override
+  String get appointmentsTitle => 'Consultas';
+
+  @override
+  String get categoriesLabel => 'Categorias';
+
+  @override
+  String get doctorsLabel => 'Todos os Médicos';
+
+  @override
+  String get seeAllLabel => 'Ver todos';
+
+  @override
+  String get bookNowLabel => 'Agendar';
+
+  @override
+  String get banner1Title => 'Centro Médico';
+
+  @override
+  String get banner1Subtitle =>
+      'Agende com profissionais qualificados e receba atendimento rápido.';
+
+  @override
+  String get banner2Title => 'Cuide de você';
+
+  @override
+  String get banner2Subtitle =>
+      'Teleconsulta disponível 24h com especialistas.';
+
+  @override
+  String get doctorLabel => 'Dr.';
+
+  @override
+  String get specialtyCardio => 'Cardiologista';
+
+  @override
+  String get doctorScheduleDescription => 'Atende seg. a sex. – 09h às 18h';
+
+  @override
+  String get accountAppointmentHistory => 'Histórico de consultas';
 }

@@ -449,7 +449,7 @@ abstract class AppLocalizations {
   /// Item to open the change password screen
   ///
   /// In en, this message translates to:
-  /// **'Change account password'**
+  /// **'Change Password'**
   String get settingsSecurityChangePassword;
 
   /// Section title for application settings
@@ -769,6 +769,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This field can’t be empty'**
   String get fieldNotEmpty;
+
+  /// AppBar title of the appointments screen
+  ///
+  /// In en, this message translates to:
+  /// **'Appointments'**
+  String get appointmentsTitle;
+
+  /// Section title for categories
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get categoriesLabel;
+
+  /// Section title for doctor list
+  ///
+  /// In en, this message translates to:
+  /// **'All Doctors'**
+  String get doctorsLabel;
+
+  /// Label for the button/link to view all items in a section
+  ///
+  /// In en, this message translates to:
+  /// **'See All'**
+  String get seeAllLabel;
+
+  /// Label for the button to start booking/appointment
+  ///
+  /// In en, this message translates to:
+  /// **'Book'**
+  String get bookNowLabel;
+
+  /// Title of the first banner in the carousel
+  ///
+  /// In en, this message translates to:
+  /// **'Medical Center'**
+  String get banner1Title;
+
+  /// Subtitle of the first banner
+  ///
+  /// In en, this message translates to:
+  /// **'Book with qualified professionals and receive fast care.'**
+  String get banner1Subtitle;
+
+  /// Title of the second banner in the carousel
+  ///
+  /// In en, this message translates to:
+  /// **'Take care of yourself'**
+  String get banner2Title;
+
+  /// Subtitle of the second banner
+  ///
+  /// In en, this message translates to:
+  /// **'Teleconsultation available 24/7 with specialists.'**
+  String get banner2Subtitle;
+
+  /// Prefix displayed before the doctor's name
+  ///
+  /// In en, this message translates to:
+  /// **'Dr.'**
+  String get doctorLabel;
+
+  /// Name of the cardiology specialty
+  ///
+  /// In en, this message translates to:
+  /// **'Cardiologist'**
+  String get specialtyCardio;
+
+  /// Availability/working hours line for doctor card
+  ///
+  /// In en, this message translates to:
+  /// **'Available Mon-Fri – 9am to 6pm'**
+  String get doctorScheduleDescription;
+
+  /// Label for the item that opens the user's appointment history
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment History'**
+  String get accountAppointmentHistory;
 }
 
 class _AppLocalizationsDelegate

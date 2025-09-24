@@ -471,5 +471,61 @@
     "fieldNotEmpty": "This field can’t be empty",
     "@fieldNotEmpty": {
         "description": "Validation message for required fields"
+    },
+    "appointmentsTitle": "Appointments",
+    "@appointmentsTitle": {
+        "description": "AppBar title of the appointments screen"
+    },
+    "categoriesLabel": "Categories",
+    "@categoriesLabel": {
+        "description": "Section title for categories"
+    },
+    "doctorsLabel": "All Doctors",
+    "@doctorsLabel": {
+        "description": "Section title for doctor list"
+    },
+    "seeAllLabel": "See All",
+    "@seeAllLabel": {
+        "description": "Label for the button/link to view all items in a section"
+    },
+    "bookNowLabel": "Book",
+    "@bookNowLabel": {
+        "description": "Label for the button to start booking/appointment"
+    },
+    "banner1Title": "Medical Center",
+    "@banner1Title": {
+        "description": "Title of the first banner in the carousel"
+    },
+    "banner1Subtitle": "Book with qualified professionals and receive fast care.",
+    "@banner1Subtitle": {
+        "description": "Subtitle of the first banner"
+    },
+    "banner2Title": "Take care of yourself",
+    "@banner2Title": {
+        "description": "Title of the second banner in the carousel"
+    },
+    "banner2Subtitle": "Teleconsultation available 24/7 with specialists.",
+    "@banner2Subtitle": {
+        "description": "Subtitle of the second banner"
+    },
+    "doctorLabel": "Dr.",
+    "@doctorLabel": {
+        "description": "Prefix displayed before the doctor's name"
+    },
+    "specialtyCardio": "Cardiologist",
+    "@specialtyCardio": {
+        "description": "Name of the cardiology specialty"
+    },
+    "doctorScheduleDescription": "Available Mon-Fri – 9am to 6pm",
+    "@doctorScheduleDescription": {
+        "description": "Availability/working hours line for doctor card"
+    },
+    "accountAppointmentHistory": "Appointment History",
+    "@accountAppointmentHistory": {
+        "description": "Label for the item that opens the user's appointment history"
+    },
+    "settingsSecurityChangePassword": "Change Password",
+    "@settingsSecurityChangePassword": {
+        "description": "Item to open the change password screen"
     }
 }

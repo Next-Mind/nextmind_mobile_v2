@@ -195,7 +195,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsSecurityTitle => 'Security';
 
   @override
-  String get settingsSecurityChangePassword => 'Change account password';
+  String get settingsSecurityChangePassword => 'Change Password';
 
   @override
   String get settingsSecuritySectionApp => 'App Settings';
@@ -370,4 +370,45 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get fieldNotEmpty => 'This field can’t be empty';
+
+  @override
+  String get appointmentsTitle => 'Appointments';
+
+  @override
+  String get categoriesLabel => 'Categories';
+
+  @override
+  String get doctorsLabel => 'All Doctors';
+
+  @override
+  String get seeAllLabel => 'See All';
+
+  @override
+  String get bookNowLabel => 'Book';
+
+  @override
+  String get banner1Title => 'Medical Center';
+
+  @override
+  String get banner1Subtitle =>
+      'Book with qualified professionals and receive fast care.';
+
+  @override
+  String get banner2Title => 'Take care of yourself';
+
+  @override
+  String get banner2Subtitle =>
+      'Teleconsultation available 24/7 with specialists.';
+
+  @override
+  String get doctorLabel => 'Dr.';
+
+  @override
+  String get specialtyCardio => 'Cardiologist';
+
+  @override
+  String get doctorScheduleDescription => 'Available Mon-Fri – 9am to 6pm';
+
+  @override
+  String get accountAppointmentHistory => 'Appointment History';
 }

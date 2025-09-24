@@ -432,5 +432,61 @@
   "fieldNotEmpty": "Este campo não pode ficar vazio",
   "@fieldNotEmpty": {
     "description": "Mensagem de validação para campos obrigatórios"
+  },
+  "appointmentsTitle": "Consultas",
+  "@appointmentsTitle": {
+    "description": "Título da AppBar da tela de consultas"
+  },
+  "categoriesLabel": "Categorias",
+  "@categoriesLabel": {
+    "description": "Título da seção de categorias"
+  },
+  "doctorsLabel": "Todos os Médicos",
+  "@doctorsLabel": {
+    "description": "Título da seção de lista de médicos"
+  },
+  "seeAllLabel": "Ver todos",
+  "@seeAllLabel": {
+    "description": "Rótulo do botão/link para ver todos os itens de uma seção"
+  },
+  "bookNowLabel": "Agendar",
+  "@bookNowLabel": {
+    "description": "Rótulo do botão para iniciar agendamento/consulta"
+  },
+  "banner1Title": "Centro Médico",
+  "@banner1Title": {
+    "description": "Título do primeiro banner do carrossel"
+  },
+  "banner1Subtitle": "Agende com profissionais qualificados e receba atendimento rápido.",
+  "@banner1Subtitle": {
+    "description": "Subtítulo do primeiro banner"
+  },
+  "banner2Title": "Cuide de você",
+  "@banner2Title": {
+    "description": "Título do segundo banner do carrossel"
+  },
+  "banner2Subtitle": "Teleconsulta disponível 24h com especialistas.",
+  "@banner2Subtitle": {
+    "description": "Subtítulo do segundo banner"
+  },
+  "doctorLabel": "Dr.",
+  "@doctorLabel": {
+    "description": "Prefixo exibido antes do nome do médico"
+  },
+  "specialtyCardio": "Cardiologista",
+  "@specialtyCardio": {
+    "description": "Nome da especialidade de cardiologia"
+  },
+  "doctorScheduleDescription": "Atende seg. a sex. – 09h às 18h",
+  "@doctorScheduleDescription": {
+    "description": "Linha de disponibilidade/expediente para card do médico"
+  },
+  "accountAppointmentHistory": "Histórico de consultas",
+  "@accountAppointmentHistory": {
+    "description": "Rótulo para item que abre o histórico de consultas do usuário"
+  },
+  "settingsSecurityChangePassword": "Alterar a senha da conta",
+  "@settingsSecurityChangePassword": {
+    "description": "Item para abrir a tela de alteração de senha"
   }
 }

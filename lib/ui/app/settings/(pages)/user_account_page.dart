@@ -3,9 +3,10 @@ import 'package:nextmind_mobile_v2/config/dependencies.dart';
 import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/viewmodels/user_account_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/widgets/user_account_page/user_account_profile_section_widget.dart';
+import 'package:nextmind_mobile_v2/ui/app/settings/widgets/user_account_page/profile_action_tile.dart';
+import 'package:nextmind_mobile_v2/ui/app/settings/widgets/user_account_page/profile_header.dart';
 import 'package:nextmind_mobile_v2/ui/auth/widgets/sign_out/sign_out_button.dart';
 import 'package:nextmind_mobile_v2/ui/core/dimens.dart';
-import 'package:nextmind_mobile_v2/ui/core/widgets/user_avatar/user_avatar_widget.dart';
 import 'package:result_command/result_command.dart';
 
 class UserAccountPage extends StatefulWidget {
@@ -20,16 +21,18 @@ class _UserAccountPageState extends State<UserAccountPage> {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.settingsUserAccountTitle),
+        title: Text(t.settingsUserAccountTitle),
         centerTitle: true,
       ),
       body: ListenableBuilder(
         listenable: viewModel.fetchUserCommand,
-        builder: (context, child) {
+        builder: (context, _) {
           return viewModel.fetchUserCommand.value is RunningCommand
-              ? Center(child: CircularProgressIndicator())
+              ? const Center(child: CircularProgressIndicator())
               : _buildUserAccountPage(context);
         },
       ),
@@ -37,85 +40,43 @@ class _UserAccountPageState extends State<UserAccountPage> {
   }
 
   Widget _buildUserAccountPage(BuildContext context) {
-    final user = viewModel.userLogged;
+    final t = AppLocalizations.of(context)!;
+    final scheme = Theme.of(context).colorScheme;
+
     return Padding(
       padding: const EdgeInsets.all(Dimens.mediumPadding),
       child: ListView(
         children: [
-          Center(
-            child: Stack(
-              children: [
-                UserAvatar(profileSize: 50), //
-                Positioned(
-                  bottom: 0,
-                  right: 0,
-                  child: CircleAvatar(
-                    backgroundColor: Theme.of(
-                      context,
-                    ).colorScheme.inverseSurface,
-                    radius: 16,
-                    child: Icon(
-                      Icons.edit,
-                      size: 18,
-                      color: Theme.of(context).colorScheme.outline,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+          ProfileHeader(
+            name: viewModel.userLogged.name,
+            email: viewModel.userLogged.email,
           ),
-          const SizedBox(height: Dimens.largePadding),
-          //revisar
-          Center(
-            child: Column(
-              children: [
-                Text(
-                  user.name,
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: Dimens.smallPadding),
-                Text(
-                  user.email,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.outline,
-                  ),
-                ),
-              ],
-            ),
-          ),
+
           const SizedBox(height: Dimens.extraLargePadding),
+
+          // Top 4 cards (existing widget)
           ProfileSection(viewModel: viewModel),
-          SignOutButton(),
-          // Text(
-          //   AppLocalizations.of(context)!.settingsUserAccountSectionProfileInfo,
-          //   style: Theme.of(
-          //     context,
-          //   ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
-          // ),
-          // const Divider(),
-          // SettingsInfoItem(title: "Nome", subtitle: user.name),
-          // const SizedBox(height: 10),
-          // InfoItem(title: "Data", subtitle: user.birthDate ?? 'Não informado'),
-          // const SizedBox(height: 10),
-          // InfoItem(title: "Email", subtitle: user.email),
-          // const SizedBox(height: 10),
-          // InfoItem(title: "RA", subtitle: user.profile ?? 'Não informado'),
-          // const SizedBox(height: 30),
-          // Center(
-          //   child: TextButton.icon(
-          //     onPressed: viewModel.logout,
-          //     icon: Icon(
-          //       Icons.logout,
-          //       color: Theme.of(context).colorScheme.error,
-          //     ),
-          //     label: Text(
-          //       'Sair da Conta',
-          //       style: TextStyle(color: Theme.of(context).colorScheme.error),
-          //     ),
-          //   ),
-          // ),
+
+          const SizedBox(height: Dimens.largePadding),
+
+          // Lower options
+          ProfileActionTile(
+            icon: Icons.lock_outline,
+            title: t.settingsSecurityChangePassword,
+            backgroundColor: scheme.surfaceContainerHigh,
+            iconBackgroundColor: scheme.secondary.withAlpha(15),
+          ),
+          const SizedBox(height: Dimens.mediumPadding),
+          ProfileActionTile(
+            icon: Icons.history,
+            title: t.accountAppointmentHistory,
+            backgroundColor: scheme.surfaceContainerHigh,
+            iconBackgroundColor: scheme.primary.withAlpha(12),
+          ),
+
+          const SizedBox(height: Dimens.extraLargePadding),
+
+          const SignOutButton(),
         ],
       ),
     );

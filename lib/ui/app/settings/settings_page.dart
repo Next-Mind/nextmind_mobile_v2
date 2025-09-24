@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nextmind_mobile_v2/config/dependencies.dart';
 import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
+import 'package:nextmind_mobile_v2/main_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/feedback_page.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/help_central_page.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/(pages)/language_page.dart';
@@ -26,6 +27,7 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   final viewModel = injector.get<SettingsViewmodel>();
+  final mainViewModel = injector.get<MainViewmodel>();
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +83,7 @@ class _SettingsPageState extends State<SettingsPage> {
           icon: Icons.dark_mode_outlined,
           text: AppLocalizations.of(context)!.settingsLabelDarkMode,
           value: false,
-          onChanged: (val) {}, //
+          onChanged: (value) {}, //
         ),
         SizedBox(height: Dimens.mediumPadding),
         SettingsItem(
