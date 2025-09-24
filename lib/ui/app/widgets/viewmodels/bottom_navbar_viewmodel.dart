@@ -23,7 +23,7 @@ class BottomNavbarViewmodel extends ChangeNotifier {
         Routefly.navigate(routePaths.app.home);
         break;
       case 1:
-        Routefly.navigate(routePaths.app.home);
+        Routefly.navigate(routePaths.app.appointments.appointmentHome);
         break;
       case 2:
         Routefly.navigate(routePaths.app.chat.path);

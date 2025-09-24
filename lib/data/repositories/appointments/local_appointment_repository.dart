@@ -2,6 +2,7 @@ import 'package:nextmind_mobile_v2/data/repositories/appointments/appointment_re
 import 'package:nextmind_mobile_v2/data/services/appointment/appointment_local_storage.dart';
 import 'package:nextmind_mobile_v2/domain/models/appointments/appointment.dart';
 import 'package:nextmind_mobile_v2/domain/models/appointments/availability.dart';
+import 'package:nextmind_mobile_v2/domain/models/appointments/category.dart';
 import 'package:result_dart/result_dart.dart';
 
 class LocalAppointmentRepository implements AppointmentRepository {
@@ -36,5 +37,10 @@ class LocalAppointmentRepository implements AppointmentRepository {
   ) {
     // TODO: implement scheduleAppointment
     throw UnimplementedError();
+  }
+
+  @override
+  AsyncResult<List<Category>> fetchCategories() async {
+    return _localStorage.fetchCategories();
   }
 }

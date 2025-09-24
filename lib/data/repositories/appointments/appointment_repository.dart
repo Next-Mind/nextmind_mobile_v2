@@ -1,5 +1,6 @@
 import 'package:nextmind_mobile_v2/domain/models/appointments/appointment.dart';
 import 'package:nextmind_mobile_v2/domain/models/appointments/availability.dart';
+import 'package:nextmind_mobile_v2/domain/models/appointments/category.dart';
 import 'package:result_dart/result_dart.dart';
 
 abstract interface class AppointmentRepository {
@@ -14,4 +15,6 @@ abstract interface class AppointmentRepository {
   AsyncResult<Unit> scheduleAppointment(int availabilityId, String description);
 
   AsyncResult<Appointment> fetchNextAppointment();
+
+  AsyncResult<List<Category>> fetchCategories();
 }

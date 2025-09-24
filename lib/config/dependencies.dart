@@ -18,6 +18,7 @@ import 'package:nextmind_mobile_v2/data/services/contact/contact_local_storage.d
 import 'package:nextmind_mobile_v2/data/services/local_storage.dart';
 import 'package:nextmind_mobile_v2/data/services/post/post_client_http.dart';
 import 'package:nextmind_mobile_v2/main_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/app/appointments/viewmodels/appointment_categories_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/chat/viewmodels/chat_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/chat/viewmodels/contact_search_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/home_viewmodel.dart';
@@ -87,6 +88,8 @@ void setupDependencies() {
   injector.addLazySingleton<ContactRepository>(ContactRepositoryLocal.new);
   injector.addLazySingleton(ChatViewmodel.new);
   injector.addLazySingleton(ContactSearchViewmodel.new);
+
+  injector.addLazySingleton(AppointmentCategoriesViewmodel.new);
 
   injector.commit();
 }
