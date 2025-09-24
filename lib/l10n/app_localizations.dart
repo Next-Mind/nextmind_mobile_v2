@@ -632,7 +632,7 @@ abstract class AppLocalizations {
   /// **'Messages'**
   String get chatAppBarTitle;
 
-  /// Placeholder for the search text field
+  /// Hint text for the chat contacts search field
   ///
   /// In en, this message translates to:
   /// **'Search...'**
@@ -668,13 +668,13 @@ abstract class AppLocalizations {
   /// **'Save'**
   String get chatSave;
 
-  /// Empty state title when there are no conversations
+  /// Title shown when there are no chat contacts/conversations
   ///
   /// In en, this message translates to:
   /// **'You don’t have any conversations yet.'**
   String get chatEmptyTitle;
 
-  /// Empty state subtitle guiding the user
+  /// Subtitle for the empty chat state
   ///
   /// In en, this message translates to:
   /// **'Add contacts to start chatting.'**
@@ -703,6 +703,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete'**
   String get chatDelete;
+
+  /// CTA button label in the empty chat state
+  ///
+  /// In en, this message translates to:
+  /// **'Add contact'**
+  String get chatEmptyCta;
+
+  /// Generic error message label
+  ///
+  /// In en, this message translates to:
+  /// **'An error has occurred'**
+  String get genericErrorLabel;
+
+  /// Button label to retry or reload content
+  ///
+  /// In en, this message translates to:
+  /// **'Reload'**
+  String get reloadLabel;
+
+  /// Dialog title for editing a contact name
+  ///
+  /// In en, this message translates to:
+  /// **'Edit name'**
+  String get chatEditTitle;
+
+  /// Text field label inside the edit contact dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get chatEditFieldLabel;
+
+  /// Generic confirm action label
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get confirmLabel;
+
+  /// Confirmation message shown before deleting a contact
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this contact?'**
+  String get chatDeleteConfirm;
+
+  /// Generic cancel action label
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancelLabel;
+
+  /// Generic save action label
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get saveLabel;
+
+  /// Generic delete action label
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get deleteLabel;
+
+  /// Validation message for required fields
+  ///
+  /// In en, this message translates to:
+  /// **'This field can’t be empty'**
+  String get fieldNotEmpty;
 }
 
 class _AppLocalizationsDelegate

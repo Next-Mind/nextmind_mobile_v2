@@ -5,7 +5,7 @@ import 'package:nextmind_mobile_v2/data/repositories/appointments/local_appointm
 import 'package:nextmind_mobile_v2/data/repositories/auth/auth_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/auth/remote_auth_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/contact/contact_repository.dart';
-import 'package:nextmind_mobile_v2/data/repositories/contact/remote_contact_repository.dart';
+import 'package:nextmind_mobile_v2/data/repositories/contact/local_contact_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/posts/posts_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/posts/remote_posts_repository.dart';
 import 'package:nextmind_mobile_v2/data/services/appointment/appointment_local_storage.dart';
@@ -14,10 +14,12 @@ import 'package:nextmind_mobile_v2/data/services/auth/auth_local_storage.dart';
 import 'package:nextmind_mobile_v2/data/services/auth/auth_service.dart';
 import 'package:nextmind_mobile_v2/data/services/client_http.dart';
 import 'package:nextmind_mobile_v2/data/services/contact/contact_client_http.dart';
+import 'package:nextmind_mobile_v2/data/services/contact/contact_local_storage.dart';
 import 'package:nextmind_mobile_v2/data/services/local_storage.dart';
 import 'package:nextmind_mobile_v2/data/services/post/post_client_http.dart';
 import 'package:nextmind_mobile_v2/main_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/chat/viewmodels/chat_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/app/chat/viewmodels/contact_search_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/home_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/linear_calendar_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/next_appointment_viewmodel.dart';
@@ -81,8 +83,10 @@ void setupDependencies() {
   injector.addLazySingleton(FeedbackViewmodel.new);
 
   injector.addLazySingleton(ContactClientHttp.new);
-  injector.addLazySingleton<ContactRepository>(RemoteContactRepository.new);
+  injector.addLazySingleton(ContactLocalStorage.new);
+  injector.addLazySingleton<ContactRepository>(ContactRepositoryLocal.new);
   injector.addLazySingleton(ChatViewmodel.new);
+  injector.addLazySingleton(ContactSearchViewmodel.new);
 
   injector.commit();
 }

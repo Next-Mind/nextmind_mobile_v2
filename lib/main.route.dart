@@ -5,6 +5,7 @@ import 'package:routefly/routefly.dart';
 
 import 'ui/app/app_layout.dart' as a6;
 import 'ui/app/chat/chat_page.dart' as a16;
+import 'ui/app/chat/contact_search_page.dart' as a17;
 import 'ui/app/home/home_page.dart' as a5;
 import 'ui/app/settings/(pages)/feedback_page.dart' as a12;
 import 'ui/app/settings/(pages)/help_central_page.dart' as a11;
@@ -63,3 +64,5 @@ Route b15Builder(BuildContext ctx, RouteSettings settings) =>
     Routefly.defaultRouteBuilder(ctx, settings, const a15.SettingsPage());
 Route b16Builder(BuildContext ctx, RouteSettings settings) =>
     Routefly.defaultRouteBuilder(ctx, settings, const a16.ChatPage());
+Route b17Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a17.ContactSearchPage());

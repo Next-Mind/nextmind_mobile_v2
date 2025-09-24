@@ -415,5 +415,61 @@
     "chatDelete": "Delete",
     "@chatDelete": {
         "description": "Label for delete buttons"
+    },
+    "chatSearchHint": "Search...",
+    "@chatSearchHint": {
+        "description": "Hint text for the chat contacts search field"
+    },
+    "chatEmptyTitle": "You don’t have any conversations yet.",
+    "@chatEmptyTitle": {
+        "description": "Title shown when there are no chat contacts/conversations"
+    },
+    "chatEmptySubtitle": "Add contacts to start chatting.",
+    "@chatEmptySubtitle": {
+        "description": "Subtitle for the empty chat state"
+    },
+    "chatEmptyCta": "Add contact",
+    "@chatEmptyCta": {
+        "description": "CTA button label in the empty chat state"
+    },
+    "genericErrorLabel": "An error has occurred",
+    "@genericErrorLabel": {
+        "description": "Generic error message label"
+    },
+    "reloadLabel": "Reload",
+    "@reloadLabel": {
+        "description": "Button label to retry or reload content"
+    },
+    "chatEditTitle": "Edit name",
+    "@chatEditTitle": {
+        "description": "Dialog title for editing a contact name"
+    },
+    "chatEditFieldLabel": "Name",
+    "@chatEditFieldLabel": {
+        "description": "Text field label inside the edit contact dialog"
+    },
+    "confirmLabel": "Confirm",
+    "@confirmLabel": {
+        "description": "Generic confirm action label"
+    },
+    "chatDeleteConfirm": "Are you sure you want to delete this contact?",
+    "@chatDeleteConfirm": {
+        "description": "Confirmation message shown before deleting a contact"
+    },
+    "cancelLabel": "Cancel",
+    "@cancelLabel": {
+        "description": "Generic cancel action label"
+    },
+    "saveLabel": "Save",
+    "@saveLabel": {
+        "description": "Generic save action label"
+    },
+    "deleteLabel": "Delete",
+    "@deleteLabel": {
+        "description": "Generic delete action label"
+    },
+    "fieldNotEmpty": "This field can’t be empty",
+    "@fieldNotEmpty": {
+        "description": "Validation message for required fields"
     }
 }

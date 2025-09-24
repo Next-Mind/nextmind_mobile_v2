@@ -7,7 +7,11 @@ part 'contact.g.dart';
 @freezed
 sealed class Contact with _$Contact {
   @JsonSerializable(fieldRename: FieldRename.snake)
-  const factory Contact({required String id}) = _BaseContact;
+  const factory Contact({
+    required String id,
+    required String nickname,
+    required String photoUrl,
+  }) = _BaseContact;
 
   factory Contact.fromJson(Map<String, dynamic> json) =>
       _$ContactFromJson(json);

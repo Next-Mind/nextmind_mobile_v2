@@ -95,6 +95,12 @@ List<RouteEntity> get routes => [
     uri: Uri.parse('/app/chat'),
     routeBuilder: b16Builder,
   ),
+  RouteEntity(
+    key: '/app/chat/contact_search',
+    parent: '/app',
+    uri: Uri.parse('/app/chat/contact_search'),
+    routeBuilder: b17Builder,
+  ),
 ];
 
 const routePaths = (
@@ -121,6 +127,6 @@ const routePaths = (
       notifications: '/app/settings/notifications',
       language: '/app/settings/language',
     ),
-    chat: '/app/chat',
+    chat: (path: '/app/chat', contactSearch: '/app/chat/contact_search'),
   ),
 );

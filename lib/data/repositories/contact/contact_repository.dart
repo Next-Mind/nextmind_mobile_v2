@@ -4,9 +4,19 @@ import 'package:result_dart/result_dart.dart';
 abstract interface class ContactRepository {
   AsyncResult<List<Contact>> fetchContacts();
 
-  AsyncResult<Unit> addContact();
+  AsyncResult<Contact> getById(String id);
 
-  AsyncResult<Unit> deleteContact();
+  AsyncResult<Unit> addContact(Contact contact);
 
-  AsyncResult<Unit> updateContact(String id, String name);
+  AsyncResult<Unit> updateContact(
+    String id, {
+    String? nickname,
+    String? photoUrl,
+  });
+
+  AsyncResult<Unit> deleteContact(String id);
+
+  AsyncResult<Unit> upsert(Contact contact);
+
+  AsyncResult<Unit> clearAll();
 }

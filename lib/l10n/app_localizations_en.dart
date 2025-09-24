@@ -336,4 +336,38 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get chatDelete => 'Delete';
+
+  @override
+  String get chatEmptyCta => 'Add contact';
+
+  @override
+  String get genericErrorLabel => 'An error has occurred';
+
+  @override
+  String get reloadLabel => 'Reload';
+
+  @override
+  String get chatEditTitle => 'Edit name';
+
+  @override
+  String get chatEditFieldLabel => 'Name';
+
+  @override
+  String get confirmLabel => 'Confirm';
+
+  @override
+  String get chatDeleteConfirm =>
+      'Are you sure you want to delete this contact?';
+
+  @override
+  String get cancelLabel => 'Cancel';
+
+  @override
+  String get saveLabel => 'Save';
+
+  @override
+  String get deleteLabel => 'Delete';
+
+  @override
+  String get fieldNotEmpty => 'This field can’t be empty';
 }

@@ -22,7 +22,7 @@ Contact _$ContactFromJson(
 /// @nodoc
 mixin _$Contact implements DiagnosticableTreeMixin {
 
- String get id;
+ String get id; String get nickname; String get photoUrl;
 /// Create a copy of Contact
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -36,21 +36,21 @@ $ContactCopyWith<Contact> get copyWith => _$ContactCopyWithImpl<Contact>(this as
 void debugFillProperties(DiagnosticPropertiesBuilder properties) {
   properties
     ..add(DiagnosticsProperty('type', 'Contact'))
-    ..add(DiagnosticsProperty('id', id));
+    ..add(DiagnosticsProperty('id', id))..add(DiagnosticsProperty('nickname', nickname))..add(DiagnosticsProperty('photoUrl', photoUrl));
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Contact&&(identical(other.id, id) || other.id == id));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Contact&&(identical(other.id, id) || other.id == id)&&(identical(other.nickname, nickname) || other.nickname == nickname)&&(identical(other.photoUrl, photoUrl) || other.photoUrl == photoUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id);
+int get hashCode => Object.hash(runtimeType,id,nickname,photoUrl);
 
 @override
 String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'Contact(id: $id)';
+  return 'Contact(id: $id, nickname: $nickname, photoUrl: $photoUrl)';
 }
 
 
@@ -61,7 +61,7 @@ abstract mixin class $ContactCopyWith<$Res>  {
   factory $ContactCopyWith(Contact value, $Res Function(Contact) _then) = _$ContactCopyWithImpl;
 @useResult
 $Res call({
- String id
+ String id, String nickname, String photoUrl
 });
 
 
@@ -78,9 +78,11 @@ class _$ContactCopyWithImpl<$Res>
 
 /// Create a copy of Contact
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? nickname = null,Object? photoUrl = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,nickname: null == nickname ? _self.nickname : nickname // ignore: cast_nullable_to_non_nullable
+as String,photoUrl: null == photoUrl ? _self.photoUrl : photoUrl // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -163,10 +165,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String nickname,  String photoUrl)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _BaseContact() when $default != null:
-return $default(_that.id);case _:
+return $default(_that.id,_that.nickname,_that.photoUrl);case _:
   return orElse();
 
 }
@@ -184,10 +186,10 @@ return $default(_that.id);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String nickname,  String photoUrl)  $default,) {final _that = this;
 switch (_that) {
 case _BaseContact():
-return $default(_that.id);}
+return $default(_that.id,_that.nickname,_that.photoUrl);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -201,10 +203,10 @@ return $default(_that.id);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String nickname,  String photoUrl)?  $default,) {final _that = this;
 switch (_that) {
 case _BaseContact() when $default != null:
-return $default(_that.id);case _:
+return $default(_that.id,_that.nickname,_that.photoUrl);case _:
   return null;
 
 }
@@ -216,10 +218,12 @@ return $default(_that.id);case _:
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _BaseContact with DiagnosticableTreeMixin implements Contact {
-  const _BaseContact({required this.id});
+  const _BaseContact({required this.id, required this.nickname, required this.photoUrl});
   factory _BaseContact.fromJson(Map<String, dynamic> json) => _$BaseContactFromJson(json);
 
 @override final  String id;
+@override final  String nickname;
+@override final  String photoUrl;
 
 /// Create a copy of Contact
 /// with the given fields replaced by the non-null parameter values.
@@ -235,21 +239,21 @@ Map<String, dynamic> toJson() {
 void debugFillProperties(DiagnosticPropertiesBuilder properties) {
   properties
     ..add(DiagnosticsProperty('type', 'Contact'))
-    ..add(DiagnosticsProperty('id', id));
+    ..add(DiagnosticsProperty('id', id))..add(DiagnosticsProperty('nickname', nickname))..add(DiagnosticsProperty('photoUrl', photoUrl));
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BaseContact&&(identical(other.id, id) || other.id == id));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BaseContact&&(identical(other.id, id) || other.id == id)&&(identical(other.nickname, nickname) || other.nickname == nickname)&&(identical(other.photoUrl, photoUrl) || other.photoUrl == photoUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id);
+int get hashCode => Object.hash(runtimeType,id,nickname,photoUrl);
 
 @override
 String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'Contact(id: $id)';
+  return 'Contact(id: $id, nickname: $nickname, photoUrl: $photoUrl)';
 }
 
 
@@ -260,7 +264,7 @@ abstract mixin class _$BaseContactCopyWith<$Res> implements $ContactCopyWith<$Re
   factory _$BaseContactCopyWith(_BaseContact value, $Res Function(_BaseContact) _then) = __$BaseContactCopyWithImpl;
 @override @useResult
 $Res call({
- String id
+ String id, String nickname, String photoUrl
 });
 
 
@@ -277,9 +281,11 @@ class __$BaseContactCopyWithImpl<$Res>
 
 /// Create a copy of Contact
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? nickname = null,Object? photoUrl = null,}) {
   return _then(_BaseContact(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,nickname: null == nickname ? _self.nickname : nickname // ignore: cast_nullable_to_non_nullable
+as String,photoUrl: null == photoUrl ? _self.photoUrl : photoUrl // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

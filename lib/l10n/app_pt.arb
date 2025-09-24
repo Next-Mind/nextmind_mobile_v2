@@ -388,5 +388,49 @@
   "chatDelete": "Excluir",
   "@chatDelete": {
     "description": "Rótulo do botão de excluir"
+  },
+  "chatEmptyCta": "Adicionar contato",
+  "@chatEmptyCta": {
+    "description": "Rótulo do botão CTA no estado vazio do chat"
+  },
+  "genericErrorLabel": "Ocorreu um erro",
+  "@genericErrorLabel": {
+    "description": "Rótulo genérico de mensagem de erro"
+  },
+  "reloadLabel": "Recarregar",
+  "@reloadLabel": {
+    "description": "Rótulo do botão para tentar novamente/recarregar"
+  },
+  "chatEditTitle": "Editar nome",
+  "@chatEditTitle": {
+    "description": "Título do diálogo para editar o nome do contato"
+  },
+  "chatEditFieldLabel": "Nome",
+  "@chatEditFieldLabel": {
+    "description": "Rótulo do campo de texto no diálogo de edição do contato"
+  },
+  "confirmLabel": "Confirmar",
+  "@confirmLabel": {
+    "description": "Rótulo genérico para ação de confirmar"
+  },
+  "chatDeleteConfirm": "Tem certeza que deseja excluir este contato?",
+  "@chatDeleteConfirm": {
+    "description": "Mensagem de confirmação antes de excluir um contato"
+  },
+  "cancelLabel": "Cancelar",
+  "@cancelLabel": {
+    "description": "Rótulo genérico para ação de cancelar"
+  },
+  "saveLabel": "Salvar",
+  "@saveLabel": {
+    "description": "Rótulo genérico para ação de salvar"
+  },
+  "deleteLabel": "Excluir",
+  "@deleteLabel": {
+    "description": "Rótulo genérico para ação de excluir"
+  },
+  "fieldNotEmpty": "Este campo não pode ficar vazio",
+  "@fieldNotEmpty": {
+    "description": "Mensagem de validação para campos obrigatórios"
   }
 }
