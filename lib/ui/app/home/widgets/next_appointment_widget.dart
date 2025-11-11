@@ -5,6 +5,7 @@ import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/next_appointment_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/core/dimens.dart';
 import 'package:result_command/result_command.dart';
+import 'package:intl/intl.dart';
 
 class NextAppointmentWidget extends StatelessWidget {
   const NextAppointmentWidget({super.key});
@@ -62,13 +63,22 @@ Widget _buildNextAppointment(
 ) {
   final loc = AppLocalizations.of(context)!;
 
-  final String title = vm.hasNextAppointment
-      ? loc.nextAppointmentTitleUpcoming
+  final appointment = vm.nextAppointment;
+
+  final String title = appointment != null
+      ? appointment.psychologist?.name ?? loc.nextAppointmentTitleUpcoming
       : loc.nextAppointmentEmptyTitle;
 
-  final String dateText = vm.hasNextAppointment
-      ? loc.nextAppointmentDateRelative(vm.daysUntil ?? 0)
-      : '';
+  final String subtitle = appointment?.psychologist?.specialty ?? '';
+
+  final String dateText;
+  if (appointment != null) {
+    final locale = AppLocalizations.of(context)!.localeName;
+    final formatter = DateFormat("EEE, dd/MM 'às' HH:mm", locale);
+    dateText = formatter.format(appointment.scheduledAt.toLocal());
+  } else {
+    dateText = '';
+  }
 
   final String hint = vm.hasNextAppointment
       ? loc.nextAppointmentHint
@@ -86,18 +96,30 @@ Widget _buildNextAppointment(
           Text(
             title,
             style: const TextStyle(fontSize: 16, color: Colors.white),
+            textAlign: TextAlign.center,
           ),
+          if (subtitle.isNotEmpty) ...[
+            const SizedBox(height: 4),
+            Text(
+              subtitle,
+              style: const TextStyle(
+                fontSize: 14,
+                color: Colors.white70,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
           const SizedBox(height: 8),
           if (dateText.isNotEmpty) ...[
             Text(
               dateText,
               style: const TextStyle(
-                fontSize: 32,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 12),
           ],
           Text(
             hint,

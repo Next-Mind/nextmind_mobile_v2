@@ -1,9 +1,10 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
-// coverage:ignore-file
-// ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
-
 part of 'appointment.dart';
+
+// ignore_for_file: type=lint
+
+import 'dart:collection';
+
+import 'package:collection/collection.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -11,417 +12,400 @@ part of 'appointment.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-Appointment _$AppointmentFromJson(
-  Map<String, dynamic> json
-) {
-        switch (json['runtimeType']) {
-                  case 'default':
-          return _BaseAppointment.fromJson(
-            json
-          );
-                case 'next':
-          return NextAppointment.fromJson(
-            json
-          );
-                case 'empty':
-          return EmptyAppointment.fromJson(
-            json
-          );
-        
-          default:
-            throw CheckedFromJsonException(
-  json,
-  'runtimeType',
-  'Appointment',
-  'Invalid union type "${json['runtimeType']}"!'
-);
-        }
-      
+
+Appointment _$AppointmentFromJson(Map<String, dynamic> json) {
+  return _Appointment.fromJson(json);
 }
 
 /// @nodoc
 mixin _$Appointment {
-
-
-
-  /// Serializes this Appointment to a JSON map.
+  String get id;
+  String get availabilityId;
+  String get psychologistId;
+  DateTime get scheduledAt;
+  String? get description;
+  String get status;
+  Psychologist? get psychologist;
   Map<String, dynamic> toJson();
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Appointment);
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'Appointment()';
-}
-
-
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $AppointmentCopyWith<Appointment> get copyWith;
 }
 
 /// @nodoc
-class $AppointmentCopyWith<$Res>  {
-$AppointmentCopyWith(Appointment _, $Res Function(Appointment) __);
-}
+abstract class $AppointmentCopyWith<$Res> {
+  factory $AppointmentCopyWith(
+    Appointment value,
+    $Res Function(Appointment) then,
+  ) = _$AppointmentCopyWithImpl<$Res>;
+  @useResult
+  $Res call({
+    String id,
+    String availabilityId,
+    String psychologistId,
+    DateTime scheduledAt,
+    String? description,
+    String status,
+    Psychologist? psychologist,
+  });
 
-
-/// Adds pattern-matching-related methods to [Appointment].
-extension AppointmentPatterns on Appointment {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _BaseAppointment value)?  $default,{TResult Function( NextAppointment value)?  next,TResult Function( EmptyAppointment value)?  empty,required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case _BaseAppointment() when $default != null:
-return $default(_that);case NextAppointment() when next != null:
-return next(_that);case EmptyAppointment() when empty != null:
-return empty(_that);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _BaseAppointment value)  $default,{required TResult Function( NextAppointment value)  next,required TResult Function( EmptyAppointment value)  empty,}){
-final _that = this;
-switch (_that) {
-case _BaseAppointment():
-return $default(_that);case NextAppointment():
-return next(_that);case EmptyAppointment():
-return empty(_that);}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _BaseAppointment value)?  $default,{TResult? Function( NextAppointment value)?  next,TResult? Function( EmptyAppointment value)?  empty,}){
-final _that = this;
-switch (_that) {
-case _BaseAppointment() when $default != null:
-return $default(_that);case NextAppointment() when next != null:
-return next(_that);case EmptyAppointment() when empty != null:
-return empty(_that);case _:
-  return null;
-
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String availabilityId,  String userId,  String description,  String resolution,  String notesPrivate,  String attachmentPath,  String sessionLink,  String status,  String cancelledBy,  String cancelReason,  int durationMinutes,  int rating,  bool reminderSent,  String createdAt,  String updatedAt)?  $default,{TResult Function( int id,  DateTime date)?  next,TResult Function()?  empty,required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case _BaseAppointment() when $default != null:
-return $default(_that.id,_that.availabilityId,_that.userId,_that.description,_that.resolution,_that.notesPrivate,_that.attachmentPath,_that.sessionLink,_that.status,_that.cancelledBy,_that.cancelReason,_that.durationMinutes,_that.rating,_that.reminderSent,_that.createdAt,_that.updatedAt);case NextAppointment() when next != null:
-return next(_that.id,_that.date);case EmptyAppointment() when empty != null:
-return empty();case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String availabilityId,  String userId,  String description,  String resolution,  String notesPrivate,  String attachmentPath,  String sessionLink,  String status,  String cancelledBy,  String cancelReason,  int durationMinutes,  int rating,  bool reminderSent,  String createdAt,  String updatedAt)  $default,{required TResult Function( int id,  DateTime date)  next,required TResult Function()  empty,}) {final _that = this;
-switch (_that) {
-case _BaseAppointment():
-return $default(_that.id,_that.availabilityId,_that.userId,_that.description,_that.resolution,_that.notesPrivate,_that.attachmentPath,_that.sessionLink,_that.status,_that.cancelledBy,_that.cancelReason,_that.durationMinutes,_that.rating,_that.reminderSent,_that.createdAt,_that.updatedAt);case NextAppointment():
-return next(_that.id,_that.date);case EmptyAppointment():
-return empty();}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String availabilityId,  String userId,  String description,  String resolution,  String notesPrivate,  String attachmentPath,  String sessionLink,  String status,  String cancelledBy,  String cancelReason,  int durationMinutes,  int rating,  bool reminderSent,  String createdAt,  String updatedAt)?  $default,{TResult? Function( int id,  DateTime date)?  next,TResult? Function()?  empty,}) {final _that = this;
-switch (_that) {
-case _BaseAppointment() when $default != null:
-return $default(_that.id,_that.availabilityId,_that.userId,_that.description,_that.resolution,_that.notesPrivate,_that.attachmentPath,_that.sessionLink,_that.status,_that.cancelledBy,_that.cancelReason,_that.durationMinutes,_that.rating,_that.reminderSent,_that.createdAt,_that.updatedAt);case NextAppointment() when next != null:
-return next(_that.id,_that.date);case EmptyAppointment() when empty != null:
-return empty();case _:
-  return null;
-
-}
-}
-
+  $PsychologistCopyWith<$Res>? get psychologist;
 }
 
 /// @nodoc
-@JsonSerializable()
+class _$AppointmentCopyWithImpl<$Res>
+    implements $AppointmentCopyWith<$Res> {
+  _$AppointmentCopyWithImpl(this._value, this._then);
 
-class _BaseAppointment implements Appointment {
-   _BaseAppointment({required this.id, required this.availabilityId, required this.userId, required this.description, required this.resolution, required this.notesPrivate, required this.attachmentPath, required this.sessionLink, required this.status, required this.cancelledBy, required this.cancelReason, required this.durationMinutes, required this.rating, required this.reminderSent, required this.createdAt, required this.updatedAt, final  String? $type}): $type = $type ?? 'default';
-  factory _BaseAppointment.fromJson(Map<String, dynamic> json) => _$BaseAppointmentFromJson(json);
+  final Appointment _value;
+  final $Res Function(Appointment) _then;
 
- final  String id;
- final  String availabilityId;
- final  String userId;
- final  String description;
- final  String resolution;
- final  String notesPrivate;
- final  String attachmentPath;
- final  String sessionLink;
- final  String status;
- final  String cancelledBy;
- final  String cancelReason;
- final  int durationMinutes;
- final  int rating;
- final  bool reminderSent;
- final  String createdAt;
- final  String updatedAt;
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? availabilityId = null,
+    Object? psychologistId = null,
+    Object? scheduledAt = null,
+    Object? description = freezed,
+    Object? status = null,
+    Object? psychologist = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: id == null ? _value.id : id as String,
+      availabilityId: availabilityId == null
+          ? _value.availabilityId
+          : availabilityId as String,
+      psychologistId: psychologistId == null
+          ? _value.psychologistId
+          : psychologistId as String,
+      scheduledAt: scheduledAt == null
+          ? _value.scheduledAt
+          : scheduledAt as DateTime,
+      description:
+          description == freezed ? _value.description : description as String?,
+      status: status == null ? _value.status : status as String,
+      psychologist: psychologist == freezed
+          ? _value.psychologist
+          : psychologist as Psychologist?,
+    ));
+  }
 
-@JsonKey(name: 'runtimeType')
-final String $type;
-
-
-/// Create a copy of Appointment
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$BaseAppointmentCopyWith<_BaseAppointment> get copyWith => __$BaseAppointmentCopyWithImpl<_BaseAppointment>(this, _$identity);
-
-@override
-Map<String, dynamic> toJson() {
-  return _$BaseAppointmentToJson(this, );
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BaseAppointment&&(identical(other.id, id) || other.id == id)&&(identical(other.availabilityId, availabilityId) || other.availabilityId == availabilityId)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.description, description) || other.description == description)&&(identical(other.resolution, resolution) || other.resolution == resolution)&&(identical(other.notesPrivate, notesPrivate) || other.notesPrivate == notesPrivate)&&(identical(other.attachmentPath, attachmentPath) || other.attachmentPath == attachmentPath)&&(identical(other.sessionLink, sessionLink) || other.sessionLink == sessionLink)&&(identical(other.status, status) || other.status == status)&&(identical(other.cancelledBy, cancelledBy) || other.cancelledBy == cancelledBy)&&(identical(other.cancelReason, cancelReason) || other.cancelReason == cancelReason)&&(identical(other.durationMinutes, durationMinutes) || other.durationMinutes == durationMinutes)&&(identical(other.rating, rating) || other.rating == rating)&&(identical(other.reminderSent, reminderSent) || other.reminderSent == reminderSent)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,id,availabilityId,userId,description,resolution,notesPrivate,attachmentPath,sessionLink,status,cancelledBy,cancelReason,durationMinutes,rating,reminderSent,createdAt,updatedAt);
-
-@override
-String toString() {
-  return 'Appointment(id: $id, availabilityId: $availabilityId, userId: $userId, description: $description, resolution: $resolution, notesPrivate: $notesPrivate, attachmentPath: $attachmentPath, sessionLink: $sessionLink, status: $status, cancelledBy: $cancelledBy, cancelReason: $cancelReason, durationMinutes: $durationMinutes, rating: $rating, reminderSent: $reminderSent, createdAt: $createdAt, updatedAt: $updatedAt)';
-}
-
-
+  @override
+  $PsychologistCopyWith<$Res>? get psychologist {
+    if (_value.psychologist == null) {
+      return null;
+    }
+    return $PsychologistCopyWith<$Res>(_value.psychologist!, (value) {
+      return _then(_value.copyWith(psychologist: value));
+    });
+  }
 }
 
 /// @nodoc
-abstract mixin class _$BaseAppointmentCopyWith<$Res> implements $AppointmentCopyWith<$Res> {
-  factory _$BaseAppointmentCopyWith(_BaseAppointment value, $Res Function(_BaseAppointment) _then) = __$BaseAppointmentCopyWithImpl;
-@useResult
-$Res call({
- String id, String availabilityId, String userId, String description, String resolution, String notesPrivate, String attachmentPath, String sessionLink, String status, String cancelledBy, String cancelReason, int durationMinutes, int rating, bool reminderSent, String createdAt, String updatedAt
-});
+abstract class _$$AppointmentImplCopyWith<$Res>
+    implements $AppointmentCopyWith<$Res> {
+  factory _$$AppointmentImplCopyWith(
+    _Appointment value,
+    $Res Function(_Appointment) then,
+  ) = __$$AppointmentImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    String id,
+    String availabilityId,
+    String psychologistId,
+    DateTime scheduledAt,
+    String? description,
+    String status,
+    Psychologist? psychologist,
+  });
 
-
-
-
-}
-/// @nodoc
-class __$BaseAppointmentCopyWithImpl<$Res>
-    implements _$BaseAppointmentCopyWith<$Res> {
-  __$BaseAppointmentCopyWithImpl(this._self, this._then);
-
-  final _BaseAppointment _self;
-  final $Res Function(_BaseAppointment) _then;
-
-/// Create a copy of Appointment
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? id = null,Object? availabilityId = null,Object? userId = null,Object? description = null,Object? resolution = null,Object? notesPrivate = null,Object? attachmentPath = null,Object? sessionLink = null,Object? status = null,Object? cancelledBy = null,Object? cancelReason = null,Object? durationMinutes = null,Object? rating = null,Object? reminderSent = null,Object? createdAt = null,Object? updatedAt = null,}) {
-  return _then(_BaseAppointment(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,availabilityId: null == availabilityId ? _self.availabilityId : availabilityId // ignore: cast_nullable_to_non_nullable
-as String,userId: null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
-as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
-as String,resolution: null == resolution ? _self.resolution : resolution // ignore: cast_nullable_to_non_nullable
-as String,notesPrivate: null == notesPrivate ? _self.notesPrivate : notesPrivate // ignore: cast_nullable_to_non_nullable
-as String,attachmentPath: null == attachmentPath ? _self.attachmentPath : attachmentPath // ignore: cast_nullable_to_non_nullable
-as String,sessionLink: null == sessionLink ? _self.sessionLink : sessionLink // ignore: cast_nullable_to_non_nullable
-as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as String,cancelledBy: null == cancelledBy ? _self.cancelledBy : cancelledBy // ignore: cast_nullable_to_non_nullable
-as String,cancelReason: null == cancelReason ? _self.cancelReason : cancelReason // ignore: cast_nullable_to_non_nullable
-as String,durationMinutes: null == durationMinutes ? _self.durationMinutes : durationMinutes // ignore: cast_nullable_to_non_nullable
-as int,rating: null == rating ? _self.rating : rating // ignore: cast_nullable_to_non_nullable
-as int,reminderSent: null == reminderSent ? _self.reminderSent : reminderSent // ignore: cast_nullable_to_non_nullable
-as bool,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as String,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
+  @override
+  $PsychologistCopyWith<$Res>? get psychologist;
 }
 
 /// @nodoc
-@JsonSerializable()
+class __$$AppointmentImplCopyWithImpl<$Res>
+    extends _$AppointmentCopyWithImpl<$Res>
+    implements _$$AppointmentImplCopyWith<$Res> {
+  __$$AppointmentImplCopyWithImpl(
+    _Appointment _value,
+    $Res Function(_Appointment) _then,
+  ) : super(_value, _then);
 
-class NextAppointment implements Appointment {
-   NextAppointment({required this.id, required this.date, final  String? $type}): $type = $type ?? 'next';
-  factory NextAppointment.fromJson(Map<String, dynamic> json) => _$NextAppointmentFromJson(json);
-
- final  int id;
- final  DateTime date;
-
-@JsonKey(name: 'runtimeType')
-final String $type;
-
-
-/// Create a copy of Appointment
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$NextAppointmentCopyWith<NextAppointment> get copyWith => _$NextAppointmentCopyWithImpl<NextAppointment>(this, _$identity);
-
-@override
-Map<String, dynamic> toJson() {
-  return _$NextAppointmentToJson(this, );
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NextAppointment&&(identical(other.id, id) || other.id == id)&&(identical(other.date, date) || other.date == date));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,id,date);
-
-@override
-String toString() {
-  return 'Appointment.next(id: $id, date: $date)';
-}
-
-
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? availabilityId = null,
+    Object? psychologistId = null,
+    Object? scheduledAt = null,
+    Object? description = freezed,
+    Object? status = null,
+    Object? psychologist = freezed,
+  }) {
+    return _then(_Appointment(
+      id: id == null ? _value.id : id as String,
+      availabilityId: availabilityId == null
+          ? _value.availabilityId
+          : availabilityId as String,
+      psychologistId: psychologistId == null
+          ? _value.psychologistId
+          : psychologistId as String,
+      scheduledAt: scheduledAt == null
+          ? _value.scheduledAt
+          : scheduledAt as DateTime,
+      description:
+          description == freezed ? _value.description : description as String?,
+      status: status == null ? _value.status : status as String,
+      psychologist: psychologist == freezed
+          ? _value.psychologist
+          : psychologist as Psychologist?,
+    ));
+  }
 }
 
 /// @nodoc
-abstract mixin class $NextAppointmentCopyWith<$Res> implements $AppointmentCopyWith<$Res> {
-  factory $NextAppointmentCopyWith(NextAppointment value, $Res Function(NextAppointment) _then) = _$NextAppointmentCopyWithImpl;
-@useResult
-$Res call({
- int id, DateTime date
-});
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _Appointment implements Appointment {
+  const _Appointment({
+    required this.id,
+    required this.availabilityId,
+    required this.psychologistId,
+    required this.scheduledAt,
+    this.description,
+    required this.status,
+    this.psychologist,
+  });
 
+  factory _Appointment.fromJson(Map<String, dynamic> json) =>
+      _$AppointmentFromJson(json);
 
+  @override
+  final String id;
+  @override
+  final String availabilityId;
+  @override
+  final String psychologistId;
+  @override
+  final DateTime scheduledAt;
+  @override
+  final String? description;
+  @override
+  final String status;
+  @override
+  final Psychologist? psychologist;
 
+  @override
+  String toString() {
+    return 'Appointment(id: $id, availabilityId: $availabilityId, psychologistId: $psychologistId, scheduledAt: $scheduledAt, description: $description, status: $status, psychologist: $psychologist)';
+  }
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Appointment &&
+            other.id == id &&
+            other.availabilityId == availabilityId &&
+            other.psychologistId == psychologistId &&
+            other.scheduledAt == scheduledAt &&
+            other.description == description &&
+            other.status == status &&
+            other.psychologist == psychologist);
+  }
+
+  @override
+  int get hashCode => Object.hash(
+        runtimeType,
+        id,
+        availabilityId,
+        psychologistId,
+        scheduledAt,
+        description,
+        status,
+        psychologist,
+      );
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  _$$AppointmentImplCopyWith<_Appointment> get copyWith =>
+      __$$AppointmentImplCopyWithImpl<_Appointment>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$AppointmentToJson(this);
+  }
 }
+
+AppointmentsPage _$AppointmentsPageFromJson(Map<String, dynamic> json) {
+  return _AppointmentsPage.fromJson(json);
+}
+
 /// @nodoc
-class _$NextAppointmentCopyWithImpl<$Res>
-    implements $NextAppointmentCopyWith<$Res> {
-  _$NextAppointmentCopyWithImpl(this._self, this._then);
-
-  final NextAppointment _self;
-  final $Res Function(NextAppointment) _then;
-
-/// Create a copy of Appointment
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? id = null,Object? date = null,}) {
-  return _then(NextAppointment(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,
-  ));
+mixin _$AppointmentsPage {
+  List<Appointment> get data;
+  PaginationMeta get meta;
+  PaginationLinks get links;
+  Map<String, dynamic> toJson();
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $AppointmentsPageCopyWith<AppointmentsPage> get copyWith;
 }
 
+/// @nodoc
+abstract class $AppointmentsPageCopyWith<$Res> {
+  factory $AppointmentsPageCopyWith(
+    AppointmentsPage value,
+    $Res Function(AppointmentsPage) then,
+  ) = _$AppointmentsPageCopyWithImpl<$Res>;
+  @useResult
+  $Res call({
+    List<Appointment> data,
+    PaginationMeta meta,
+    PaginationLinks links,
+  });
 
+  $PaginationMetaCopyWith<$Res> get meta;
+  $PaginationLinksCopyWith<$Res> get links;
+}
+
+/// @nodoc
+class _$AppointmentsPageCopyWithImpl<$Res>
+    implements $AppointmentsPageCopyWith<$Res> {
+  _$AppointmentsPageCopyWithImpl(this._value, this._then);
+
+  final AppointmentsPage _value;
+  final $Res Function(AppointmentsPage) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? meta = null,
+    Object? links = null,
+  }) {
+    return _then(_value.copyWith(
+      data: data == null ? _value.data : data as List<Appointment>,
+      meta: meta == null ? _value.meta : meta as PaginationMeta,
+      links: links == null ? _value.links : links as PaginationLinks,
+    ));
+  }
+
+  @override
+  $PaginationMetaCopyWith<$Res> get meta {
+    return $PaginationMetaCopyWith<$Res>(_value.meta, (value) {
+      return _then(_value.copyWith(meta: value));
+    });
+  }
+
+  @override
+  $PaginationLinksCopyWith<$Res> get links {
+    return $PaginationLinksCopyWith<$Res>(_value.links, (value) {
+      return _then(_value.copyWith(links: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$AppointmentsPageImplCopyWith<$Res>
+    implements $AppointmentsPageCopyWith<$Res> {
+  factory _$$AppointmentsPageImplCopyWith(
+    _AppointmentsPage value,
+    $Res Function(_AppointmentsPage) then,
+  ) = __$$AppointmentsPageImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    List<Appointment> data,
+    PaginationMeta meta,
+    PaginationLinks links,
+  });
+
+  @override
+  $PaginationMetaCopyWith<$Res> get meta;
+  @override
+  $PaginationLinksCopyWith<$Res> get links;
+}
+
+/// @nodoc
+class __$$AppointmentsPageImplCopyWithImpl<$Res>
+    extends _$AppointmentsPageCopyWithImpl<$Res>
+    implements _$$AppointmentsPageImplCopyWith<$Res> {
+  __$$AppointmentsPageImplCopyWithImpl(
+    _AppointmentsPage _value,
+    $Res Function(_AppointmentsPage) _then,
+  ) : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? meta = null,
+    Object? links = null,
+  }) {
+    return _then(_AppointmentsPage(
+      data: data == null ? _value.data : data as List<Appointment>,
+      meta: meta == null ? _value.meta : meta as PaginationMeta,
+      links: links == null ? _value.links : links as PaginationLinks,
+    ));
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
+class _AppointmentsPage implements AppointmentsPage {
+  const _AppointmentsPage({
+    required final List<Appointment> data,
+    required this.meta,
+    required this.links,
+  }) : _data = data;
 
-class EmptyAppointment implements Appointment {
-   EmptyAppointment({final  String? $type}): $type = $type ?? 'empty';
-  factory EmptyAppointment.fromJson(Map<String, dynamic> json) => _$EmptyAppointmentFromJson(json);
+  factory _AppointmentsPage.fromJson(Map<String, dynamic> json) =>
+      _$AppointmentsPageFromJson(json);
 
+  final List<Appointment> _data;
+  @override
+  List<Appointment> get data {
+    if (_data is EqualUnmodifiableListView) return _data;
+    return EqualUnmodifiableListView(_data);
+  }
 
+  @override
+  final PaginationMeta meta;
+  @override
+  final PaginationLinks links;
 
-@JsonKey(name: 'runtimeType')
-final String $type;
+  @override
+  String toString() {
+    return 'AppointmentsPage(data: $data, meta: $meta, links: $links)';
+  }
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _AppointmentsPage &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            other.meta == meta &&
+            other.links == links);
+  }
 
+  @override
+  int get hashCode => Object.hash(
+        runtimeType,
+        const DeepCollectionEquality().hash(_data),
+        meta,
+        links,
+      );
 
-@override
-Map<String, dynamic> toJson() {
-  return _$EmptyAppointmentToJson(this, );
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  _$$AppointmentsPageImplCopyWith<_AppointmentsPage> get copyWith =>
+      __$$AppointmentsPageImplCopyWithImpl<_AppointmentsPage>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$AppointmentsPageToJson(this);
+  }
 }
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmptyAppointment);
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'Appointment.empty()';
-}
-
-
-}
-
-
-
-
-// dart format on

@@ -5,6 +5,9 @@ import 'package:routefly/routefly.dart';
 
 import 'ui/app/app_layout.dart' as a7;
 import 'ui/app/appointments/appointment_home_page.dart' as a5;
+import 'ui/app/appointments/all_psychologists_page.dart' as a19;
+import 'ui/app/appointments/psychologist_profile_page.dart' as a20;
+import 'ui/app/appointments/appointment_confirmation_page.dart' as a21;
 import 'ui/app/chat/chat_page.dart' as a17;
 import 'ui/app/chat/contact_search_page.dart' as a18;
 import 'ui/app/home/home_page.dart' as a6;
@@ -35,6 +38,20 @@ Route b4Builder(BuildContext ctx, RouteSettings settings) =>
     Routefly.defaultRouteBuilder(ctx, settings, const a4.NotFoundPage());
 Route b5Builder(BuildContext ctx, RouteSettings settings) =>
     Routefly.defaultRouteBuilder(ctx, settings, const a5.AppointmentHomePage());
+Route b19Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a19.AllPsychologistsPage());
+Route b20Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(
+      ctx,
+      settings,
+      const a20.PsychologistProfilePage(),
+    );
+Route b21Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(
+      ctx,
+      settings,
+      const a21.AppointmentConfirmationPage(),
+    );
 Route b6Builder(BuildContext ctx, RouteSettings settings) =>
     Routefly.defaultRouteBuilder(ctx, settings, const a6.HomePage());
 Route b7Builder(BuildContext ctx, RouteSettings settings) =>

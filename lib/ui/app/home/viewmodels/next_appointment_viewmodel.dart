@@ -7,44 +7,31 @@ class NextAppointmentViewmodel {
   late final fetchNextAppointmentCommand = Command0(_fetchNextAppointment);
   final AppointmentRepository _appointmentRepository;
 
+  Appointment? nextAppointment;
+  int? daysUntil;
+
   NextAppointmentViewmodel(this._appointmentRepository) {
     fetchNextAppointmentCommand.execute();
   }
 
-  /// True se existe próxima consulta
-  bool hasNextAppointment = false;
-
-  /// Dias até a próxima consulta:
-  ///  - 0 = Hoje
-  ///  - >0 = futuro
-  ///  - null = sem próxima consulta
-  int? daysUntil;
+  bool get hasNextAppointment => nextAppointment != null;
 
   AsyncResult<Unit> _fetchNextAppointment() async {
     final result = await _appointmentRepository.fetchNextAppointment();
     return result.fold((appointment) {
-      if (appointment is EmptyAppointment) {
-        hasNextAppointment = false;
-        daysUntil = null;
-        return Success(unit);
-      } else if (appointment is NextAppointment) {
-        hasNextAppointment = true;
-        final diff = appointment.date.difference(DateTime.now());
-        // Trate passado/mesmo dia como "Hoje" (0)
+      nextAppointment = appointment;
+      if (appointment != null) {
+        final diff = appointment.scheduledAt.difference(DateTime.now());
         daysUntil = diff.inDays <= 0 ? 0 : diff.inDays;
-        return Success(unit);
+      } else {
+        daysUntil = null;
       }
-      return Failure(Exception('unknownAppointmentType'));
+      return Success(unit);
     }, (error) => Failure(error));
   }
 
-  AsyncResult<Unit> handleNextAppointmentButton() async {
-    if (hasNextAppointment) {
-      // ir para detalhes/confirmar presença
-      return Success(unit);
-    } else {
-      // ir para agendamento
-      return Success(unit);
-    }
+  AsyncResult<Unit> handleNextAppointmentButton() {
+    // TODO: implementar navegação para detalhes/cancelamento
+    return Success(unit);
   }
 }

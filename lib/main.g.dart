@@ -35,6 +35,24 @@ List<RouteEntity> get routes => [
     routeBuilder: b5Builder,
   ),
   RouteEntity(
+    key: '/app/appointments/all_psychologists',
+    parent: '/app',
+    uri: Uri.parse('/app/appointments/all_psychologists'),
+    routeBuilder: b19Builder,
+  ),
+  RouteEntity(
+    key: '/app/appointments/psychologist_profile',
+    parent: '/app',
+    uri: Uri.parse('/app/appointments/psychologist_profile'),
+    routeBuilder: b20Builder,
+  ),
+  RouteEntity(
+    key: '/app/appointments/appointment_confirmation',
+    parent: '/app',
+    uri: Uri.parse('/app/appointments/appointment_confirmation'),
+    routeBuilder: b21Builder,
+  ),
+  RouteEntity(
     key: '/app/home',
     parent: '/app',
     uri: Uri.parse('/app/home'),
@@ -124,6 +142,9 @@ const routePaths = (
     appointments: (
       path: '/app/appointments',
       appointmentHome: '/app/appointments/appointment_home',
+      allPsychologists: '/app/appointments/all_psychologists',
+      psychologistProfile: '/app/appointments/psychologist_profile',
+      appointmentConfirmation: '/app/appointments/appointment_confirmation',
     ),
     home: '/app/home',
     settings: (
