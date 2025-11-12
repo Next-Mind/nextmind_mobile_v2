@@ -70,9 +70,17 @@
     "@nextAppointmentEmptyTitle": {
         "description": "Title shown when there is no upcoming appointment"
     },
+    "appointmentsEmptyMessage": "No appointments available",
+    "@appointmentsEmptyMessage": {
+        "description": "Message displayed when there are no appointments"
+    },
     "nextAppointmentEmptyHint": "Schedule an appointment",
     "@nextAppointmentEmptyHint": {
         "description": "Call to action when there are no appointments"
+    },
+    "psychologistsEmptyMessage": "No psychologists available",
+    "@psychologistsEmptyMessage": {
+        "description": "Message displayed when there are no psychologists"
     },
     "nextAppointmentEmptyButton": "Schedule",
     "@nextAppointmentEmptyButton": {

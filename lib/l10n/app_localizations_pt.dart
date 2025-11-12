@@ -59,7 +59,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get nextAppointmentEmptyTitle => 'Não há consultas agendadas';
 
   @override
+  String get appointmentsEmptyMessage => 'Não há consultas';
+
+  @override
   String get nextAppointmentEmptyHint => 'Agende uma consulta';
+
+  @override
+  String get psychologistsEmptyMessage => 'Não há psicólogos';
 
   @override
   String get nextAppointmentEmptyButton => 'Agendar';

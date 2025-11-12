@@ -43,9 +43,17 @@
   "@nextAppointmentEmptyTitle": {
     "description": "Título mostrado quando não existe nenhuma consulta agendada"
   },
+  "appointmentsEmptyMessage": "Não há consultas",
+  "@appointmentsEmptyMessage": {
+    "description": "Mensagem exibida quando não existem consultas"
+  },
   "nextAppointmentEmptyHint": "Agende uma consulta",
   "@nextAppointmentEmptyHint": {
     "description": "Dica/ação quando não há consultas agendadas"
+  },
+  "psychologistsEmptyMessage": "Não há psicólogos",
+  "@psychologistsEmptyMessage": {
+    "description": "Mensagem exibida quando não existem psicólogos"
   },
   "nextAppointmentEmptyButton": "Agendar",
   "@nextAppointmentEmptyButton": {

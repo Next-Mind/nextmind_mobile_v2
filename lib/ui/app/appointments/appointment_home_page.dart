@@ -41,8 +41,8 @@ class _AppointmentHomePageState extends State<AppointmentHomePage> {
             final state = viewModel.fetchDataCommand.value;
 
             return switch (state) {
-              RunningCommand<String>() => CircularProgressIndicator(),
-              SuccessCommand<String>(:final value) => RefreshIndicator(
+              RunningCommand() => const Center(child: CircularProgressIndicator()),
+              SuccessCommand() => RefreshIndicator(
                 onRefresh: viewModel.refresh,
                 child: ListView(
                   padding: const EdgeInsets.all(Dimens.mediumPadding),
@@ -58,7 +58,7 @@ class _AppointmentHomePageState extends State<AppointmentHomePage> {
                   ],
                 ),
               ),
-              FailureCommand<String>(:final error) => _ErrorState(
+              FailureCommand(:final error) => _ErrorState(
                 message: t.genericErrorLabel,
                 onRetry: viewModel.fetchDataCommand.execute,
               ),
@@ -93,7 +93,7 @@ class _ScheduledAppointmentsSection extends StatelessWidget {
         ),
         const SizedBox(height: Dimens.mediumPadding),
         if (viewModel.scheduledAppointments.isEmpty)
-          _EmptyState(message: t.nextAppointmentEmptyTitle)
+          _EmptyState(message: t.appointmentsEmptyMessage)
         else
           ...viewModel.scheduledAppointments.map(
             (appointment) => Padding(
@@ -138,7 +138,7 @@ class _NewAppointmentSection extends StatelessWidget {
         ),
         const SizedBox(height: Dimens.mediumPadding),
         if (psychologists.isEmpty)
-          _EmptyState(message: t.nextAppointmentEmptyHint)
+          _EmptyState(message: t.psychologistsEmptyMessage)
         else
           CarouselSlider(
             options: CarouselOptions(
