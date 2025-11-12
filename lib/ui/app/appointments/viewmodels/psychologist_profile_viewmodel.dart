@@ -21,12 +21,13 @@ class PsychologistProfileViewmodel extends ChangeNotifier {
 
   AsyncResult<Unit> _loadProfile(String psychologistId) {
     final now = DateTime.now();
+    final start = now.add(const Duration(hours: 1));
     final end = now.add(const Duration(days: 30));
     return _appointmentRepository.fetchPsychologist(psychologistId).flatMap(
       (profile) {
         psychologist = profile;
         return _appointmentRepository
-            .fetchAvailability(psychologistId, now, end)
+            .fetchAvailability(psychologistId, start, end)
             .map((slots) {
           availabilities
             ..clear()
