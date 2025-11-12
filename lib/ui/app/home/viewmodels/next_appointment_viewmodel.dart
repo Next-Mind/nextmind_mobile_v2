@@ -7,31 +7,26 @@ class NextAppointmentViewmodel {
   late final fetchNextAppointmentCommand = Command0(_fetchNextAppointment);
   final AppointmentRepository _appointmentRepository;
 
-  Appointment? nextAppointment;
+  Appointment nextAppointment = EmptyAppointment();
   int? daysUntil;
 
   NextAppointmentViewmodel(this._appointmentRepository) {
     fetchNextAppointmentCommand.execute();
   }
 
-  bool get hasNextAppointment => nextAppointment != null;
+  bool get hasNextAppointment => nextAppointment is! EmptyAppointment;
 
   AsyncResult<Unit> _fetchNextAppointment() async {
     final result = await _appointmentRepository.fetchNextAppointment();
     return result.fold((appointment) {
-      nextAppointment = appointment;
-      if (appointment != null) {
-        final diff = appointment.scheduledAt.difference(DateTime.now());
-        daysUntil = diff.inDays <= 0 ? 0 : diff.inDays;
-      } else {
-        daysUntil = null;
-      }
+      nextAppointment = appointment as BaseAppointment;
+      final diff = appointment.scheduledAt.difference(DateTime.now());
+      daysUntil = diff.inDays <= 0 ? 0 : diff.inDays;
       return Success(unit);
     }, (error) => Failure(error));
   }
 
-  AsyncResult<Unit> handleNextAppointmentButton() {
-    // TODO: implementar navegação para detalhes/cancelamento
+  AsyncResult<Unit> handleNextAppointmentButton() async {
     return Success(unit);
   }
 }

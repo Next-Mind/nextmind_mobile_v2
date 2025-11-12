@@ -6,8 +6,8 @@ part of 'appointment.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_Appointment _$AppointmentFromJson(Map<String, dynamic> json) =>
-    _Appointment(
+BaseAppointment _$BaseAppointmentFromJson(Map<String, dynamic> json) =>
+    BaseAppointment(
       id: json['id'] as String,
       availabilityId: json['availability_id'] as String,
       psychologistId: json['psychologist_id'] as String,
@@ -16,12 +16,11 @@ _Appointment _$AppointmentFromJson(Map<String, dynamic> json) =>
       status: json['status'] as String,
       psychologist: json['psychologist'] == null
           ? null
-          : Psychologist.fromJson(
-              json['psychologist'] as Map<String, dynamic>,
-            ),
+          : Psychologist.fromJson(json['psychologist'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$AppointmentToJson(_Appointment instance) =>
+Map<String, dynamic> _$BaseAppointmentToJson(BaseAppointment instance) =>
     <String, dynamic>{
       'id': instance.id,
       'availability_id': instance.availabilityId,
@@ -29,8 +28,15 @@ Map<String, dynamic> _$AppointmentToJson(_Appointment instance) =>
       'scheduled_at': instance.scheduledAt.toIso8601String(),
       'description': instance.description,
       'status': instance.status,
-      'psychologist': instance.psychologist?.toJson(),
+      'psychologist': instance.psychologist,
+      'runtimeType': instance.$type,
     };
+
+EmptyAppointment _$EmptyAppointmentFromJson(Map<String, dynamic> json) =>
+    EmptyAppointment($type: json['runtimeType'] as String?);
+
+Map<String, dynamic> _$EmptyAppointmentToJson(EmptyAppointment instance) =>
+    <String, dynamic>{'runtimeType': instance.$type};
 
 _AppointmentsPage _$AppointmentsPageFromJson(Map<String, dynamic> json) =>
     _AppointmentsPage(
@@ -43,7 +49,7 @@ _AppointmentsPage _$AppointmentsPageFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$AppointmentsPageToJson(_AppointmentsPage instance) =>
     <String, dynamic>{
-      'data': instance.data.map((e) => e.toJson()).toList(),
-      'meta': instance.meta.toJson(),
-      'links': instance.links.toJson(),
+      'data': instance.data,
+      'meta': instance.meta,
+      'links': instance.links,
     };

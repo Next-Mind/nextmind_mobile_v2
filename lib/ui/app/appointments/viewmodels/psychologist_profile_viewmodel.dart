@@ -13,7 +13,7 @@ class PsychologistProfileViewmodel extends ChangeNotifier {
   Psychologist? psychologist;
   final List<Availability> availabilities = [];
 
-  late final loadProfileCommand = Command1<String, Unit>(_loadProfile);
+  late final loadProfileCommand = Command1<Unit,String>(_loadProfile);
 
   Future<void> refresh(String psychologistId) async {
     await loadProfileCommand.execute(psychologistId);

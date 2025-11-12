@@ -15,19 +15,19 @@ class AppointmentConfirmationViewmodel extends ChangeNotifier {
   String? _availabilityId;
   String? _psychologistId;
 
-  void setup({
-    required String availabilityId,
-    required String psychologistId,
-  }) {
+  void setup({required String availabilityId, required String psychologistId}) {
     _availabilityId = availabilityId;
     _psychologistId = psychologistId;
   }
 
-  String? validateDescription(String value) {
-    if (value.trim().length < 20) {
+  String? validateDescription(String? value) {
+    final text = value?.trim() ?? '';
+
+    if (text.length < 20) {
       return 'A descrição deve conter pelo menos 20 caracteres';
     }
-    return null;
+
+    return null; // válido
   }
 
   bool get isFormValid =>
@@ -35,7 +35,7 @@ class AppointmentConfirmationViewmodel extends ChangeNotifier {
       _psychologistId != null &&
       validateDescription(descriptionController.text) == null;
 
-  AsyncResult<Unit> _confirmAppointment() {
+  AsyncResult<Unit> _confirmAppointment() async {
     final availabilityId = _availabilityId;
     final psychologistId = _psychologistId;
     final description = descriptionController.text.trim();

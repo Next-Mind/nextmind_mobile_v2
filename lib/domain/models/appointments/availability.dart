@@ -4,7 +4,7 @@ part 'availability.freezed.dart';
 part 'availability.g.dart';
 
 @freezed
-class Availability with _$Availability {
+sealed class Availability with _$Availability {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Availability({
     required String id,

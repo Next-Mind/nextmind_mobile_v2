@@ -1,23 +1,40 @@
+import 'package:logger/logger.dart';
+import 'package:nextmind_mobile_v2/data/services/auth/auth_local_storage.dart';
 import 'package:nextmind_mobile_v2/data/services/client_http.dart';
 import 'package:nextmind_mobile_v2/domain/models/appointments/appointment.dart';
 import 'package:nextmind_mobile_v2/domain/models/appointments/availability.dart';
 import 'package:nextmind_mobile_v2/domain/models/appointments/psychologist.dart';
+import 'package:nextmind_mobile_v2/domain/models/users/user.dart';
 import 'package:result_dart/result_dart.dart';
 
 class AppointmentsService {
   final ClientHttp _clientHttp;
+  final AuthLocalStorage _authLocalStorage;
+  Logger _logger;
 
-  AppointmentsService(this._clientHttp);
+  AppointmentsService(this._clientHttp, this._authLocalStorage, this._logger);
 
-  AsyncResult<AppointmentsPage> fetchScheduledAppointments({int page = 1}) async {
+  AsyncResult<AppointmentsPage> fetchScheduledAppointments({
+    int page = 1,
+  }) async {
     try {
-      final result = await _clientHttp
-          .get('/appointments?status=scheduled&page=$page');
-      return result.map((response) {
-        final data = response.data as Map<String, dynamic>;
-        return AppointmentsPage.fromJson(data);
-      });
+      final result = await _clientHttp.get(
+        '/appointments?status=scheduled&page=$page',
+      );
+      return result
+          .map((response) {
+            final data = response.data as Map<String, dynamic>;
+            _logger.d(
+              "DEU CERTO' PRA PEGAR OS AGENDAMENTO: ${data.toString()}",
+            );
+            return AppointmentsPage.fromJson(data);
+          })
+          .mapError((error) {
+            _logger.w(error.toString());
+            return Exception('error');
+          });
     } catch (error) {
+      _logger.w("DEU ERRO PRA PEGAR OS AGENDAMENTO: ${error.toString()}");
       return Failure(Exception('failedToLoadAppointments'));
     }
   }
@@ -70,9 +87,11 @@ class AppointmentsService {
   AsyncResult<Appointment> createAppointment({
     required String availabilityId,
     required String psychologistId,
-    required String userId,
     required String description,
   }) async {
+    final user = await _authLocalStorage.getUser().getOrThrow() as LoggedUser;
+    final userId = user.id;
+
     final payload = {
       'availability_id': availabilityId,
       'psychologist_id': psychologistId,

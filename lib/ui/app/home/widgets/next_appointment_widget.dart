@@ -1,6 +1,7 @@
 import 'package:fade_shimmer/fade_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:nextmind_mobile_v2/config/dependencies.dart';
+import 'package:nextmind_mobile_v2/domain/models/appointments/appointment.dart';
 import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/next_appointment_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/core/dimens.dart';
@@ -16,9 +17,21 @@ class NextAppointmentWidget extends StatelessWidget {
     return ListenableBuilder(
       listenable: viewModel.fetchNextAppointmentCommand,
       builder: (context, child) {
-        return viewModel.fetchNextAppointmentCommand.value is RunningCommand
-            ? _buildLoading(context)
-            : _buildNextAppointment(context, viewModel);
+        return switch (viewModel.fetchNextAppointmentCommand.value) {
+          RunningCommand<String>() => _buildLoading(context),
+          SuccessCommand<String>(:final value) => _buildNextAppointment(
+            context,
+            viewModel,
+          ),
+          FailureCommand<String>(:final error) => ElevatedButton(
+            onPressed: () => viewModel.fetchNextAppointmentCommand.execute(),
+            child: Text('Fetch Appointments. error: $error'),
+          ),
+          _ => ElevatedButton(
+            onPressed: () => viewModel.fetchNextAppointmentCommand.execute(),
+            child: Text('Fetch Appointments'),
+          ),
+        };
       },
     );
   }
@@ -63,22 +76,17 @@ Widget _buildNextAppointment(
 ) {
   final loc = AppLocalizations.of(context)!;
 
-  final appointment = vm.nextAppointment;
+  final appointment = vm.nextAppointment as BaseAppointment;
 
-  final String title = appointment != null
-      ? appointment.psychologist?.name ?? loc.nextAppointmentTitleUpcoming
-      : loc.nextAppointmentEmptyTitle;
+  final String title =
+      appointment.psychologist?.name ?? loc.nextAppointmentTitleUpcoming;
 
-  final String subtitle = appointment?.psychologist?.specialty ?? '';
+  final String subtitle = appointment.psychologist?.specialty ?? '';
 
   final String dateText;
-  if (appointment != null) {
-    final locale = AppLocalizations.of(context)!.localeName;
-    final formatter = DateFormat("EEE, dd/MM 'às' HH:mm", locale);
-    dateText = formatter.format(appointment.scheduledAt.toLocal());
-  } else {
-    dateText = '';
-  }
+  final locale = AppLocalizations.of(context)!.localeName;
+  final formatter = DateFormat("EEE, dd/MM 'às' HH:mm", locale);
+  dateText = formatter.format(appointment.scheduledAt.toLocal());
 
   final String hint = vm.hasNextAppointment
       ? loc.nextAppointmentHint
@@ -102,10 +110,7 @@ Widget _buildNextAppointment(
             const SizedBox(height: 4),
             Text(
               subtitle,
-              style: const TextStyle(
-                fontSize: 14,
-                color: Colors.white70,
-              ),
+              style: const TextStyle(fontSize: 14, color: Colors.white70),
               textAlign: TextAlign.center,
             ),
           ],

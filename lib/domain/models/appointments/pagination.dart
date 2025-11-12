@@ -4,7 +4,7 @@ part 'pagination.freezed.dart';
 part 'pagination.g.dart';
 
 @freezed
-class PaginationMeta with _$PaginationMeta {
+sealed class PaginationMeta with _$PaginationMeta {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory PaginationMeta({
     @Default(1) int currentPage,
@@ -21,7 +21,7 @@ class PaginationMeta with _$PaginationMeta {
 }
 
 @freezed
-class PaginationLinks with _$PaginationLinks {
+sealed class PaginationLinks with _$PaginationLinks {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory PaginationLinks({
     String? first,

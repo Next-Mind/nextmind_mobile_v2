@@ -4,6 +4,7 @@ import 'package:nextmind_mobile_v2/config/dependencies.dart';
 import 'package:nextmind_mobile_v2/domain/models/appointments/availability.dart';
 import 'package:nextmind_mobile_v2/domain/models/appointments/psychologist.dart';
 import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
+import 'package:nextmind_mobile_v2/main.dart';
 import 'package:nextmind_mobile_v2/ui/app/appointments/viewmodels/appointment_confirmation_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/core/dimens.dart';
 import 'package:result_command/result_command.dart';
@@ -41,17 +42,15 @@ class _AppointmentConfirmationPageState
   }
 
   @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     final locale = t.localeName;
+
     final formattedDate = availability != null
-        ? DateFormat("EEE, dd/MM 'às' HH:mm", locale)
-            .format(availability!.startAt.toLocal())
+        ? DateFormat(
+            "EEE, dd/MM 'às' HH:mm",
+            locale,
+          ).format(availability!.startAt.toLocal())
         : '';
 
     return Scaffold(
@@ -71,15 +70,15 @@ class _AppointmentConfirmationPageState
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (psychologist != null) _SummaryHeader(psychologist: psychologist!),
+              if (psychologist != null)
+                _SummaryHeader(psychologist: psychologist!),
               const SizedBox(height: Dimens.mediumPadding),
               if (formattedDate.isNotEmpty)
                 Text(
                   formattedDate,
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium
-                      ?.copyWith(fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               const SizedBox(height: Dimens.largePadding),
               TextFormField(
@@ -100,47 +99,52 @@ class _AppointmentConfirmationPageState
                 child: ListenableBuilder(
                   listenable: viewModel.confirmCommand,
                   builder: (context, _) {
-                    final isLoading =
-                        viewModel.confirmCommand.value is RunningCommand;
+                    final state = viewModel.confirmCommand.value;
+
+                    // Exibe feedbacks reativos (igual ao UserAvatar)
+                    if (state is RunningCommand) {
+                      return FilledButton(
+                        onPressed: null,
+                        child: const SizedBox(
+                          width: 24,
+                          height: 24,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        ),
+                      );
+                    }
+
+                    if (state is FailureCommand) {
+                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text(
+                              'Não foi possível concluir o agendamento.',
+                            ),
+                          ),
+                        );
+                      });
+                    }
+
+                    if (state is SuccessCommand) {
+                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Agendamento confirmado!'),
+                          ),
+                        );
+                        Routefly.navigate(
+                          routePaths.app.appointments.appointmentHome,
+                        );
+                      });
+                    }
+
                     return FilledButton(
-                      onPressed: isLoading
-                          ? null
-                          : () async {
-                              if (_formKey.currentState?.validate() ?? false) {
-                                final result =
-                                    await viewModel.confirmCommand.execute();
-                                result.fold(
-                                  (_) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text(
-                                            'Agendamento confirmado!'),
-                                      ),
-                                    );
-                                    Routefly.navigate(
-                                      routePaths
-                                          .app.appointments.appointmentHome,
-                                    );
-                                  },
-                                  (error) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text(
-                                          'Não foi possível concluir o agendamento.',
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                );
-                              }
-                            },
-                      child: isLoading
-                          ? const SizedBox(
-                              width: 24,
-                              height: 24,
-                              child: CircularProgressIndicator(strokeWidth: 2),
-                            )
-                          : Text(t.confirmLabel),
+                      onPressed: () {
+                        if (_formKey.currentState?.validate() ?? false) {
+                          viewModel.confirmCommand.execute();
+                        }
+                      },
+                      child: Text(t.confirmLabel),
                     );
                   },
                 ),
@@ -167,8 +171,9 @@ class _SummaryHeader extends StatelessWidget {
           backgroundImage: psychologist.photoUrl != null
               ? NetworkImage(psychologist.photoUrl!)
               : null,
-          child:
-              psychologist.photoUrl == null ? const Icon(Icons.person) : null,
+          child: psychologist.photoUrl == null
+              ? const Icon(Icons.person)
+              : null,
         ),
         const SizedBox(width: Dimens.mediumPadding),
         Expanded(
@@ -177,10 +182,9 @@ class _SummaryHeader extends StatelessWidget {
             children: [
               Text(
                 psychologist.name,
-                style: Theme.of(context)
-                    .textTheme
-                    .titleMedium
-                    ?.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
               ),
               if ((psychologist.specialty ?? '').isNotEmpty)
                 Text(psychologist.specialty!),

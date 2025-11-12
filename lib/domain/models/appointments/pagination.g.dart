@@ -8,13 +8,13 @@ part of 'pagination.dart';
 
 _PaginationMeta _$PaginationMetaFromJson(Map<String, dynamic> json) =>
     _PaginationMeta(
-      currentPage: json['current_page'] as int? ?? 1,
-      from: json['from'] as int?,
-      lastPage: json['last_page'] as int? ?? 1,
+      currentPage: (json['current_page'] as num?)?.toInt() ?? 1,
+      from: (json['from'] as num?)?.toInt(),
+      lastPage: (json['last_page'] as num?)?.toInt() ?? 1,
       path: json['path'] as String?,
-      perPage: json['per_page'] as int? ?? 0,
-      to: json['to'] as int?,
-      total: json['total'] as int? ?? 0,
+      perPage: (json['per_page'] as num?)?.toInt() ?? 0,
+      to: (json['to'] as num?)?.toInt(),
+      total: (json['total'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$PaginationMetaToJson(_PaginationMeta instance) =>

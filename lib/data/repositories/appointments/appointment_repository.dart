@@ -22,5 +22,5 @@ abstract interface class AppointmentRepository {
     required String description,
   });
 
-  AsyncResult<Appointment?> fetchNextAppointment();
+  AsyncResult<Appointment> fetchNextAppointment();
 }

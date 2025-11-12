@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:nextmind_mobile_v2/config/dependencies.dart';
 import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
+import 'package:nextmind_mobile_v2/main.dart';
 import 'package:nextmind_mobile_v2/ui/app/appointments/viewmodels/appointments_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/appointments/widgets/psychologist_carousel_card.dart';
 import 'package:nextmind_mobile_v2/ui/app/appointments/widgets/scheduled_appointment_card.dart';
@@ -26,10 +27,9 @@ class _AppointmentHomePageState extends State<AppointmentHomePage> {
       appBar: AppBar(
         title: Text(
           t.appointmentsTitle,
-          style: Theme.of(context)
-              .textTheme
-              .headlineMedium
-              ?.copyWith(fontWeight: FontWeight.bold),
+          style: Theme.of(
+            context,
+          ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
         ),
         toolbarHeight: Dimens.extraLargePadding * 2,
         forceMaterialTransparency: true,
@@ -39,31 +39,34 @@ class _AppointmentHomePageState extends State<AppointmentHomePage> {
           listenable: viewModel.fetchDataCommand,
           builder: (context, _) {
             final state = viewModel.fetchDataCommand.value;
-            if (state is RunningCommand) {
-              return const Center(child: CircularProgressIndicator());
-            }
-            if (state is FailedCommand) {
-              return _ErrorState(
+
+            return switch (state) {
+              RunningCommand<String>() => CircularProgressIndicator(),
+              SuccessCommand<String>(:final value) => RefreshIndicator(
+                onRefresh: viewModel.refresh,
+                child: ListView(
+                  padding: const EdgeInsets.all(Dimens.mediumPadding),
+                  children: [
+                    _ScheduledAppointmentsSection(viewModel: viewModel),
+                    const SizedBox(height: Dimens.largePadding),
+                    _NewAppointmentSection(
+                      viewModel: viewModel,
+                      onSeeAll: () => Routefly.push(
+                        routePaths.app.appointments.allPsychologists,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              FailureCommand<String>(:final error) => _ErrorState(
                 message: t.genericErrorLabel,
                 onRetry: viewModel.fetchDataCommand.execute,
-              );
-            }
-            return RefreshIndicator(
-              onRefresh: viewModel.refresh,
-              child: ListView(
-                padding: const EdgeInsets.all(Dimens.mediumPadding),
-                children: [
-                  _ScheduledAppointmentsSection(viewModel: viewModel),
-                  const SizedBox(height: Dimens.largePadding),
-                  _NewAppointmentSection(
-                    viewModel: viewModel,
-                    onSeeAll: () => Routefly.push(
-                      routePaths.app.appointments.allPsychologists,
-                    ),
-                  ),
-                ],
               ),
-            );
+              _ => _ErrorState(
+                message: t.genericErrorLabel,
+                onRetry: viewModel.fetchDataCommand.execute,
+              ),
+            };
           },
         ),
       ),
@@ -84,21 +87,20 @@ class _ScheduledAppointmentsSection extends StatelessWidget {
       children: [
         Text(
           t.nextAppointmentTitleUpcoming,
-          style: Theme.of(context)
-              .textTheme
-              .titleLarge
-              ?.copyWith(fontWeight: FontWeight.bold),
+          style: Theme.of(
+            context,
+          ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: Dimens.mediumPadding),
         if (viewModel.scheduledAppointments.isEmpty)
           _EmptyState(message: t.nextAppointmentEmptyTitle)
         else
-          ...viewModel.scheduledAppointments
-              .map((appointment) => Padding(
-                    padding: const EdgeInsets.only(bottom: Dimens.mediumPadding),
-                    child:
-                        ScheduledAppointmentCard(appointment: appointment),
-                  )),
+          ...viewModel.scheduledAppointments.map(
+            (appointment) => Padding(
+              padding: const EdgeInsets.only(bottom: Dimens.mediumPadding),
+              child: ScheduledAppointmentCard(appointment: appointment),
+            ),
+          ),
       ],
     );
   }
@@ -126,16 +128,12 @@ class _NewAppointmentSection extends StatelessWidget {
             Expanded(
               child: Text(
                 t.doctorsLabel,
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge
-                    ?.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
               ),
             ),
-            TextButton(
-              onPressed: onSeeAll,
-              child: Text(t.seeAllLabel),
-            ),
+            TextButton(onPressed: onSeeAll, child: Text(t.seeAllLabel)),
           ],
         ),
         const SizedBox(height: Dimens.mediumPadding),
@@ -203,10 +201,7 @@ class _ErrorState extends StatelessWidget {
         children: [
           Text(message),
           const SizedBox(height: Dimens.mediumPadding),
-          FilledButton(
-            onPressed: onRetry,
-            child: Text(t.reloadLabel),
-          ),
+          FilledButton(onPressed: onRetry, child: Text(t.reloadLabel)),
         ],
       ),
     );

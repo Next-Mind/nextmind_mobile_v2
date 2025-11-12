@@ -55,7 +55,6 @@ class AuthService {
       final GoogleSignInAccount user = await _googleSignIn.authenticate();
 
       final idToken = user.authentication.idToken;
-      _log.d("Id Token: $idToken");
 
       GoogleSignInClientAuthorization? auth = await user.authorizationClient
           .authorizationForScopes(authorizationScopes);
@@ -75,6 +74,7 @@ class AuthService {
         googleAuthCredential,
       );
 
+      _log.d("Id Token: ${userCredential.user!.getIdToken()}");
       return Success(userCredential);
     } on GoogleSignInException catch (e) {
       return Failure(e);

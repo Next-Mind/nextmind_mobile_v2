@@ -3,86 +3,90 @@
 import 'package:flutter/widgets.dart';
 import 'package:routefly/routefly.dart';
 
-import 'ui/app/app_layout.dart' as a7;
-import 'ui/app/appointments/appointment_home_page.dart' as a5;
-import 'ui/app/appointments/all_psychologists_page.dart' as a19;
-import 'ui/app/appointments/psychologist_profile_page.dart' as a20;
-import 'ui/app/appointments/appointment_confirmation_page.dart' as a21;
-import 'ui/app/chat/chat_page.dart' as a17;
-import 'ui/app/chat/contact_search_page.dart' as a18;
-import 'ui/app/home/home_page.dart' as a6;
-import 'ui/app/settings/(pages)/feedback_page.dart' as a13;
-import 'ui/app/settings/(pages)/help_central_page.dart' as a12;
-import 'ui/app/settings/(pages)/language_page.dart' as a15;
-import 'ui/app/settings/(pages)/legal_information_page.dart' as a9;
-import 'ui/app/settings/(pages)/notifications_page.dart' as a14;
-import 'ui/app/settings/(pages)/security_page.dart' as a10;
-import 'ui/app/settings/(pages)/software_information_page.dart' as a11;
-import 'ui/app/settings/(pages)/user_account_page.dart' as a8;
+import 'ui/app/app_layout.dart' as a4;
+import 'ui/app/appointments/all_psychologists_page.dart' as a0;
+import 'ui/app/appointments/appointment_confirmation_page.dart' as a1;
+import 'ui/app/appointments/appointment_home_page.dart' as a2;
+import 'ui/app/appointments/psychologist_profile_page.dart' as a3;
+import 'ui/app/chat/chat_page.dart' as a5;
+import 'ui/app/chat/contact_search_page.dart' as a6;
+import 'ui/app/home/home_page.dart' as a7;
+import 'ui/app/settings/(pages)/feedback_page.dart' as a8;
+import 'ui/app/settings/(pages)/help_central_page.dart' as a9;
+import 'ui/app/settings/(pages)/language_page.dart' as a10;
+import 'ui/app/settings/(pages)/legal_information_page.dart' as a11;
+import 'ui/app/settings/(pages)/notifications_page.dart' as a12;
+import 'ui/app/settings/(pages)/security_page.dart' as a13;
+import 'ui/app/settings/(pages)/software_information_page.dart' as a14;
+import 'ui/app/settings/(pages)/user_account_page.dart' as a15;
 import 'ui/app/settings/settings_page.dart' as a16;
-import 'ui/auth/(sign_in)/forgot_password_page.dart' as a3;
-import 'ui/auth/(sign_in)/signin_page.dart' as a2;
-import 'ui/auth/(sign_up)/signup_page.dart' as a1;
-import 'ui/not_found_page.dart' as a4;
-import 'ui/splash/splash_page.dart' as a0;
+import 'ui/auth/(sign_in)/forgot_password_page.dart' as a17;
+import 'ui/auth/(sign_in)/signin_page.dart' as a18;
+import 'ui/auth/(sign_up)/signup_page.dart' as a19;
+import 'ui/not_found_page.dart' as a20;
+import 'ui/splash/splash_page.dart' as a21;
 
 Route b0Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a0.SplashPage());
+    Routefly.defaultRouteBuilder(
+      ctx,
+      settings,
+      const a0.AllPsychologistsPage(),
+    );
 Route b1Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a1.SignupPage());
+    Routefly.defaultRouteBuilder(
+      ctx,
+      settings,
+      const a1.AppointmentConfirmationPage(),
+    );
 Route b2Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a2.SigninPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a2.AppointmentHomePage());
 Route b3Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a3.ForgotPasswordPage());
+    Routefly.defaultRouteBuilder(
+      ctx,
+      settings,
+      const a3.PsychologistProfilePage(),
+    );
 Route b4Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a4.NotFoundPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a4.AppLayout());
 Route b5Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a5.AppointmentHomePage());
-Route b19Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a19.AllPsychologistsPage());
-Route b20Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(
-      ctx,
-      settings,
-      const a20.PsychologistProfilePage(),
-    );
-Route b21Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(
-      ctx,
-      settings,
-      const a21.AppointmentConfirmationPage(),
-    );
+    Routefly.defaultRouteBuilder(ctx, settings, const a5.ChatPage());
 Route b6Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a6.HomePage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a6.ContactSearchPage());
 Route b7Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a7.AppLayout());
+    Routefly.defaultRouteBuilder(ctx, settings, const a7.HomePage());
 Route b8Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a8.UserAccountPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a8.FeedbackPage());
 Route b9Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(
-      ctx,
-      settings,
-      const a9.LegalInformationPage(),
-    );
+    Routefly.defaultRouteBuilder(ctx, settings, const a9.HelpCentralPage());
 Route b10Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a10.SecurityPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a10.LanguagePage());
 Route b11Builder(BuildContext ctx, RouteSettings settings) =>
     Routefly.defaultRouteBuilder(
       ctx,
       settings,
-      const a11.SoftwareInformationPage(),
+      const a11.LegalInformationPage(),
     );
 Route b12Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a12.HelpCentralPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a12.NotificationsPage());
 Route b13Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a13.FeedbackPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a13.SecurityPage());
 Route b14Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a14.NotificationsPage());
+    Routefly.defaultRouteBuilder(
+      ctx,
+      settings,
+      const a14.SoftwareInformationPage(),
+    );
 Route b15Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a15.LanguagePage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a15.UserAccountPage());
 Route b16Builder(BuildContext ctx, RouteSettings settings) =>
     Routefly.defaultRouteBuilder(ctx, settings, const a16.SettingsPage());
 Route b17Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a17.ChatPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a17.ForgotPasswordPage());
 Route b18Builder(BuildContext ctx, RouteSettings settings) =>
-    Routefly.defaultRouteBuilder(ctx, settings, const a18.ContactSearchPage());
+    Routefly.defaultRouteBuilder(ctx, settings, const a18.SigninPage());
+Route b19Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a19.SignupPage());
+Route b20Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a20.NotFoundPage());
+Route b21Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(ctx, settings, const a21.SplashPage());

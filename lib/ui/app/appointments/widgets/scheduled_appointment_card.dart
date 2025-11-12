@@ -7,14 +7,16 @@ import 'package:nextmind_mobile_v2/ui/core/dimens.dart';
 class ScheduledAppointmentCard extends StatelessWidget {
   const ScheduledAppointmentCard({super.key, required this.appointment});
 
-  final Appointment appointment;
+  final BaseAppointment appointment;
 
   @override
   Widget build(BuildContext context) {
     final psychologist = appointment.psychologist;
     final locale = AppLocalizations.of(context)!.localeName;
-    final formattedDate = DateFormat("EEE, dd/MM 'às' HH:mm", locale)
-        .format(appointment.scheduledAt.toLocal());
+    final formattedDate = DateFormat(
+      "EEE, dd/MM 'às' HH:mm",
+      locale,
+    ).format(appointment.scheduledAt.toLocal());
 
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -41,26 +43,26 @@ class ScheduledAppointmentCard extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                   if ((psychologist?.specialty ?? '').isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.only(top: 4),
                       child: Text(
                         psychologist!.specialty!,
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelMedium
-                            ?.copyWith(color: Theme.of(context).colorScheme.primary),
+                        style: Theme.of(context).textTheme.labelMedium
+                            ?.copyWith(
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
                       ),
                     ),
                   const SizedBox(height: 8),
                   Text(
                     formattedDate,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ],
               ),

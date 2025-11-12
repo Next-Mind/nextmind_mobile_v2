@@ -5,7 +5,7 @@ part 'psychologist.freezed.dart';
 part 'psychologist.g.dart';
 
 @freezed
-class Psychologist with _$Psychologist {
+sealed class Psychologist with _$Psychologist {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Psychologist({
     required String id,
@@ -22,7 +22,7 @@ class Psychologist with _$Psychologist {
 }
 
 @freezed
-class PsychologistsPage with _$PsychologistsPage {
+sealed class PsychologistsPage with _$PsychologistsPage {
   const factory PsychologistsPage({
     required List<Psychologist> data,
     required PaginationMeta meta,

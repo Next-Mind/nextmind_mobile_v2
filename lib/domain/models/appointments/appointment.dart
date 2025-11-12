@@ -6,7 +6,7 @@ part 'appointment.freezed.dart';
 part 'appointment.g.dart';
 
 @freezed
-class Appointment with _$Appointment {
+sealed class Appointment with _$Appointment {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Appointment({
     required String id,
@@ -16,14 +16,16 @@ class Appointment with _$Appointment {
     String? description,
     required String status,
     Psychologist? psychologist,
-  }) = _Appointment;
+  }) = BaseAppointment;
+
+  const factory Appointment.empty() = EmptyAppointment;
 
   factory Appointment.fromJson(Map<String, dynamic> json) =>
       _$AppointmentFromJson(json);
 }
 
 @freezed
-class AppointmentsPage with _$AppointmentsPage {
+sealed class AppointmentsPage with _$AppointmentsPage {
   const factory AppointmentsPage({
     required List<Appointment> data,
     required PaginationMeta meta,

@@ -12,7 +12,7 @@ class AppointmentsViewmodel extends ChangeNotifier {
 
   final AppointmentRepository _appointmentRepository;
 
-  final List<Appointment> scheduledAppointments = [];
+  final List<BaseAppointment> scheduledAppointments = [];
   final List<Psychologist> featuredPsychologists = [];
 
   late final fetchDataCommand = Command0(_fetchData);
@@ -24,15 +24,15 @@ class AppointmentsViewmodel extends ChangeNotifier {
   }
 
   AsyncResult<Unit> _fetchData() {
-    return _appointmentRepository
-        .fetchScheduledAppointments(page: 1)
-        .flatMap((appointmentsPage) {
+    return _appointmentRepository.fetchScheduledAppointments(page: 1).flatMap((
+      appointmentsPage,
+    ) {
       scheduledAppointments
         ..clear()
-        ..addAll(appointmentsPage.data);
-      return _appointmentRepository
-          .fetchPsychologists(page: 1)
-          .map((psychologistsPage) {
+        ..addAll(appointmentsPage.data.cast());
+      return _appointmentRepository.fetchPsychologists(page: 1).map((
+        psychologistsPage,
+      ) {
         featuredPsychologists
           ..clear()
           ..addAll(psychologistsPage.data.take(10));

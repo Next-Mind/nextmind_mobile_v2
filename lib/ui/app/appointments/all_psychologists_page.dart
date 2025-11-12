@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nextmind_mobile_v2/config/dependencies.dart';
 import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
+import 'package:nextmind_mobile_v2/main.dart';
 import 'package:nextmind_mobile_v2/ui/app/appointments/viewmodels/all_psychologists_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/appointments/widgets/psychologist_list_tile.dart';
 import 'package:nextmind_mobile_v2/ui/core/dimens.dart';
@@ -40,10 +41,9 @@ class _AllPsychologistsPageState extends State<AllPsychologistsPage> {
       appBar: AppBar(
         title: Text(
           t.doctorsLabel,
-          style: Theme.of(context)
-              .textTheme
-              .headlineMedium
-              ?.copyWith(fontWeight: FontWeight.bold),
+          style: Theme.of(
+            context,
+          ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -84,8 +84,10 @@ class _AllPsychologistsPageState extends State<AllPsychologistsPage> {
                   if (state is RunningCommand) {
                     return const Center(child: CircularProgressIndicator());
                   }
-                  if (state is FailedCommand) {
-                    return _ErrorState(onRetry: viewModel.fetchPsychologistsCommand.execute);
+                  if (state is FailureCommand) {
+                    return _ErrorState(
+                      onRetry: viewModel.fetchPsychologistsCommand.execute,
+                    );
                   }
                   if (!viewModel.hasResults) {
                     return _EmptyState(message: t.nextAppointmentEmptyTitle);
@@ -97,7 +99,8 @@ class _AllPsychologistsPageState extends State<AllPsychologistsPage> {
                       itemCount: viewModel.filteredPsychologists.length,
                       separatorBuilder: (_, __) => const Divider(height: 1),
                       itemBuilder: (context, index) {
-                        final psychologist = viewModel.filteredPsychologists[index];
+                        final psychologist =
+                            viewModel.filteredPsychologists[index];
                         return PsychologistListTile(
                           psychologist: psychologist,
                           onTap: () => Routefly.push(
@@ -125,12 +128,7 @@ class _EmptyState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        message,
-        textAlign: TextAlign.center,
-      ),
-    );
+    return Center(child: Text(message, textAlign: TextAlign.center));
   }
 }
 
@@ -148,10 +146,7 @@ class _ErrorState extends StatelessWidget {
         children: [
           Text(t.genericErrorLabel),
           const SizedBox(height: Dimens.mediumPadding),
-          FilledButton(
-            onPressed: onRetry,
-            child: Text(t.reloadLabel),
-          ),
+          FilledButton(onPressed: onRetry, child: Text(t.reloadLabel)),
         ],
       ),
     );

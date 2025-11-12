@@ -1,17 +1,14 @@
 import 'package:nextmind_mobile_v2/data/repositories/appointments/appointment_repository.dart';
 import 'package:nextmind_mobile_v2/data/services/appointment/appointments_service.dart';
-import 'package:nextmind_mobile_v2/data/services/auth/auth_local_storage.dart';
 import 'package:nextmind_mobile_v2/domain/models/appointments/appointment.dart';
 import 'package:nextmind_mobile_v2/domain/models/appointments/availability.dart';
 import 'package:nextmind_mobile_v2/domain/models/appointments/psychologist.dart';
-import 'package:nextmind_mobile_v2/domain/models/users/user.dart';
 import 'package:result_dart/result_dart.dart';
 
 class RemoteAppointmentRepository implements AppointmentRepository {
   final AppointmentsService _service;
-  final AuthLocalStorage _authLocalStorage;
 
-  RemoteAppointmentRepository(this._service, this._authLocalStorage);
+  RemoteAppointmentRepository(this._service);
 
   @override
   AsyncResult<AppointmentsPage> fetchScheduledAppointments({int page = 1}) {
@@ -42,14 +39,22 @@ class RemoteAppointmentRepository implements AppointmentRepository {
   }
 
   @override
-  AsyncResult<Appointment?> fetchNextAppointment() async {
+  AsyncResult<Appointment> fetchNextAppointment() async {
     final result = await _service.fetchScheduledAppointments(page: 1);
+
     return result.map((page) {
-      final upcoming = page.data
-          .where((appointment) => appointment.scheduledAt.isAfter(DateTime.now()))
-          .toList()
-        ..sort((a, b) => a.scheduledAt.compareTo(b.scheduledAt));
-      return upcoming.isEmpty ? null : upcoming.first;
+      final upcoming =
+          page.data
+              .where(
+                (appointment) =>
+                    appointment is BaseAppointment &&
+                    appointment.scheduledAt.isAfter(DateTime.now()),
+              )
+              .cast<BaseAppointment>()
+              .toList()
+            ..sort((a, b) => a.scheduledAt.compareTo(b.scheduledAt));
+
+      return upcoming.isEmpty ? const Appointment.empty() : upcoming.first;
     });
   }
 
@@ -59,17 +64,10 @@ class RemoteAppointmentRepository implements AppointmentRepository {
     required String psychologistId,
     required String description,
   }) async {
-    final userResult = await _authLocalStorage.getUser();
-    return userResult.flatMap((user) {
-      return switch (user) {
-        LoggedUser(:final id) => _service.createAppointment(
-            availabilityId: availabilityId,
-            psychologistId: psychologistId,
-            userId: id,
-            description: description,
-          ),
-        _ => Failure(Exception('userNotLogged')),
-      };
-    });
+    return _service.createAppointment(
+      availabilityId: availabilityId,
+      psychologistId: psychologistId,
+      description: description,
+    );
   }
 }

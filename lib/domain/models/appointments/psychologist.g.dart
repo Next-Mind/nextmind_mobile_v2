@@ -12,7 +12,8 @@ _Psychologist _$PsychologistFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       crp: json['crp'] as String?,
       specialty: json['specialty'] as String?,
-      specialties: (json['specialties'] as List<dynamic>?)
+      specialties:
+          (json['specialties'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const <String>[],
@@ -42,7 +43,7 @@ _PsychologistsPage _$PsychologistsPageFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$PsychologistsPageToJson(_PsychologistsPage instance) =>
     <String, dynamic>{
-      'data': instance.data.map((e) => e.toJson()).toList(),
-      'meta': instance.meta.toJson(),
-      'links': instance.links.toJson(),
+      'data': instance.data,
+      'meta': instance.meta,
+      'links': instance.links,
     };

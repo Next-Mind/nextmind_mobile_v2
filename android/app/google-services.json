@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "830408044396",
+    "firebase_url": "https://nextmind-proj-default-rtdb.firebaseio.com",
     "project_id": "nextmind-proj",
     "storage_bucket": "nextmind-proj.firebasestorage.app"
   },
@@ -14,11 +15,27 @@
       },
       "oauth_client": [
         {
+          "client_id": "830408044396-29ngttvh3udf2pov57b64o59ekmv5lt2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nextmind.mobile",
+            "certificate_hash": "465628da48397aed61918093c59a73b7a2a0eb92"
+          }
+        },
+        {
           "client_id": "830408044396-5949khc8bb3jd6fancaqhj94penvms01.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.nextmind.mobile",
             "certificate_hash": "7d67967dcf63130317659f1a6fc34ea54f510cc8"
+          }
+        },
+        {
+          "client_id": "830408044396-bu75rg0rimlbc0k9a7ul9fgc7hp8qo2d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nextmind.mobile",
+            "certificate_hash": "ebba213fa6da10da005901aae5765dddb8078b14"
           }
         },
         {
