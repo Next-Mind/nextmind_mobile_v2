@@ -56,7 +56,11 @@ class AppointmentsService {
       final result = await _clientHttp.get('/psychologists/$id');
       return result.map((response) {
         final data = response.data as Map<String, dynamic>;
-        return Psychologist.fromJson(data);
+        final psychologist = data['data'];
+        if (psychologist is! Map<String, dynamic>) {
+          throw const FormatException('invalidPsychologistResponse');
+        }
+        return Psychologist.fromJson(psychologist);
       });
     } catch (error) {
       return Failure(Exception('failedToLoadPsychologist'));
