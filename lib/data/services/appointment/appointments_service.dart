@@ -27,7 +27,17 @@ class AppointmentsService {
             _logger.d(
               "DEU CERTO' PRA PEGAR OS AGENDAMENTO: ${data.toString()}",
             );
-            return AppointmentsPage.fromJson(data);
+
+            final normalized = Map<String, dynamic>.from(data);
+            final rawAppointments =
+                (normalized['data'] as List<dynamic>? ?? const <dynamic>[]);
+
+            normalized['data'] = rawAppointments
+                .whereType<Map<String, dynamic>>()
+                .map(_normalizeAppointmentJson)
+                .toList();
+
+            return AppointmentsPage.fromJson(normalized);
           })
           .mapError((error) {
             _logger.w(error.toString());
@@ -78,9 +88,12 @@ class AppointmentsService {
       final result = await _clientHttp.get(path);
       return result.map((response) {
         final data = response.data as Map<String, dynamic>;
-        final availabilities = data['data'] as List<dynamic>;
+        final availabilities =
+            (data['data'] as List<dynamic>? ?? const <dynamic>[]);
         return availabilities
-            .map((json) => Availability.fromJson(json as Map<String, dynamic>))
+            .whereType<Map<String, dynamic>>()
+            .map(_normalizeAvailabilityJson)
+            .map(Availability.fromJson)
             .toList();
       });
     } catch (error) {
@@ -112,10 +125,190 @@ class AppointmentsService {
         if (appointment is! Map<String, dynamic>) {
           throw const FormatException('invalidAppointmentResponse');
         }
-        return Appointment.fromJson(appointment);
+        return Appointment.fromJson(_normalizeAppointmentJson(appointment));
       });
     } catch (error) {
       return Failure(Exception('failedToCreateAppointment'));
     }
   }
+}
+
+Map<String, dynamic> _normalizeAppointmentJson(Map<String, dynamic> json) {
+  final normalized = Map<String, dynamic>.from(json);
+
+  normalized['runtimeType'] ??= 'default';
+
+  final availability = normalized['availability'];
+  final scheduledAt = _selectIsoString([
+    normalized['scheduled_at'],
+    normalized['scheduledAt'],
+    normalized['date'],
+    normalized['date_scheduled'],
+    normalized['scheduled_for'],
+    normalized['appointment_date'],
+    if (availability is Map<String, dynamic>) ...[
+      availability['scheduled_at'],
+      availability['scheduledAt'],
+      availability['date_availability'],
+      availability['dateAvailability'],
+      availability['start_at'],
+      availability['startAt'],
+      availability['start'],
+      availability['date'],
+    ],
+  ]);
+
+  if (scheduledAt != null) {
+    normalized['scheduled_at'] = scheduledAt;
+  }
+
+  if (normalized['availability_id'] == null &&
+      availability is Map<String, dynamic>) {
+    final availabilityId =
+        availability['availability_id'] ?? availability['id'];
+    if (availabilityId is String && availabilityId.isNotEmpty) {
+      normalized['availability_id'] = availabilityId;
+    }
+  }
+
+  if (normalized['psychologist_id'] == null) {
+    final psychologist = normalized['psychologist'];
+    if (psychologist is Map<String, dynamic>) {
+      final psychologistId = psychologist['id'];
+      if (psychologistId is String && psychologistId.isNotEmpty) {
+        normalized['psychologist_id'] = psychologistId;
+      }
+    }
+  }
+
+  return normalized;
+}
+
+Map<String, dynamic> _normalizeAvailabilityJson(Map<String, dynamic> json) {
+  final normalized = Map<String, dynamic>.from(json);
+
+  final startAt = _selectIsoString([
+    normalized['start_at'],
+    normalized['startAt'],
+    normalized['date_availability'],
+    normalized['dateAvailability'],
+    normalized['start'],
+    normalized['date'],
+  ]);
+
+  final endAt = _selectIsoString([
+        normalized['end_at'],
+        normalized['endAt'],
+        normalized['end'],
+        normalized['finish'],
+        normalized['date_availability'],
+        normalized['dateAvailability'],
+        normalized['date'],
+      ]) ??
+      startAt;
+
+  if (startAt != null) {
+    normalized['start_at'] = startAt;
+  }
+  if (endAt != null) {
+    normalized['end_at'] = endAt;
+  }
+
+  if (!normalized.containsKey('is_available')) {
+    final status = _parseAvailabilityStatus(normalized['status']);
+    if (status != null) {
+      normalized['is_available'] = status;
+    }
+  } else if (normalized['is_available'] is String) {
+    final status = _parseAvailabilityStatus(normalized['is_available']);
+    if (status != null) {
+      normalized['is_available'] = status;
+    } else {
+      normalized.remove('is_available');
+    }
+  }
+
+  return normalized;
+}
+
+String? _selectIsoString(Iterable<dynamic> sources) {
+  for (final source in sources) {
+    final isoString = _toIsoString(source);
+    if (isoString != null) {
+      return isoString;
+    }
+  }
+  return null;
+}
+
+String? _toIsoString(dynamic value) {
+  final parsed = _parseDateTimeValue(value);
+  if (parsed != null) {
+    return parsed.toIso8601String();
+  }
+
+  if (value is String) {
+    final trimmed = value.trim();
+    if (trimmed.isNotEmpty) {
+      return trimmed;
+    }
+  }
+
+  return null;
+}
+
+DateTime? _parseDateTimeValue(dynamic value) {
+  if (value == null) {
+    return null;
+  }
+
+  if (value is DateTime) {
+    return value;
+  }
+
+  if (value is num) {
+    return DateTime.fromMillisecondsSinceEpoch(value.toInt());
+  }
+
+  if (value is String) {
+    final trimmed = value.trim();
+    if (trimmed.isEmpty) {
+      return null;
+    }
+
+    final normalized = trimmed.contains('T')
+        ? trimmed
+        : trimmed.replaceFirst(' ', 'T');
+    return DateTime.tryParse(normalized);
+  }
+
+  return null;
+}
+
+bool? _parseAvailabilityStatus(dynamic value) {
+  if (value is bool) {
+    return value;
+  }
+
+  if (value is String) {
+    final normalized = value.trim().toLowerCase();
+    if (normalized.isEmpty) {
+      return null;
+    }
+
+    if (normalized == 'available' ||
+        normalized == 'true' ||
+        normalized == 'open') {
+      return true;
+    }
+
+    if (normalized == 'reserved' ||
+        normalized == 'false' ||
+        normalized == 'unavailable' ||
+        normalized == 'closed') {
+      return false;
+    }
+  }
+
+  return null;
 }
