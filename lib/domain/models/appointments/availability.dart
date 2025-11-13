@@ -5,13 +5,13 @@ part 'availability.g.dart';
 
 @freezed
 sealed class Availability with _$Availability {
-  factory Availability({
+  @JsonSerializable(fieldRename: FieldRename.snake)
+  const factory Availability({
     required String id,
-    required DateTime date,
-    required int status,
-  }) = _BaseAvailability;
-
-  factory Availability.empty() = EmptyAvailability;
+    required DateTime startAt,
+    required DateTime endAt,
+    @Default(false) bool isAvailable,
+  }) = _Availability;
 
   factory Availability.fromJson(Map<String, dynamic> json) =>
       _$AvailabilityFromJson(json);

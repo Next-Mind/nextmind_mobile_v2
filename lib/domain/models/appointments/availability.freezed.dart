@@ -11,34 +11,16 @@ part of 'availability.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-Availability _$AvailabilityFromJson(
-  Map<String, dynamic> json
-) {
-        switch (json['runtimeType']) {
-                  case 'default':
-          return _BaseAvailability.fromJson(
-            json
-          );
-                case 'empty':
-          return EmptyAvailability.fromJson(
-            json
-          );
-        
-          default:
-            throw CheckedFromJsonException(
-  json,
-  'runtimeType',
-  'Availability',
-  'Invalid union type "${json['runtimeType']}"!'
-);
-        }
-      
-}
 
 /// @nodoc
 mixin _$Availability {
 
-
+ String get id; DateTime get startAt; DateTime get endAt; bool get isAvailable;
+/// Create a copy of Availability
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AvailabilityCopyWith<Availability> get copyWith => _$AvailabilityCopyWithImpl<Availability>(this as Availability, _$identity);
 
   /// Serializes this Availability to a JSON map.
   Map<String, dynamic> toJson();
@@ -46,24 +28,53 @@ mixin _$Availability {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Availability);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Availability&&(identical(other.id, id) || other.id == id)&&(identical(other.startAt, startAt) || other.startAt == startAt)&&(identical(other.endAt, endAt) || other.endAt == endAt)&&(identical(other.isAvailable, isAvailable) || other.isAvailable == isAvailable));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,id,startAt,endAt,isAvailable);
 
 @override
 String toString() {
-  return 'Availability()';
+  return 'Availability(id: $id, startAt: $startAt, endAt: $endAt, isAvailable: $isAvailable)';
 }
 
 
 }
 
 /// @nodoc
-class $AvailabilityCopyWith<$Res>  {
-$AvailabilityCopyWith(Availability _, $Res Function(Availability) __);
+abstract mixin class $AvailabilityCopyWith<$Res>  {
+  factory $AvailabilityCopyWith(Availability value, $Res Function(Availability) _then) = _$AvailabilityCopyWithImpl;
+@useResult
+$Res call({
+ String id, DateTime startAt, DateTime endAt, bool isAvailable
+});
+
+
+
+
+}
+/// @nodoc
+class _$AvailabilityCopyWithImpl<$Res>
+    implements $AvailabilityCopyWith<$Res> {
+  _$AvailabilityCopyWithImpl(this._self, this._then);
+
+  final Availability _self;
+  final $Res Function(Availability) _then;
+
+/// Create a copy of Availability
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? startAt = null,Object? endAt = null,Object? isAvailable = null,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,startAt: null == startAt ? _self.startAt : startAt // ignore: cast_nullable_to_non_nullable
+as DateTime,endAt: null == endAt ? _self.endAt : endAt // ignore: cast_nullable_to_non_nullable
+as DateTime,isAvailable: null == isAvailable ? _self.isAvailable : isAvailable // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
 }
 
 
@@ -81,12 +92,11 @@ extension AvailabilityPatterns on Availability {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _BaseAvailability value)?  $default,{TResult Function( EmptyAvailability value)?  empty,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Availability value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _BaseAvailability() when $default != null:
-return $default(_that);case EmptyAvailability() when empty != null:
-return empty(_that);case _:
+case _Availability() when $default != null:
+return $default(_that);case _:
   return orElse();
 
 }
@@ -104,12 +114,11 @@ return empty(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _BaseAvailability value)  $default,{required TResult Function( EmptyAvailability value)  empty,}){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Availability value)  $default,){
 final _that = this;
 switch (_that) {
-case _BaseAvailability():
-return $default(_that);case EmptyAvailability():
-return empty(_that);}
+case _Availability():
+return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -123,12 +132,11 @@ return empty(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _BaseAvailability value)?  $default,{TResult? Function( EmptyAvailability value)?  empty,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Availability value)?  $default,){
 final _that = this;
 switch (_that) {
-case _BaseAvailability() when $default != null:
-return $default(_that);case EmptyAvailability() when empty != null:
-return empty(_that);case _:
+case _Availability() when $default != null:
+return $default(_that);case _:
   return null;
 
 }
@@ -145,11 +153,10 @@ return empty(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  DateTime date,  int status)?  $default,{TResult Function()?  empty,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  DateTime startAt,  DateTime endAt,  bool isAvailable)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _BaseAvailability() when $default != null:
-return $default(_that.id,_that.date,_that.status);case EmptyAvailability() when empty != null:
-return empty();case _:
+case _Availability() when $default != null:
+return $default(_that.id,_that.startAt,_that.endAt,_that.isAvailable);case _:
   return orElse();
 
 }
@@ -167,11 +174,10 @@ return empty();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  DateTime date,  int status)  $default,{required TResult Function()  empty,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  DateTime startAt,  DateTime endAt,  bool isAvailable)  $default,) {final _that = this;
 switch (_that) {
-case _BaseAvailability():
-return $default(_that.id,_that.date,_that.status);case EmptyAvailability():
-return empty();}
+case _Availability():
+return $default(_that.id,_that.startAt,_that.endAt,_that.isAvailable);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -185,11 +191,10 @@ return empty();}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  DateTime date,  int status)?  $default,{TResult? Function()?  empty,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  DateTime startAt,  DateTime endAt,  bool isAvailable)?  $default,) {final _that = this;
 switch (_that) {
-case _BaseAvailability() when $default != null:
-return $default(_that.id,_that.date,_that.status);case EmptyAvailability() when empty != null:
-return empty();case _:
+case _Availability() when $default != null:
+return $default(_that.id,_that.startAt,_that.endAt,_that.isAvailable);case _:
   return null;
 
 }
@@ -198,54 +203,51 @@ return empty();case _:
 }
 
 /// @nodoc
-@JsonSerializable()
 
-class _BaseAvailability implements Availability {
-   _BaseAvailability({required this.id, required this.date, required this.status, final  String? $type}): $type = $type ?? 'default';
-  factory _BaseAvailability.fromJson(Map<String, dynamic> json) => _$BaseAvailabilityFromJson(json);
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _Availability implements Availability {
+  const _Availability({required this.id, required this.startAt, required this.endAt, this.isAvailable = false});
+  factory _Availability.fromJson(Map<String, dynamic> json) => _$AvailabilityFromJson(json);
 
- final  String id;
- final  DateTime date;
- final  int status;
-
-@JsonKey(name: 'runtimeType')
-final String $type;
-
+@override final  String id;
+@override final  DateTime startAt;
+@override final  DateTime endAt;
+@override@JsonKey() final  bool isAvailable;
 
 /// Create a copy of Availability
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$BaseAvailabilityCopyWith<_BaseAvailability> get copyWith => __$BaseAvailabilityCopyWithImpl<_BaseAvailability>(this, _$identity);
+_$AvailabilityCopyWith<_Availability> get copyWith => __$AvailabilityCopyWithImpl<_Availability>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$BaseAvailabilityToJson(this, );
+  return _$AvailabilityToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BaseAvailability&&(identical(other.id, id) || other.id == id)&&(identical(other.date, date) || other.date == date)&&(identical(other.status, status) || other.status == status));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Availability&&(identical(other.id, id) || other.id == id)&&(identical(other.startAt, startAt) || other.startAt == startAt)&&(identical(other.endAt, endAt) || other.endAt == endAt)&&(identical(other.isAvailable, isAvailable) || other.isAvailable == isAvailable));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,date,status);
+int get hashCode => Object.hash(runtimeType,id,startAt,endAt,isAvailable);
 
 @override
 String toString() {
-  return 'Availability(id: $id, date: $date, status: $status)';
+  return 'Availability(id: $id, startAt: $startAt, endAt: $endAt, isAvailable: $isAvailable)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$BaseAvailabilityCopyWith<$Res> implements $AvailabilityCopyWith<$Res> {
-  factory _$BaseAvailabilityCopyWith(_BaseAvailability value, $Res Function(_BaseAvailability) _then) = __$BaseAvailabilityCopyWithImpl;
-@useResult
+abstract mixin class _$AvailabilityCopyWith<$Res> implements $AvailabilityCopyWith<$Res> {
+  factory _$AvailabilityCopyWith(_Availability value, $Res Function(_Availability) _then) = __$AvailabilityCopyWithImpl;
+@override @useResult
 $Res call({
- String id, DateTime date, int status
+ String id, DateTime startAt, DateTime endAt, bool isAvailable
 });
 
 
@@ -253,64 +255,26 @@ $Res call({
 
 }
 /// @nodoc
-class __$BaseAvailabilityCopyWithImpl<$Res>
-    implements _$BaseAvailabilityCopyWith<$Res> {
-  __$BaseAvailabilityCopyWithImpl(this._self, this._then);
+class __$AvailabilityCopyWithImpl<$Res>
+    implements _$AvailabilityCopyWith<$Res> {
+  __$AvailabilityCopyWithImpl(this._self, this._then);
 
-  final _BaseAvailability _self;
-  final $Res Function(_BaseAvailability) _then;
+  final _Availability _self;
+  final $Res Function(_Availability) _then;
 
 /// Create a copy of Availability
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? id = null,Object? date = null,Object? status = null,}) {
-  return _then(_BaseAvailability(
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? startAt = null,Object? endAt = null,Object? isAvailable = null,}) {
+  return _then(_Availability(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as int,
+as String,startAt: null == startAt ? _self.startAt : startAt // ignore: cast_nullable_to_non_nullable
+as DateTime,endAt: null == endAt ? _self.endAt : endAt // ignore: cast_nullable_to_non_nullable
+as DateTime,isAvailable: null == isAvailable ? _self.isAvailable : isAvailable // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 
 
 }
-
-/// @nodoc
-@JsonSerializable()
-
-class EmptyAvailability implements Availability {
-   EmptyAvailability({final  String? $type}): $type = $type ?? 'empty';
-  factory EmptyAvailability.fromJson(Map<String, dynamic> json) => _$EmptyAvailabilityFromJson(json);
-
-
-
-@JsonKey(name: 'runtimeType')
-final String $type;
-
-
-
-@override
-Map<String, dynamic> toJson() {
-  return _$EmptyAvailabilityToJson(this, );
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmptyAvailability);
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'Availability.empty()';
-}
-
-
-}
-
-
-
 
 // dart format on

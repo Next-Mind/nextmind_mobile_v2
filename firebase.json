@@ -1,1 +1,22 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"nextmind-proj","appId":"1:830408044396:android:1bcc0089a1d19f2426cd49","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"nextmind-proj","configurations":{"android":"1:830408044396:android:1bcc0089a1d19f2426cd49","web":"1:830408044396:web:67261e20d603a33e26cd49"}}}}}}
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "nextmind-proj",
+                    "appId": "1:830408044396:android:1bcc0089a1d19f2426cd49",
+                    "fileOutput": "android/app/google-services.json"
+                }
+            },
+            "dart": {
+                "lib/firebase_options.dart": {
+                    "projectId": "nextmind-proj",
+                    "configurations": {
+                        "android": "1:830408044396:android:1bcc0089a1d19f2426cd49",
+                        "web": "1:830408044396:web:67261e20d603a33e26cd49"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,14 +1,14 @@
 import 'package:auto_injector/auto_injector.dart';
 import 'package:logger/web.dart';
 import 'package:nextmind_mobile_v2/data/repositories/appointments/appointment_repository.dart';
-import 'package:nextmind_mobile_v2/data/repositories/appointments/local_appointment_repository.dart';
+import 'package:nextmind_mobile_v2/data/repositories/appointments/remote_appointment_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/auth/auth_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/auth/remote_auth_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/contact/contact_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/contact/local_contact_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/posts/posts_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/posts/remote_posts_repository.dart';
-import 'package:nextmind_mobile_v2/data/services/appointment/appointment_local_storage.dart';
+import 'package:nextmind_mobile_v2/data/services/appointment/appointments_service.dart';
 import 'package:nextmind_mobile_v2/data/services/auth/auth_client_http.dart';
 import 'package:nextmind_mobile_v2/data/services/auth/auth_local_storage.dart';
 import 'package:nextmind_mobile_v2/data/services/auth/auth_service.dart';
@@ -18,13 +18,16 @@ import 'package:nextmind_mobile_v2/data/services/contact/contact_local_storage.d
 import 'package:nextmind_mobile_v2/data/services/local_storage.dart';
 import 'package:nextmind_mobile_v2/data/services/post/post_client_http.dart';
 import 'package:nextmind_mobile_v2/main_viewmodel.dart';
-import 'package:nextmind_mobile_v2/ui/app/appointments/viewmodels/appointment_categories_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/chat/viewmodels/chat_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/chat/viewmodels/contact_search_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/home_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/linear_calendar_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/next_appointment_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/post_carousel_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/app/appointments/viewmodels/appointment_confirmation_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/app/appointments/viewmodels/appointments_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/app/appointments/viewmodels/all_psychologists_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/app/appointments/viewmodels/psychologist_profile_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/viewmodels/feedback_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/viewmodels/help_central_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/settings/viewmodels/language_viewmodel.dart';
@@ -60,11 +63,15 @@ void setupDependencies() {
   injector.addLazySingleton(HomeViewmodel.new);
   injector.addLazySingleton(UserAvatarViewmodel.new);
   injector.addLazySingleton(LinearCalendarViewmodel.new);
-  injector.addLazySingleton(AppointmentLocalStorage.new);
+  injector.addLazySingleton(AppointmentsService.new);
   injector.addLazySingleton<AppointmentRepository>(
-    LocalAppointmentRepository.new,
+    RemoteAppointmentRepository.new,
   );
   injector.addLazySingleton(NextAppointmentViewmodel.new);
+  injector.addLazySingleton(AppointmentsViewmodel.new);
+  injector.addLazySingleton(AllPsychologistsViewmodel.new);
+  injector.addLazySingleton(PsychologistProfileViewmodel.new);
+  injector.addLazySingleton(AppointmentConfirmationViewmodel.new);
 
   injector.addLazySingleton(PostClientHttp.new);
   injector.addLazySingleton<PostsRepository>(RemotePostsRepository.new);
@@ -88,8 +95,6 @@ void setupDependencies() {
   injector.addLazySingleton<ContactRepository>(ContactRepositoryLocal.new);
   injector.addLazySingleton(ChatViewmodel.new);
   injector.addLazySingleton(ContactSearchViewmodel.new);
-
-  injector.addLazySingleton(AppointmentCategoriesViewmodel.new);
 
   injector.commit();
 }

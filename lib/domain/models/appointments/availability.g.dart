@@ -6,24 +6,18 @@ part of 'availability.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_BaseAvailability _$BaseAvailabilityFromJson(Map<String, dynamic> json) =>
-    _BaseAvailability(
+_Availability _$AvailabilityFromJson(Map<String, dynamic> json) =>
+    _Availability(
       id: json['id'] as String,
-      date: DateTime.parse(json['date'] as String),
-      status: (json['status'] as num).toInt(),
-      $type: json['runtimeType'] as String?,
+      startAt: DateTime.parse(json['start_at'] as String),
+      endAt: DateTime.parse(json['end_at'] as String),
+      isAvailable: json['is_available'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$BaseAvailabilityToJson(_BaseAvailability instance) =>
+Map<String, dynamic> _$AvailabilityToJson(_Availability instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'date': instance.date.toIso8601String(),
-      'status': instance.status,
-      'runtimeType': instance.$type,
+      'start_at': instance.startAt.toIso8601String(),
+      'end_at': instance.endAt.toIso8601String(),
+      'is_available': instance.isAvailable,
     };
-
-EmptyAvailability _$EmptyAvailabilityFromJson(Map<String, dynamic> json) =>
-    EmptyAvailability($type: json['runtimeType'] as String?);
-
-Map<String, dynamic> _$EmptyAvailabilityToJson(EmptyAvailability instance) =>
-    <String, dynamic>{'runtimeType': instance.$type};

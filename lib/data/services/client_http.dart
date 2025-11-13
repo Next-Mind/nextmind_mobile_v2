@@ -60,7 +60,7 @@ class ClientHttp {
   void _configureDio() async {
     _dio.options.baseUrl = String.fromEnvironment(
       'API_BASE_URL',
-      defaultValue: 'https://api-staging.nextmind.tech',
+      defaultValue: 'https://api.nextmind.sbs',
     );
     _dio.options.connectTimeout = Duration(
       seconds: int.fromEnvironment('API_CONNECT_TIMEOUT'),

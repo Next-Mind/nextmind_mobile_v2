@@ -59,7 +59,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get nextAppointmentEmptyTitle => 'No appointments scheduled';
 
   @override
+  String get appointmentsEmptyMessage => 'No appointments available';
+
+  @override
   String get nextAppointmentEmptyHint => 'Schedule an appointment';
+
+  @override
+  String get psychologistsEmptyMessage => 'No psychologists available';
 
   @override
   String get nextAppointmentEmptyButton => 'Schedule';
