@@ -194,7 +194,7 @@ abstract class AppLocalizations {
   /// **'No appointments scheduled'**
   String get nextAppointmentEmptyTitle;
 
-  /// Message displayed when there are no scheduled appointments
+  /// Message displayed when there are no appointments
   ///
   /// In en, this message translates to:
   /// **'No appointments available'**
@@ -206,7 +206,7 @@ abstract class AppLocalizations {
   /// **'Schedule an appointment'**
   String get nextAppointmentEmptyHint;
 
-  /// Message displayed when there are no psychologists available
+  /// Message displayed when there are no psychologists
   ///
   /// In en, this message translates to:
   /// **'No psychologists available'**
