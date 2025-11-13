@@ -35,9 +35,14 @@ sealed class Availability with _$Availability {
 
     final startSource = normalized['start_at'] ??
         normalized['startAt'] ??
+        normalized['date_availability'] ??
+        normalized['dateAvailability'] ??
         normalized['date'];
-    final endSource =
-        normalized['end_at'] ?? normalized['endAt'] ?? normalized['date'];
+    final endSource = normalized['end_at'] ??
+        normalized['endAt'] ??
+        normalized['date_availability'] ??
+        normalized['dateAvailability'] ??
+        normalized['date'];
 
     final normalizedStart = normalizeDate(startSource);
     final normalizedEnd = normalizeDate(endSource ?? startSource);

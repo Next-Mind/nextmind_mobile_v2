@@ -108,7 +108,11 @@ class AppointmentsService {
       final result = await _clientHttp.post('/appointments', payload);
       return result.map((response) {
         final data = response.data as Map<String, dynamic>;
-        return Appointment.fromJson(data);
+        final appointment = data['data'];
+        if (appointment is! Map<String, dynamic>) {
+          throw const FormatException('invalidAppointmentResponse');
+        }
+        return Appointment.fromJson(appointment);
       });
     } catch (error) {
       return Failure(Exception('failedToCreateAppointment'));
