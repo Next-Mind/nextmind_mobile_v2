@@ -18,19 +18,19 @@ class NextAppointmentWidget extends StatelessWidget {
       listenable: viewModel.fetchNextAppointmentCommand,
       builder: (context, child) {
         return switch (viewModel.fetchNextAppointmentCommand.value) {
-          RunningCommand<String>() => _buildLoading(context),
-          SuccessCommand<String>(:final value) => _buildNextAppointment(
-            context,
-            viewModel,
-          ),
-          FailureCommand<String>(:final error) => ElevatedButton(
-            onPressed: () => viewModel.fetchNextAppointmentCommand.execute(),
-            child: Text('Fetch Appointments. error: $error'),
-          ),
-          _ => ElevatedButton(
-            onPressed: () => viewModel.fetchNextAppointmentCommand.execute(),
-            child: Text('Fetch Appointments'),
-          ),
+          RunningCommand() => _buildLoading(context),
+          SuccessCommand() => _buildNextAppointment(
+              context,
+              viewModel,
+            ),
+          FailureCommand() => _buildErrorState(
+              context,
+              viewModel,
+            ),
+          _ => _buildInitialState(
+              context,
+              viewModel,
+            ),
         };
       },
     );
@@ -74,64 +74,74 @@ Widget _buildNextAppointment(
   BuildContext context,
   NextAppointmentViewmodel vm,
 ) {
+  if (!vm.hasNextAppointment || vm.nextAppointment is! BaseAppointment) {
+    return _buildEmptyState(context, vm);
+  }
+
   final loc = AppLocalizations.of(context)!;
-
   final appointment = vm.nextAppointment as BaseAppointment;
-
-  final String title =
-      appointment.psychologist?.name ?? loc.nextAppointmentTitleUpcoming;
-
-  final String subtitle = appointment.psychologist?.specialty ?? '';
-
-  final String dateText;
-  final locale = AppLocalizations.of(context)!.localeName;
+  final locale = loc.localeName;
   final formatter = DateFormat("EEE, dd/MM 'às' HH:mm", locale);
-  dateText = formatter.format(appointment.scheduledAt.toLocal());
 
-  final String hint = vm.hasNextAppointment
-      ? loc.nextAppointmentHint
-      : loc.nextAppointmentEmptyHint;
-
-  final String buttonText = vm.hasNextAppointment
-      ? loc.nextAppointmentButtonConfirm
-      : loc.nextAppointmentEmptyButton;
+  final daysLabel = loc.nextAppointmentDateRelative(vm.daysUntil ?? 0);
+  final scheduledDate = formatter.format(appointment.scheduledAt.toLocal());
+  final psychologistName = appointment.psychologist?.name ?? '';
+  final specialty = appointment.psychologist?.specialty ?? '';
 
   return Center(
     child: Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            title,
+            loc.nextAppointmentTitleUpcoming,
             style: const TextStyle(fontSize: 16, color: Colors.white),
             textAlign: TextAlign.center,
           ),
-          if (subtitle.isNotEmpty) ...[
-            const SizedBox(height: 4),
+          const SizedBox(height: 8),
+          Text(
+            daysLabel,
+            style: const TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 12),
+          if (psychologistName.isNotEmpty) ...[
             Text(
-              subtitle,
-              style: const TextStyle(fontSize: 14, color: Colors.white70),
+              psychologistName,
+              style: const TextStyle(fontSize: 16, color: Colors.white),
               textAlign: TextAlign.center,
             ),
-          ],
-          const SizedBox(height: 8),
-          if (dateText.isNotEmpty) ...[
-            Text(
-              dateText,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+            if (specialty.isNotEmpty) ...[
+              const SizedBox(height: 4),
+              Text(
+                specialty,
+                style: const TextStyle(fontSize: 14, color: Colors.white70),
+                textAlign: TextAlign.center,
               ),
-            ),
+            ],
             const SizedBox(height: 12),
           ],
           Text(
-            hint,
+            scheduledDate,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 12),
+          Text(
+            loc.nextAppointmentHint,
             style: const TextStyle(fontSize: 12, color: Colors.white),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 16),
           ElevatedButton(
             onPressed: vm.handleNextAppointmentButton,
             style: ElevatedButton.styleFrom(
@@ -139,7 +149,7 @@ Widget _buildNextAppointment(
               padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
             ),
             child: Text(
-              buttonText,
+              loc.nextAppointmentButtonConfirm,
               style: TextStyle(
                 color: Theme.of(context).colorScheme.inversePrimary,
               ),
@@ -147,6 +157,97 @@ Widget _buildNextAppointment(
           ),
         ],
       ),
+    ),
+  );
+}
+
+Widget _buildEmptyState(BuildContext context, NextAppointmentViewmodel vm) {
+  final loc = AppLocalizations.of(context)!;
+
+  return Center(
+    child: Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            loc.nextAppointmentEmptyTitle,
+            style: const TextStyle(fontSize: 16, color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 12),
+          Text(
+            loc.nextAppointmentEmptyHint,
+            style: const TextStyle(fontSize: 12, color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 16),
+          ElevatedButton(
+            onPressed: vm.handleNextAppointmentButton,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+            ),
+            child: Text(
+              loc.nextAppointmentEmptyButton,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.inversePrimary,
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+Widget _buildErrorState(
+  BuildContext context,
+  NextAppointmentViewmodel vm,
+) {
+  final loc = AppLocalizations.of(context)!;
+
+  return Center(
+    child: Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            loc.genericErrorLabel,
+            style: const TextStyle(fontSize: 16, color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 12),
+          ElevatedButton(
+            onPressed: () => vm.fetchNextAppointmentCommand.execute(),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+            ),
+            child: Text(
+              loc.nextAppointmentEmptyButton,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.inversePrimary,
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+Widget _buildInitialState(
+  BuildContext context,
+  NextAppointmentViewmodel vm,
+) {
+  final loc = AppLocalizations.of(context)!;
+
+  return Center(
+    child: ElevatedButton(
+      onPressed: () => vm.fetchNextAppointmentCommand.execute(),
+      child: Text(loc.nextAppointmentEmptyButton),
     ),
   );
 }
