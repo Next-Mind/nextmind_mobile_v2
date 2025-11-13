@@ -134,7 +134,7 @@ String? _normalizeDate(dynamic value) {
   return null;
 }
 
-@freezed
+@Freezed(toJson: false)
 sealed class AppointmentsPage with _$AppointmentsPage {
   const factory AppointmentsPage({
     required List<Appointment> data,
