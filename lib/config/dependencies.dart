@@ -1,11 +1,20 @@
 import 'package:auto_injector/auto_injector.dart';
 import 'package:logger/web.dart';
+import 'package:nextmind_mobile_v2/app/modules/chat/data/repositories/chat_repository.dart'
+    as conversation_repo;
+import 'package:nextmind_mobile_v2/app/modules/chat/data/repositories/contact_repository.dart'
+    as chat_repo;
+import 'package:nextmind_mobile_v2/app/modules/chat/data/services/chat_service.dart';
+import 'package:nextmind_mobile_v2/app/modules/chat/data/services/contact_service.dart';
+import 'package:nextmind_mobile_v2/app/modules/chat/presentation/viewmodels/chat_contact_list_viewmodel.dart';
+import 'package:nextmind_mobile_v2/app/modules/chat/presentation/viewmodels/chat_viewmodel.dart'
+    as conversation_vm;
 import 'package:nextmind_mobile_v2/data/repositories/appointments/appointment_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/appointments/remote_appointment_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/auth/auth_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/auth/remote_auth_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/contact/contact_repository.dart';
-import 'package:nextmind_mobile_v2/data/repositories/contact/local_contact_repository.dart';
+import 'package:nextmind_mobile_v2/data/repositories/contact/remote_contact_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/posts/posts_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/posts/remote_posts_repository.dart';
 import 'package:nextmind_mobile_v2/data/services/appointment/appointments_service.dart';
@@ -14,12 +23,9 @@ import 'package:nextmind_mobile_v2/data/services/auth/auth_local_storage.dart';
 import 'package:nextmind_mobile_v2/data/services/auth/auth_service.dart';
 import 'package:nextmind_mobile_v2/data/services/client_http.dart';
 import 'package:nextmind_mobile_v2/data/services/contact/contact_client_http.dart';
-import 'package:nextmind_mobile_v2/data/services/contact/contact_local_storage.dart';
 import 'package:nextmind_mobile_v2/data/services/local_storage.dart';
 import 'package:nextmind_mobile_v2/data/services/post/post_client_http.dart';
 import 'package:nextmind_mobile_v2/main_viewmodel.dart';
-import 'package:nextmind_mobile_v2/ui/app/chat/viewmodels/chat_viewmodel.dart';
-import 'package:nextmind_mobile_v2/ui/app/chat/viewmodels/contact_search_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/home_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/linear_calendar_viewmodel.dart';
 import 'package:nextmind_mobile_v2/ui/app/home/viewmodels/next_appointment_viewmodel.dart';
@@ -91,10 +97,13 @@ void setupDependencies() {
   injector.addLazySingleton(FeedbackViewmodel.new);
 
   injector.addLazySingleton(ContactClientHttp.new);
-  injector.addLazySingleton(ContactLocalStorage.new);
-  injector.addLazySingleton<ContactRepository>(ContactRepositoryLocal.new);
-  injector.addLazySingleton(ChatViewmodel.new);
-  injector.addLazySingleton(ContactSearchViewmodel.new);
+  injector.addLazySingleton(ContactService.new);
+  injector.addLazySingleton(ChatService.new);
+  injector.addLazySingleton<ContactRepository>(RemoteContactRepository.new);
+  injector.addLazySingleton(chat_repo.ChatContactRepository.new);
+  injector.addLazySingleton(conversation_repo.ChatRepository.new);
+  injector.addLazySingleton(ChatContactListViewmodel.new);
+  injector.addLazySingleton(conversation_vm.ChatViewmodel.new);
 
   injector.commit();
 }

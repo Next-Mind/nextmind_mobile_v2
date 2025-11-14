@@ -722,6 +722,102 @@ abstract class AppLocalizations {
   /// **'Add contact'**
   String get chatEmptyCta;
 
+  /// Title displayed in the add contacts bottom sheet
+  ///
+  /// In en, this message translates to:
+  /// **'Add contacts'**
+  String get chatAddContactTitle;
+
+  /// Message shown when there are no contacts to add
+  ///
+  /// In en, this message translates to:
+  /// **'No new contacts available right now.'**
+  String get chatNoCandidatesMessage;
+
+  /// Snackbar message when a contact is added
+  ///
+  /// In en, this message translates to:
+  /// **'Contact added successfully!'**
+  String get chatAddContactSuccess;
+
+  /// Snackbar message when a contact nickname is updated
+  ///
+  /// In en, this message translates to:
+  /// **'Contact updated successfully!'**
+  String get chatEditSuccess;
+
+  /// Snackbar message when a contact is removed
+  ///
+  /// In en, this message translates to:
+  /// **'Contact removed successfully.'**
+  String get chatDeleteSuccess;
+
+  /// Placeholder for the chat input field
+  ///
+  /// In en, this message translates to:
+  /// **'Message'**
+  String get chatMessageHint;
+
+  /// Label for the camera option when picking images
+  ///
+  /// In en, this message translates to:
+  /// **'Camera'**
+  String get chatCameraOption;
+
+  /// Label for the gallery option when picking images
+  ///
+  /// In en, this message translates to:
+  /// **'Gallery'**
+  String get chatGalleryOption;
+
+  /// Error shown when a picked file has no path
+  ///
+  /// In en, this message translates to:
+  /// **'Selected file is not valid.'**
+  String get chatInvalidFileMessage;
+
+  /// Error shown when an attachment cannot be opened
+  ///
+  /// In en, this message translates to:
+  /// **'Attachment unavailable.'**
+  String get chatAttachmentUnavailable;
+
+  /// Error shown when the attachment URL is invalid
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid attachment link.'**
+  String get chatAttachmentInvalidUrl;
+
+  /// Error shown when opening the attachment fails
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to open the attachment.'**
+  String get chatAttachmentOpenFailure;
+
+  /// Message shown when an image attachment cannot be displayed
+  ///
+  /// In en, this message translates to:
+  /// **'Image unavailable.'**
+  String get chatImageUnavailable;
+
+  /// Status text displayed in the chat app bar
+  ///
+  /// In en, this message translates to:
+  /// **'Online'**
+  String get chatOnlineStatus;
+
+  /// Message shown when a chat has no messages yet
+  ///
+  /// In en, this message translates to:
+  /// **'Start the conversation by sending a message.'**
+  String get chatEmptyConversationMessage;
+
+  /// Fallback label used when the attachment name is unknown
+  ///
+  /// In en, this message translates to:
+  /// **'File'**
+  String get chatUnknownFileName;
+
   /// Generic error message label
   ///
   /// In en, this message translates to:

@@ -13,6 +13,10 @@ class ContactRepositoryLocal implements ContactRepository {
   AsyncResult<List<Contact>> fetchContacts() => _storage.fetchContacts();
 
   @override
+  AsyncResult<List<Contact>> fetchContactCandidates({String? query}) =>
+      _storage.suggestNewContacts(query: query);
+
+  @override
   AsyncResult<Contact> getById(String id) => _storage.getById(id);
 
   @override

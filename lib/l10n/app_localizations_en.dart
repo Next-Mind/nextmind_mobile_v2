@@ -347,6 +347,54 @@ class AppLocalizationsEn extends AppLocalizations {
   String get chatEmptyCta => 'Add contact';
 
   @override
+  String get chatAddContactTitle => 'Add contacts';
+
+  @override
+  String get chatNoCandidatesMessage => 'No new contacts available right now.';
+
+  @override
+  String get chatAddContactSuccess => 'Contact added successfully!';
+
+  @override
+  String get chatEditSuccess => 'Contact updated successfully!';
+
+  @override
+  String get chatDeleteSuccess => 'Contact removed successfully.';
+
+  @override
+  String get chatMessageHint => 'Message';
+
+  @override
+  String get chatCameraOption => 'Camera';
+
+  @override
+  String get chatGalleryOption => 'Gallery';
+
+  @override
+  String get chatInvalidFileMessage => 'Selected file is not valid.';
+
+  @override
+  String get chatAttachmentUnavailable => 'Attachment unavailable.';
+
+  @override
+  String get chatAttachmentInvalidUrl => 'Invalid attachment link.';
+
+  @override
+  String get chatAttachmentOpenFailure => 'Unable to open the attachment.';
+
+  @override
+  String get chatImageUnavailable => 'Image unavailable.';
+
+  @override
+  String get chatOnlineStatus => 'Online';
+
+  @override
+  String get chatEmptyConversationMessage => 'Start the conversation by sending a message.';
+
+  @override
+  String get chatUnknownFileName => 'File';
+
+  @override
   String get genericErrorLabel => 'An error has occurred';
 
   @override

@@ -12,9 +12,15 @@ class ClientHttp {
     _configureDio();
   }
 
-  AsyncResult<Response> get(String path) async {
+  AsyncResult<Response> get(
+    String path, {
+    Map<String, dynamic>? queryParameters,
+  }) async {
     try {
-      final response = await _dio.get(path);
+      final response = await _dio.get(
+        path,
+        queryParameters: queryParameters,
+      );
       return Success(response);
     } on DioException catch (e) {
       return Failure(e);
@@ -48,7 +54,7 @@ class ClientHttp {
     }
   }
 
-  AsyncResult<Response> delete(String path, dynamic data) async {
+  AsyncResult<Response> delete(String path, {dynamic data}) async {
     try {
       final response = await _dio.delete(path, data: data);
       return Success(response);
