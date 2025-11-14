@@ -532,6 +532,10 @@
     "@accountAppointmentHistory": {
         "description": "Label for the item that opens the user's appointment history"
     },
+    "chatUnknownFileName": "File",
+    "@chatUnknownFileName": {
+        "description": "Fallback label used when the attachment name is unknown"
+    },
     "settingsSecurityChangePassword": "Change Password",
     "@settingsSecurityChangePassword": {
         "description": "Item to open the change password screen"

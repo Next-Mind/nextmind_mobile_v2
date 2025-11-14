@@ -8,6 +8,7 @@ import 'ui/app/appointments/all_psychologists_page.dart' as a0;
 import 'ui/app/appointments/appointment_confirmation_page.dart' as a1;
 import 'ui/app/appointments/appointment_home_page.dart' as a2;
 import 'ui/app/appointments/psychologist_profile_page.dart' as a3;
+import 'ui/app/chat/chat_conversation_page.dart' as a22;
 import 'ui/app/chat/chat_page.dart' as a5;
 import 'ui/app/chat/contact_search_page.dart' as a6;
 import 'ui/app/home/home_page.dart' as a7;
@@ -52,6 +53,12 @@ Route b5Builder(BuildContext ctx, RouteSettings settings) =>
     Routefly.defaultRouteBuilder(ctx, settings, const a5.ChatPage());
 Route b6Builder(BuildContext ctx, RouteSettings settings) =>
     Routefly.defaultRouteBuilder(ctx, settings, const a6.ContactSearchPage());
+Route b22Builder(BuildContext ctx, RouteSettings settings) =>
+    Routefly.defaultRouteBuilder(
+      ctx,
+      settings,
+      const a22.ChatConversationPage(),
+    );
 Route b7Builder(BuildContext ctx, RouteSettings settings) =>
     Routefly.defaultRouteBuilder(ctx, settings, const a7.HomePage());
 Route b8Builder(BuildContext ctx, RouteSettings settings) =>

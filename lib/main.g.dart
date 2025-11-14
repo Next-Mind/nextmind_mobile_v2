@@ -41,6 +41,12 @@ List<RouteEntity> get routes => [
     routeBuilder: b6Builder,
   ),
   RouteEntity(
+    key: '/app/chat/conversation',
+    parent: '/app',
+    uri: Uri.parse('/app/chat/conversation'),
+    routeBuilder: b22Builder,
+  ),
+  RouteEntity(
     key: '/app/home',
     parent: '/app',
     uri: Uri.parse('/app/home'),
@@ -138,7 +144,11 @@ const routePaths = (
       appointmentHome: '/app/appointments/appointment_home',
       psychologistProfile: '/app/appointments/psychologist_profile',
     ),
-    chat: (path: '/app/chat', contactSearch: '/app/chat/contact_search'),
+    chat: (
+      path: '/app/chat',
+      contactSearch: '/app/chat/contact_search',
+      conversation: '/app/chat/conversation',
+    ),
     home: '/app/home',
     settings: (
       path: '/app/settings',

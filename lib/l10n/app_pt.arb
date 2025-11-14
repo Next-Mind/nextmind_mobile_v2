@@ -493,6 +493,10 @@
   "@accountAppointmentHistory": {
     "description": "Rótulo para item que abre o histórico de consultas do usuário"
   },
+  "chatUnknownFileName": "Arquivo",
+  "@chatUnknownFileName": {
+    "description": "Rótulo padrão usado quando o nome do anexo é desconhecido"
+  },
   "settingsSecurityChangePassword": "Alterar a senha da conta",
   "@settingsSecurityChangePassword": {
     "description": "Item para abrir a tela de alteração de senha"
