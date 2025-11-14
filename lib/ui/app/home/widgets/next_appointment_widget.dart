@@ -19,18 +19,9 @@ class NextAppointmentWidget extends StatelessWidget {
       builder: (context, child) {
         return switch (viewModel.fetchNextAppointmentCommand.value) {
           RunningCommand() => _buildLoading(context),
-          SuccessCommand() => _buildNextAppointment(
-              context,
-              viewModel,
-            ),
-          FailureCommand() => _buildErrorState(
-              context,
-              viewModel,
-            ),
-          _ => _buildInitialState(
-              context,
-              viewModel,
-            ),
+          SuccessCommand() => _buildNextAppointment(context, viewModel),
+          FailureCommand() => _buildErrorState(context, viewModel),
+          _ => _buildInitialState(context, viewModel),
         };
       },
     );
@@ -86,7 +77,6 @@ Widget _buildNextAppointment(
   final daysLabel = loc.nextAppointmentDateRelative(vm.daysUntil ?? 0);
   final scheduledDate = formatter.format(appointment.scheduledAt.toLocal());
   final psychologistName = appointment.psychologist?.name ?? '';
-  final specialty = appointment.psychologist?.specialty ?? '';
 
   return Center(
     child: Padding(
@@ -110,22 +100,6 @@ Widget _buildNextAppointment(
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 12),
-          if (psychologistName.isNotEmpty) ...[
-            Text(
-              psychologistName,
-              style: const TextStyle(fontSize: 16, color: Colors.white),
-              textAlign: TextAlign.center,
-            ),
-            if (specialty.isNotEmpty) ...[
-              const SizedBox(height: 4),
-              Text(
-                specialty,
-                style: const TextStyle(fontSize: 14, color: Colors.white70),
-                textAlign: TextAlign.center,
-              ),
-            ],
-            const SizedBox(height: 12),
-          ],
           Text(
             scheduledDate,
             style: const TextStyle(
@@ -201,10 +175,7 @@ Widget _buildEmptyState(BuildContext context, NextAppointmentViewmodel vm) {
   );
 }
 
-Widget _buildErrorState(
-  BuildContext context,
-  NextAppointmentViewmodel vm,
-) {
+Widget _buildErrorState(BuildContext context, NextAppointmentViewmodel vm) {
   final loc = AppLocalizations.of(context)!;
 
   return Center(
@@ -238,10 +209,7 @@ Widget _buildErrorState(
   );
 }
 
-Widget _buildInitialState(
-  BuildContext context,
-  NextAppointmentViewmodel vm,
-) {
+Widget _buildInitialState(BuildContext context, NextAppointmentViewmodel vm) {
   final loc = AppLocalizations.of(context)!;
 
   return Center(
