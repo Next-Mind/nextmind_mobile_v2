@@ -1,7 +1,7 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:nextmind_mobile_v2/app/modules/chat/presentation/viewmodels/chat_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/app/chat/viewmodels/chat_viewmodel.dart';
 import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
 
 class ChatInputField extends StatefulWidget {

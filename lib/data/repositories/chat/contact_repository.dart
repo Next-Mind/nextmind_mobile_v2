@@ -1,12 +1,12 @@
-import 'package:nextmind_mobile_v2/app/modules/chat/data/models/chat_summary_model.dart';
-import 'package:nextmind_mobile_v2/app/modules/chat/data/models/user_model.dart';
-import 'package:nextmind_mobile_v2/app/modules/chat/data/services/contact_service.dart';
+import 'package:nextmind_mobile_v2/domain/models/chat/chat_summary_model.dart';
+import 'package:nextmind_mobile_v2/domain/models/chat/user_model.dart';
+import 'package:nextmind_mobile_v2/data/services/chat/chat_contact_service.dart';
 import 'package:result_dart/result_dart.dart';
 
 class ChatContactRepository {
   ChatContactRepository(this._service);
 
-  final ContactService _service;
+  final ChatContactService _service;
 
   AsyncResult<List<ChatSummaryModel>> fetchContacts() =>
       _service.fetchContacts();

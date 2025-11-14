@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:nextmind_mobile_v2/app/modules/chat/data/models/chat_message_model.dart';
-import 'package:nextmind_mobile_v2/app/modules/chat/presentation/views/image_preview_screen.dart';
-import 'package:nextmind_mobile_v2/app/modules/chat/presentation/widgets/file_bubble.dart';
+import 'package:nextmind_mobile_v2/domain/models/chat/chat_message_model.dart';
+import 'package:nextmind_mobile_v2/ui/app/chat/image_preview_screen.dart';
+import 'package:nextmind_mobile_v2/ui/app/chat/widgets/file_bubble.dart';
 import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path/path.dart' as p;

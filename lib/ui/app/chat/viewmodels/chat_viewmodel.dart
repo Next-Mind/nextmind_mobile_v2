@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:nextmind_mobile_v2/app/modules/chat/data/models/chat_message_model.dart';
-import 'package:nextmind_mobile_v2/app/modules/chat/data/repositories/chat_repository.dart';
+import 'package:nextmind_mobile_v2/domain/models/chat/chat_message_model.dart';
+import 'package:nextmind_mobile_v2/data/repositories/chat/chat_repository.dart';
 import 'package:nextmind_mobile_v2/data/repositories/auth/auth_repository.dart';
 import 'package:result_dart/result_dart.dart';
 

@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:nextmind_mobile_v2/app/modules/chat/data/models/chat_summary_model.dart';
-import 'package:nextmind_mobile_v2/app/modules/chat/data/models/user_model.dart';
-import 'package:nextmind_mobile_v2/app/modules/chat/presentation/viewmodels/chat_contact_list_viewmodel.dart';
-import 'package:nextmind_mobile_v2/app/modules/chat/presentation/widgets/chat_summary_widget.dart';
+import 'package:nextmind_mobile_v2/domain/models/chat/chat_summary_model.dart';
+import 'package:nextmind_mobile_v2/domain/models/chat/user_model.dart';
+import 'package:nextmind_mobile_v2/ui/app/chat/viewmodels/chat_contact_list_viewmodel.dart';
+import 'package:nextmind_mobile_v2/ui/app/chat/widgets/chat_summary_widget.dart';
 import 'package:nextmind_mobile_v2/config/dependencies.dart';
 import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
 import 'package:nextmind_mobile_v2/ui/core/dimens.dart';

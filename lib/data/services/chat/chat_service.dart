@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:nextmind_mobile_v2/app/modules/chat/data/models/chat_message_model.dart';
+import 'package:nextmind_mobile_v2/domain/models/chat/chat_message_model.dart';
 import 'package:nextmind_mobile_v2/data/services/client_http.dart';
 import 'package:result_dart/result_dart.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nextmind_mobile_v2/app/modules/chat/data/models/chat_summary_model.dart';
-import 'package:nextmind_mobile_v2/app/modules/chat/presentation/views/chat_screen_view.dart';
+import 'package:nextmind_mobile_v2/domain/models/chat/chat_summary_model.dart';
+import 'package:nextmind_mobile_v2/ui/app/chat/chat_screen_view.dart';
 import 'package:nextmind_mobile_v2/l10n/app_localizations.dart';
 
 class ChatConversationPage extends StatelessWidget {
