@@ -1,73 +1,175 @@
-import 'package:flutter/material.dart';
-import 'package:nextmind_mobile_v2/data/repositories/contact/contact_repository.dart';
-import 'package:nextmind_mobile_v2/domain/models/contacts/contact.dart';
-import 'package:result_command/result_command.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
+import 'package:nextmind_mobile_v2/domain/models/chat/chat_message_model.dart';
+import 'package:nextmind_mobile_v2/data/repositories/chat/chat_repository.dart';
+import 'package:nextmind_mobile_v2/data/repositories/auth/auth_repository.dart';
 import 'package:result_dart/result_dart.dart';
 
 class ChatViewmodel extends ChangeNotifier {
-  late final fetchContactsCommand = Command0(_fetchContacts);
+  ChatViewmodel(
+    this._repository,
+    this._authRepository,
+  );
 
-  final List<Contact> contacts = <Contact>[];
+  final ChatRepository _repository;
+  final AuthRepository _authRepository;
 
-  final ContactRepository _contactRepository;
+  final List<ChatMessageModel> _messages = <ChatMessageModel>[];
+  bool _isLoading = false;
+  bool _isSending = false;
+  String? _errorMessage;
+  String? _conversationId;
+  String? _currentUserId;
 
-  ChatViewmodel(this._contactRepository) {
-    fetchContactsCommand.execute();
-  }
+  List<ChatMessageModel> get messages => List.unmodifiable(_messages);
+  bool get isLoading => _isLoading;
+  bool get isSending => _isSending;
+  String? get errorMessage => _errorMessage;
+  String? get conversationId => _conversationId;
 
-  AsyncResult<List<Contact>> _fetchContacts() async {
-    final res = await _contactRepository.fetchContacts();
+  Future<void> loadConversation(String contactId) async {
+    _conversationId = contactId;
+    await _ensureCurrentUser();
 
-    return res.fold<AsyncResult<List<Contact>>>((list) async {
-      contacts
+    _isLoading = true;
+    _errorMessage = null;
+    notifyListeners();
+
+    final result = await _repository.fetchMessages(contactId);
+
+    result.fold((data) {
+      final normalized = data
+          .map(_attachSenderInfo)
+          .toList()
+        ..sort((a, b) => a.createdAt.compareTo(b.createdAt));
+      _messages
         ..clear()
-        ..addAll(list);
-      notifyListeners();
-      return Success(list);
-    }, (err) async => Failure(err));
+        ..addAll(normalized);
+    }, (err) {
+      _errorMessage = _mapError(err);
+    });
+
+    _isLoading = false;
+    notifyListeners();
   }
 
-  Future<void> updateContact(String id, String trim) async {
-    final idx = contacts.indexWhere((c) => c.id == id);
-    if (idx < 0) return;
+  Future<Result<ChatMessageModel, String>> sendText(String text) async {
+    final conversation = _conversationId;
+    if (conversation == null) {
+      return Failure('Conversation not initialized.');
+    }
 
-    final previous = contacts[idx];
-    final updated = previous.copyWith(nickname: trim);
+    final trimmed = text.trim();
+    if (trimmed.isEmpty) {
+      return Failure('Empty message.');
+    }
 
-    contacts[idx] = updated;
+    _isSending = true;
     notifyListeners();
 
-    final res = await _contactRepository.updateContact(id, nickname: trim);
+    final result = await _repository.sendMessage(conversation, text: trimmed);
 
-    res.fold((_) => null, (err) {
-      contacts[idx] = previous;
+    return result.fold((message) {
+      final normalized = _attachSenderInfo(message);
+      _messages
+        ..add(normalized)
+        ..sort((a, b) => a.createdAt.compareTo(b.createdAt));
+      _isSending = false;
       notifyListeners();
+      return Success(normalized);
+    }, (err) {
+      _isSending = false;
+      notifyListeners();
+      return Failure(_mapError(err));
     });
   }
 
-  Future<void> deleteContact(String id) async {
-    final idx = contacts.indexWhere((c) => c.id == id);
-    if (idx < 0) return;
+  Future<Result<ChatMessageModel, String>> sendFile(
+    String filePath, {
+    String? fileName,
+  }) async {
+    final conversation = _conversationId;
+    if (conversation == null) {
+      return Failure('Conversation not initialized.');
+    }
 
-    final removed = contacts[idx];
+    await _ensureCurrentUser();
 
-    contacts.removeAt(idx);
+    _isSending = true;
+    final tempMessage = ChatMessageModel(
+      id: 'temp_${DateTime.now().millisecondsSinceEpoch}',
+      contactId: conversation,
+      senderId: _currentUserId ?? '',
+      content: null,
+      attachmentName: fileName,
+      attachmentUrl: null,
+      localFilePath: filePath,
+      createdAt: DateTime.now(),
+      isMine: true,
+      type: ChatMessageType.file,
+    );
+    _messages
+      ..add(tempMessage)
+      ..sort((a, b) => a.createdAt.compareTo(b.createdAt));
     notifyListeners();
 
-    final res = await _contactRepository.deleteContact(id);
+    final result = await _repository.sendMessage(
+      conversation,
+      filePath: filePath,
+      fileName: fileName,
+    );
 
-    res.fold((_) => null, (err) {
-      contacts.insert(idx, removed);
+    return result.fold((message) {
+      _messages.removeWhere((element) => element.id == tempMessage.id);
+      final normalized = _attachSenderInfo(
+        message.copyWith(localFilePath: message.localFilePath ?? filePath),
+      );
+      _messages
+        ..add(normalized)
+        ..sort((a, b) => a.createdAt.compareTo(b.createdAt));
+      _isSending = false;
       notifyListeners();
+      return Success(normalized);
+    }, (err) {
+      _messages.removeWhere((element) => element.id == tempMessage.id);
+      _isSending = false;
+      notifyListeners();
+      return Failure(_mapError(err));
     });
   }
 
-  Future<void> refresh() => fetchContactsCommand.execute();
+  void reset() {
+    _messages.clear();
+    _errorMessage = null;
+    _conversationId = null;
+    notifyListeners();
+  }
 
-  bool get isLoading =>
-      fetchContactsCommand.value is RunningCommand ? true : false;
+  Future<void> _ensureCurrentUser() async {
+    if (_currentUserId != null) return;
+    final result = await _authRepository.getUser();
+    result.fold((user) {
+      _currentUserId = user.id;
+    }, (_) {});
+  }
 
-  Object? get lastError => fetchContactsCommand.value is FailureCommand<String>
-      ? fetchContactsCommand.getCachedFailure()
-      : null;
+  ChatMessageModel _attachSenderInfo(ChatMessageModel message) {
+    final isMine = (_currentUserId != null && message.senderId == _currentUserId) ||
+        message.isMine;
+    return message.copyWith(isMine: isMine);
+  }
+
+  String _mapError(Object err) {
+    if (err is DioException) {
+      final data = err.response?.data;
+      if (data is Map && data['message'] is String) {
+        return data['message'] as String;
+      }
+      return err.message ?? 'An unexpected error occurred.';
+    }
+    if (kDebugMode) {
+      return err.toString();
+    }
+    return 'An unexpected error occurred.';
+  }
 }

@@ -4,6 +4,8 @@ import 'package:result_dart/result_dart.dart';
 abstract interface class ContactRepository {
   AsyncResult<List<Contact>> fetchContacts();
 
+  AsyncResult<List<Contact>> fetchContactCandidates({String? query});
+
   AsyncResult<Contact> getById(String id);
 
   AsyncResult<Unit> addContact(Contact contact);
